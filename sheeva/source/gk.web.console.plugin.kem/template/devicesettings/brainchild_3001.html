@@ -1,0 +1,233 @@
+<style>
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+ul.pagination {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	float : right ;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+input, select.ui-corner-all {
+    -moz-box-sizing: content-box;
+	box-sizing: border-box; 
+}
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+ul.page li {display: inline;}
+ul.page li a {
+	color: black;
+	float: left;
+	/* background-color : #ccc ; */
+	/* text-decoration: none; */
+	border-radius: 5px;
+}
+ul.page li a.active {
+	color:  #8dc63f ;
+}
+</style>
+<ul class="page" style = "width:50%">
+	<li><a id = "setting_tab" class = "active" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Settings</b></a></li>
+	<li><a id = "configuration_tab"  style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Configuration</b></a></li>
+   
+</ul>
+</br>
+</br>
+</br>
+
+<div id="device">
+	<div class = "channel" >
+		<table id="channel" class='nicetable ui-widget channel' style="width:100%;">
+			<thead>
+				<tr>
+				<th class="channel-header" style="width:20%"><b>Channel</b></th>
+				<th class="channel-header" style="width:20%"><b>Measure Name</b></th>
+				<th class="channel-header" style="width:20%"><b>Unit</b></th>
+				<th class="channel-header" style="width:20%"><b>Max</b></th>
+				<th class="channel-header" style="width:20%"><b>Min</b></th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>0</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='device_${id}_0_0_0_unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='device_${id}_0_0_0_max' style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='device_${id}_0_0_0_min' style="width:50%" value=''></td>
+				</tr>
+			
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>1</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='max' style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='min' style="width:50%" value=''></td>
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>2</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='max'  style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='min' style="width:50%" value=''></td>
+				</tr>
+				
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>3</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='max' style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='min' style="width:50%" value=''></td>
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>4</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='max' style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='min' style="width:50%" value=''></td>
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>5</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='max' style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='min' style="width:50%" value=''></td>
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>6</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='max' style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='min' style="width:50%" value=''></td>
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>7</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="">Select</option>
+						<option value="Water Volume">Water Volume</option>
+						</select></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='' readonly="readonly"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='max' name='max' style="width:50%" value=''></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='min' name='min' style="width:50%" value=''></td>
+				</tr>
+			</tbody>
+			
+			
+		</table>
+		<br />
+		<button type='button' class='ui-state-default ui-corner-all' id='writingbutton_${id}' onclick="saveSettings();">Save</button>
+	</div>
+
+	<div class = "configuration" style = "display:none">
+		<table id="configuration" class='nicetable ui-widget configuration' style="width:100%">
+			<tr>
+				<th class="channel-header" style="width:30%"><b>Index</b></th>
+				<th class="channel-header" style="width:30%"><b>Register</b></th>
+				<th class="channel-header" style="width:30%"><b>Value</b></th>
+				<th class="show-writting-status" style="display:none;width:10%"></th>
+			</tr>
+
+			<tr>
+				<td><label>40121</label></td>
+				<td><label>Baud Rate</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40121' value='0'></td>
+				<td id="index_40121" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40122</label></td>
+				<td><label>Parity</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40122' value='0'></td>
+				<td id="index_40122" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40123</label></td>
+				<td><label>Stop Bits</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40123' value='0'></td>
+				<td id="index_40123" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40124</label></td>
+				<td><label>Reply Delay</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40124' value='0'></td>
+				<td id="index_40124" class="show-writting-status" style="display:none"></td>
+			</tr>
+		</table>
+		
+		<br />
+		<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+		<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+		
+		
+	</div>
+	
+	
+</div>
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+	
+
+</script>

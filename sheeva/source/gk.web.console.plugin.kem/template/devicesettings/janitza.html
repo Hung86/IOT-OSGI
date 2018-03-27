@@ -1,0 +1,604 @@
+
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">	
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:98%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>000</label></td>
+			<td><label>Device address</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='0' value='1' min='1' max='255'></td>
+			<td id="index_0" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>001</label></td>
+			<td><label>Baudrate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='1'>
+					<option value="0">9.6 kBit/s</option>
+					<option value="1">19.2 kBit/s</option>
+					<option value="2">38.4 kBit/s</option>
+				</select></td>
+			<td id="index_1" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>002</label></td>
+			<td><label>Input/Output 1, Type</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='2'>
+					<option value="0">Pulse output</option>
+					<option value="1">Digital output</option>
+					<option value="2">Analog output</option>
+					<option value="3">Digital input</option>
+					<option value="4">Profibus-Remote output</option>
+					<option value="5">HT/NT changeover, real energie</option>
+					<option value="6">HT/NT changeover, real energie and reactive energie</option>
+				</select></td>
+			<td id="index_2" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>003</label></td>
+			<td><label>Input/Output 2, Type</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='3'>
+					<option value="0">Pulse output</option>
+					<option value="1">Digital output</option>
+					<option value="2">Analog output</option>
+					<option value="3">Digital input</option>
+					<option value="4">Profibus-Remote output</option>
+					<option value="5">HT/NT changeover, real energie</option>
+					<option value="6">HT/NT changeover, real energie and reactive energie</option>
+				</select></td>
+			<td id="index_3" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>004</label></td>
+			<td><label>Pulse valence, Digital output 1</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='4' value='0' min='0' max='100000'>&nbsp;<label>Wh</label></td>
+			<td id="index_4" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>006</label></td>
+			<td><label>Pulse valence, Digital output 2</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6' value='0' min='0' max='100000'>&nbsp;<label>varh</label></td>
+			<td id="index_6" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>008</label></td>
+			<td><label>Delete min. and max. values</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='8'>
+					<option value="0">0</option>
+					<option value="1">1</option>
+				</select></td>
+			<td id="index_8" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>009</label></td>
+			<td><label>Delete energy</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='9'>
+					<option value="0">0</option>
+					<option value="1">1</option>
+				</select></td>
+			<td id="index_9" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>010</label></td>
+			<td><label>Min. pulse duration, Digital output 1/2</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='10' value='5' min='5' max='99'>&nbsp;<label>ms</label></td>
+			<td id="index_10" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>011</label></td>
+			<td><label>User password</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='11' value='0' min='0' max='999'></td>
+			<td id="index_11" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>012</label></td>
+			<td><label>LCD contrast</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='12'>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+				</select></td>
+			<td id="index_12" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>013</label></td>
+			<td><label>Comparator 1A, limit</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='13' value='0'></td>
+			<td id="index_13" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>015</label></td>
+			<td><label>Comparator 1A, measured value</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='15' value='0' min='0' max='999'></td>
+			<td id="index_15" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>016</label></td>
+			<td><label>Comparator 1A, Min. on time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='16' value='1' min='1' max='899'>&nbsp;<label>sec</label></td>
+			<td id="index_16" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>017</label></td>
+			<td><label>Comparator 1A, Operator</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17'>
+					<option value="0">Higher than</option>
+					<option value="1">Smaller than</option>
+				</select></td>
+			<td id="index_17" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>018</label></td>
+			<td><label>Comparator 1B, limit</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='18' value='0'></td>
+			<td id="index_18" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>020</label></td>
+			<td><label>Comparator 1B, measured value</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='20' value='0' min='0' max='999'></td>
+			<td id="index_20" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>021</label></td>
+			<td><label>Comparator 1B, Min. on time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='21' value='1' min='1' max='899'>&nbsp;<label>sec</label></td>
+			<td id="index_21" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>022</label></td>
+			<td><label>Comparator 1B, Operator</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='22'>
+					<option value="0">Higher than</option>
+					<option value="1">Smaller than</option>
+				</select></td>
+			<td id="index_22" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>023</label></td>
+			<td><label>Comparator 1C, limit</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='23' value='0'></td>
+			<td id="index_23" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>025</label></td>
+			<td><label>Comparator 1C, measured value</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='25' value='0' min='0' max='999'></td>
+			<td id="index_25" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>026</label></td>
+			<td><label>Comparator 1C, Min. on time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='26' value='1' min='1' max='899'>&nbsp;<label>sec</label></td>
+			<td id="index_26" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>027</label></td>
+			<td><label>Comparator 1C, Operator</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='27'>
+					<option value="0">Higher than</option>
+					<option value="1">Smaller than</option>
+				</select></td>
+			<td id="index_27" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>028</label></td>
+			<td><label>Comparator 2A, limit</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='28' value='0'></td>
+			<td id="index_28" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>030</label></td>
+			<td><label>Comparator 2A, measured value</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='30' value='0' min='0' max='999'></td>
+			<td id="index_30" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>031</label></td>
+			<td><label>Comparator 2A, Min. on time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='31' value='1' min='1' max='899'>&nbsp;<label>sec</label></td>
+			<td id="index_31" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>032</label></td>
+			<td><label>Comparator 2A, Operator</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='32'>
+					<option value="0">Higher than</option>
+					<option value="1">Smaller than</option>
+				</select></td>
+			<td id="index_32" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>033</label></td>
+			<td><label>Comparator 2B, limit</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='33' value='0'></td>
+			<td id="index_33" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>035</label></td>
+			<td><label>Comparator 2B, measured value</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='35' value='0' min='0' max='999'></td>
+			<td id="index_35" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>036</label></td>
+			<td><label>Comparator 2B, Min. on time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='36' value='1' min='1' max='899'>&nbsp;<label>sec</label></td>
+			<td id="index_36" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>037</label></td>
+			<td><label>Comparator 2B, not/inverted</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='37'>
+					<option value="0">Higher than</option>
+					<option value="1">Smaller than</option>
+				</select></td>
+			<td id="index_37" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>038</label></td>
+			<td><label>Comparator 2C, limit</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='38' value='0'></td>
+			<td id="index_38" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>040</label></td>
+			<td><label>Comparator 2C, measured value</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40' value='0' min='0' max='999'></td>
+			<td id="index_40" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>041</label></td>
+			<td><label>Comparator 2C, Min. on time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='41' value='1' min='1' max='899'>&nbsp;<label>sec.</label></td>
+			<td id="index_41" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>042</label></td>
+			<td><label>Comparator 2C, Operator</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='42'>
+					<option value="0">Higher than</option>
+					<option value="1">Smaller than</option>
+				</select></td>
+			<td id="index_42" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>043</label></td>
+			<td><label>Combine result of comparators (0,1,2)</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='43'>
+					<option value="0">OR</option>
+					<option value="1">AND</option>
+				</select></td>
+			<td id="index_43" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>044</label></td>
+			<td><label>Invert result (0,1,2)</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='44'>
+					<option value="0">Not inverted</option>
+					<option value="1">Inverted</option>
+				</select></td>
+			<td id="index_44" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>045</label></td>
+			<td><label>Combine result of comparators (3,4,5)</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='45'>
+					<option value="0">OR</option>
+					<option value="1">AND</option>
+				</select></td>
+			<td id="index_45" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>046</label></td>
+			<td><label>Invert result (3,4,5)</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='46'>
+					<option value="0">Not inverted</option>
+					<option value="1">Inverted</option>
+				</select></td>
+			<td id="index_46" class="show-writting-status" style="display:none"></td>	
+		</tr>
+		
+		<tr>
+			<td><label>047</label></td>
+			<td><label>Measured value analogue output 1</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='47' value='0' min='0' max='999'></td>
+			<td id="index_47" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>048</label></td>
+			<td><label>Analog output 1, 20mA</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='48' value='0'></td>
+			<td id="index_48" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>050</label></td>
+			<td><label>Analog output 1, 4mA</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='50' value='0'></td>
+			<td id="index_50" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>052</label></td>
+			<td><label>Measured value for analogue output 2</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='52' value='0' min='0' max='999'></td>
+			<td id="index_52" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>053</label></td>
+			<td><label>Analog output 2, 20mA</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='53' value='0'></td>
+			<td id="index_53" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>055</label></td>
+			<td><label>Analog output 2, 4mA</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='55' value='0'></td>
+			<td id="index_55" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>056</label></td>
+			<td><label>Data memory</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='56' value='0' min='0' max='15'></td>
+			<td id="index_56" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>057</label></td>
+			<td><label>Averaging time, for I</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57'>
+					<option value="0">5 Sec.</option>
+					<option value="1">10 Sec.</option>
+					<option value="2">20 Sec.</option>
+					<option value="3">60 Sec.</option>
+					<option value="4">300 Sec.</option>
+					<option value="5">480 Sec.</option>
+					<option value="6">900 Sec.</option>
+				</select></td>
+			<td id="index_57" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>058</label></td>
+			<td><label>Averaging time, for P</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='58'>
+					<option value="0">5 Sec.</option>
+					<option value="1">10 Sec.</option>
+					<option value="2">20 Sec.</option>
+					<option value="3">60 Sec.</option>
+					<option value="4">300 Sec.</option>
+					<option value="5">480 Sec.</option>
+					<option value="6">900 Sec.</option>
+				</select></td>
+			<td id="index_58" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>059</label></td>
+			<td><label>Rotation time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='59' value='0' min='0' max='60'>&nbsp;<label>sec.</label></td>
+			<td id="index_59" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>062</label></td>
+			<td><label>Selection of interface</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='62'>
+					<option value="0">Autom.</option>
+					<option value="1">RS232</option>
+					<option value="2">RS485</option>
+				</select></td>
+			<td id="index_62" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>063</label></td>
+			<td><label>Selection of interface</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='63'>
+					<option value="0">Net frequency of Phase L1</option>
+					<option value="1">50 Hz</option>
+					<option value="2">60 Hz</option>
+				</select></td>
+			<td id="index_63" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>064</label></td>
+			<td><label>Comparator 1A, run up time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='64' value='0' min='1' max='899'>&nbsp;<label>sec.</label></td>
+			<td id="index_64" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>065</label></td>
+			<td><label>Comparator 1B, run up time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='65' value='0' min='1' max='899'>&nbsp;<label>sec.</label></td>
+			<td id="index_65" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>066</label></td>
+			<td><label>Comparator 1C, run up time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='66' value='0' min='1' max='899'>&nbsp;<label>sec.</label></td>
+			<td id="index_66" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>067</label></td>
+			<td><label>Comparator 2A, run up time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='67' value='0' min='1' max='899'>&nbsp;<label>sec.</label></td>
+			<td id="index_67" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>068</label></td>
+			<td><label>Comparator 2B, run up time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='68' value='0' min='1' max='899'>&nbsp;<label>sec.</label></td>
+			<td id="index_68" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>069</label></td>
+			<td><label>Comparator 2C, run up time</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='69' value='0' min='1' max='899'>&nbsp;<label>sec.</label></td>
+			<td id="index_69" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		
+		<tr>
+			<td><label>070</label></td>
+			<td><label>Modem operation</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='70'>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+			<td id="index_70" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>071</label></td>
+			<td><label>Real energy, changeover</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='71'>
+					<option value="0">HT</option>
+					<option value="1">NT</option>
+				</select></td>
+			<td id="index_71" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>072</label></td>
+			<td><label>Reac. ener., changeover</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='72'>
+					<option value="0">HT</option>
+					<option value="1">NT</option>
+				</select></td>
+			<td id="index_72" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>073</label></td>
+			<td><label>Averaging time, for U</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='73'>
+					<option value="0">5 Sec.</option>
+					<option value="1">10 Sec.</option>
+					<option value="2">20 Sec.</option>
+					<option value="3">60 Sec.</option>
+					<option value="4">300 Sec.</option>
+					<option value="5">480 Sec.</option>
+					<option value="6">900 Sec.</option>
+				</select></td>
+			<td id="index_73" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>600</label></td>
+			<td><label>Current transformer, primary</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='600' value='1' min='1' max='10000'>&nbsp;<label>A</label></td>
+			<td id="index_600" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>601</label></td>
+			<td><label>Current transformer, secondary</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='601' value='1' min='1' max='5'>&nbsp;<label>A</label></td>
+			<td id="index_601" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>602</label></td>
+			<td><label>Voltage transformer, primary</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='602' value='400' min='100' max='60000'>&nbsp;<label>V</label></td>
+			<td id="index_602" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>603</label></td>
+			<td><label>Voltage transformer, secondary</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='603' value='400' min='100' max='400'>&nbsp;<label>V</label></td>
+			<td id="index_603" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+<!-- 		<tr>
+			<td><label>800</label></td>
+			<td><label>Write in EEPROM</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='800'>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select></td>
+			<td id="index_800" class="show-writting-status" style="display:none"></td>
+		</tr>
+		 -->
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

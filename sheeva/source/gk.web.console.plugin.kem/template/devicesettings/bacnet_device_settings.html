@@ -1,0 +1,749 @@
+
+<style>
+   #pagination {
+		float : right ;
+		margin : 0 auto;
+		text-align: right;
+   }
+    #pagination label{
+		 cursor: pointer;
+   }
+   #pagination *{
+		margin : 0 5px ;
+   }
+
+	#table_virtual_node tbody tr:nth-child(odd)	{ background-color:#eee; }
+	#table_virtual_node tbody tr:nth-child(even)	{ background-color:#fff; }
+	#table_virtual_node { table-layout:fixed; }
+	#table_virtual_node td { overflow: hidden;}
+	#validation_show table tbody tr:nth-child(odd)	{ background-color:#eee; }
+	#validation_show table tbody tr:nth-child(even)	{ background-color:#fff; }
+	
+
+   ul.pagination_virtual {
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+   float :right ;
+   }
+   ul.pagination_virtual li {display: inline;}
+   ul.pagination_virtual li a {
+   color: black;
+   float: left;
+   padding: 8px 16px;
+   text-decoration: none;
+   border-radius: 5px;
+   }
+   ul.pagination_virtual li a.active {
+   background-color: rgba(14, 31, 15, 0.38);
+   color: white;
+   border-radius: 5px;
+   
+   }
+   .left {
+   float: left;
+   width: 125px;	
+   text-align: right;
+   margin: 2px 10px;
+   display: inline
+   }
+   .right {
+   float: left;
+   text-align: left;
+   margin: 2px 10px;
+   display: inline
+   }
+   ul.test {
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+  
+   }
+   #menu_1{
+		background-color : #ccc ;
+   }
+   ul.test li {display: inline;}
+   ul.test li a {
+   color: black;
+   float: left;
+  
+   text-decoration: none;
+<!--    border-radius: 5px; -->
+   }
+   ul.test li a.active  {
+   background-color:  white ;
+   }
+    ul.test li a.active  {
+	color:  green ;
+   }
+   
+  <!--  .bacnet{
+   background-color: rgba(158, 147, 147, 0.55);
+   } -->
+   <!-- .mapping{
+   background-color: rgba(158, 131, 131, 0.27);
+   } -->
+   fieldset{
+   border: 2px groove !important
+   }
+   table td {
+		vertical-align: middle;
+   }
+</style>
+
+<!-- <ul class="test" style = "width:50%">
+   <li><a id = "real_node" class = "active" style = "width:33%;text-align:left;padding: 3px 0;" href="#"><b>Real Node</b></a></li>
+   <li><a id = "virtual_node" style = "width:33%;text-align:left;padding: 3px 0;" href="#"><b>Virtual Node</b></a></li>
+   <li><a id = "validation_node"   style = "width:34%;text-align:left;padding: 3px 0;" href="#"><b>Validation</b></a></li>
+</ul> -->
+ <ul class="test" style = "width:100%" id = "menu_1">
+   <li><a id = "scanning" class = "active" style = "width:33%;text-align:left;padding: 3px 0;background-color:#acacac" href="#"><b>Scanning</b></a></li>
+   <li><a id = "read" style = "width:33%;text-align:left;padding: 3px 0;" href="#"><b>Read</b></a></li>
+   <li><a id = "write"   style = "width:34%;text-align:left;padding: 3px 0;" href="#"><b>Write</b></a></li>
+</ul>
+
+<ul class="test" style = "width:50%;display:none" id = "menu_2">
+   <li><a id = "real_node" class = "active" style = "width:33%;text-align:left;padding: 3px 0;" href="#"><b>Real Node</b></a></li>
+   <li><a id = "virtual_node" style = "width:33%;text-align:left;padding: 3px 0;" href="#"><b>Virtual Node</b></a></li>
+   <li><a id = "validation_node"   style = "width:34%;text-align:left;padding: 3px 0;" href="#"><b>Validation</b></a></li>
+</ul>
+
+<div id = "real" style = "width:100%;display:none">
+	
+	<table  class='nicetable ui-widget'  id = "table_real_node_">
+      <tr>
+         <th colspan = "5" style = "text-align:center;border-right :2px solid white" class = "bacnet">
+            <b>BacNet Device</b>
+         </th>
+      </tr>
+      <tr>
+         <th style="text-align: left;width: 1%" class = "bacnet">
+            <b>No</b>
+         </th>
+         <th style="text-align: left;width: 6%" class = "bacnet">
+            <b>Object</b>
+         </th>
+         <th style="text-align: left;width: 20%" class = "bacnet">
+            <b>Object Name</b>
+         </th>
+		 
+         <th style="text-align: left;width:5%;border-right :2px solid white" class = "bacnet">
+            <b>Unit</b>
+         </th>
+         <th style="text-align: left;width:10%" class = "bacnet">
+            <b>Type</b>
+         </th>
+      </tr>
+      <tbody id = "scan_real_body">
+      </tbody>
+   </table>
+   
+   <table  class='nicetable ui-widget'  id = "table_writing" style = "display:none">
+      <tr>
+         <th colspan = "4" style = "text-align:center;border-right :2px solid white" class = "bacnet">
+            <b>BacNet Device</b>
+         </th>
+         <th colspan  = "8" style = "text-align:center" class = "mapping">
+            <b>Mapping</b>
+         </th>
+      </tr>
+      <tr>
+         <th style="text-align: left;width: 1%" class = "bacnet">
+            <b>No</b>
+         </th>
+         <th style="text-align: left;width: 6%" class = "bacnet">
+            <b>Object</b>
+         </th>
+         <th style="text-align: left;width: 17%" class = "bacnet">
+            <b>Object Name</b>
+         </th>
+		 
+         <th style="text-align: left;width:10%;border-right :2px solid white" class = "bacnet">
+            <b>Unit</b>
+         </th>
+         <th style="text-align: left;width:15%" class = "mapping">
+            <b>Name</b>
+         </th>
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Channel</b>
+         </th>
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Default Value</b>
+         </th>
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Max Value</b>
+         </th>
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Min Value</b>
+         </th>
+         <th style="text-align: left;width:20%" class = "mapping">
+            <b>Measure</b>
+         </th>
+         <th style="text-align: left;" class = "mapping">
+            <b>Unit</b>
+         </th>
+         <th class = "mapping">
+         </th>
+      </tr>
+      <tbody id = "writing_real_body">
+      </tbody>
+   </table>
+	
+   <table style = "display:none"  class='nicetable ui-widget'  id = "table_real_node">
+      <tr>
+         <th colspan = "4" style = "text-align:center;border-right :2px solid white" class = "bacnet">
+            <b>BacNet Device</b>
+         </th>
+         <th colspan  = "10" style = "text-align:center" class = "mapping">
+            <b>Mapping</b>
+         </th>
+      </tr>
+      <tr>
+         <th style="text-align: left;width: 1%" class = "bacnet">
+            <b>No</b>
+         </th>
+         <th style="text-align: left;width: 6%" class = "bacnet">
+            <b>Object</b>
+         </th>
+         <th style="text-align: left;width: 20%" class = "bacnet">
+            <b>Object Name</b>
+         </th>
+		 
+         <th style="text-align: left;width:5%;border-right :2px solid white" class = "bacnet">
+            <b>Unit</b>
+         </th>
+         <th style="text-align: left;width:10%" class = "mapping">
+            <b>Name</b>
+         </th>
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Channel</b>
+         </th>
+         <th style="text-align: left;width:20%" class = "mapping">
+            <b>Measure</b>
+         </th>
+         <th style="text-align: left;width:7%" class = "mapping">
+            <b>Unit</b>
+         </th>
+         <th style="text-align: left;width:3%" class = "mapping">
+            <b>Data Scalar</b>
+         </th>
+         <th style="text-align: center;" class = "mapping">
+            <b>Calculated Int. Consumption</b>
+         </th>
+         <th style="text-align: center;" class = "mapping">
+            <b>Validation Rule</b>
+         </th>
+         <th class = "mapping">
+         </th>
+      </tr>
+      <tbody id = "real_body">
+      </tbody>
+   </table>
+  <!--  <ul class ="pagination">
+   </ul> -->
+   <br/>
+   <div id = "pagination" style = "width:100%">
+		<!-- <select style = "width:10%" class="ui-corner-all" id = "type_bacnet">
+			<option value = "null">All</option>
+			<option value = "">None</option>
+			<option value = "data">Data</option>
+			<option value = "setting">Setting</option>
+		</select> -->
+		<div id ="div_bacnet_type">
+			Move to &nbsp;	
+			<input type="radio"  id = "none" name="bacnet_type" value=""> None
+			<input type="radio"  id = "data" name="bacnet_type" value="data"> Data 
+			<input type="radio"  id = "setting" name="bacnet_type" value="setting">Setting 
+			<label style="margin-left:2% ">Filter</label> 	
+			<select style = "width:10%" class="ui-corner-all" id = "type_bacnet">
+			<option value = "null">All</option>
+			<option value = "">None</option>
+			<option value = "data">Data</option>
+			<option value = "setting">Setting</option>
+		</select>
+		</div> 
+		<br/>
+		
+		
+		<label	style = "width:20%"> Records Per Page </label>
+		<input	type ="number" id = "record_num" class="ui-corner-all inputText" style = "width:5%" step = "10" min = "20" max = "100"/>
+		<label  style = "width:10%" >Page To</label>
+		<input	type ="number" id = "page_num" class="ui-corner-all inputText"  style = "width:5%" min = "1" step = "1">
+		<input  style = "width:5%" type = "button" value = "Go" class="ui-corner-all ui-state-default" id = "go"/>
+		<label  style = "width:10%" id = "first" style = "text-decoration: underline;" onclick = "first()" >First</label>
+		<label  style = "width:10%" id = "previous" style = "text-decoration: underline;" onclick = "previous()">Previous</label>
+		<label  style = "width:10%" id = "current_page"></label>
+		<label  style = "width:10%" id = "next" style = "text-decoration: underline; " onclick = "next()">Next</label>
+		<label  style = "width:10%" id = "last" style = "text-decoration: underline; " onclick = "last()">Last</label>
+   </div>
+   <br/>
+   <br/>
+   <br />
+   <p id="scanning_wait" class="waiting" style="display:none;color:blue"><img src="/system/console/AdapterSettings/res/ui/loading.gif"/><label>Scanning Data Point... Please wait </label></p>
+   <button type='button' class='ui-state-default ui-corner-all ui-button' id='scan' onclick="scanDevice();">Scan</button>
+    <button type='button' class='ui-state-default ui-corner-all ui-button' id='create_node' onclick="createNode();">Create</button>
+   <button type='button' style = "background-color:#8DC63F" class='ui-state-default ui-corner-all ui-button' id='save' onclick="writeBacNet();">Save</button>
+   <div  style = "margin-top:20px;display:none" class = "div_validation">
+      <fieldset style = "width:80%;padding :8px" >
+         <legend style = "padding:5px">Validation</legend>
+         <br/>
+         <br/>
+         <table style = "width:70%" id ="condition">
+            <thead>
+               <tr>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     If
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:28%">
+                     <select  id = "operator" style = "border:0;width:100%" class = "ui-corner-all inputText">
+                        <option value="null">Select</option>
+                        <option value="constant">Constant</option>
+                     </select>
+					 <input id = "operator_text" type = "text" class="ui-corner-all inputText" style = "display:none" />
+                  </th>
+                  <th style="padding:0 0 0 0;width:15%">
+                     <select  id = "expression1" style = "border:0;width:100%">
+                        <option value=">">Greater Than</option>
+                        <option value="<">Less Than</option>
+                        <option value="==">Equal To</option>
+                        <option value="!=">Not Equal To</option>
+                     </select>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <input id="value" class="ui-corner-all inputText">
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:12%">
+                     <select  id = "logic" style = "border:0;width:100%">
+                        <option value="&&">AND</option>
+                        <option value="||">OR</option>
+                     </select>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:3%">
+                     <button id = "expand_condition" style = "margin : 0 2px" type = "button" class = "ui-state-default ui-corner-all"> 
+                     <label>+</label>
+                     </button>
+                  </th>
+               </tr>
+            </thead>
+         </table>
+         <br>
+         <br>
+         <table style = "width:80%" id = "action">
+            <thead>
+               <tr>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     Set
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:16%">
+                     <label id = "name"></label>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <label>To</label>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:24%">
+                     <select  id = "operator" style = "border:0;width:100%" class = "ui-corner-all inputText">
+                        <option value="null">Select</option>
+                     </select>
+                     <input id="value" class="ui-corner-all inputText" style = "display:none;width:100%">
+                  </th>
+				  <th style="padding:0 10px 0 10px;width:14%">
+						<button id = "transfer" type = "button" class = "ui-corner-all ui-state-default">
+							 <span class="ui-icon ui-icon-transferthick-e-w"> </span>
+						</button>
+                  </th>
+               </tr>
+            </thead>
+        </table>
+        <br>
+		<button style ="float:right;margin-right: 10px;width:10%;margin-left :5px" type='button' class='ui-state-default ui-corner-all' id="ok_validation">Ok</button>
+		<a href = "#" id='cancel_validation' style = "text-decoration: underline;float:right;background-color:white !important">Cancel</a>
+		<!-- <button style ="float:right;margin-right: 10px;width:10%" type="button" class="ui-corner-all ui-state-default" >Ok</button> -->
+	
+		</br>
+      </fieldset>
+   </div>
+    <div  style = "margin-top:20px;display:none" id = "create_object">
+		<fieldset>
+			<legend> Create New Node</legend>
+			<table  class='nicetable ui-widget'>
+				<tr>
+					<th style="text-align: center;">
+					   Object
+					</th>
+					<th style="text-align: center;">
+					   Object Identifier
+					</th>
+					<th style="text-align: center;">
+					   Unit
+					</th>
+				</tr>
+			 <tbody id = "tbody">
+				<tr>
+					<td style="border: 0px;text-align: center;">
+					  <input type="text" id="object" class="ui-corner-all inputText" style="width: 100%;">
+					</td>
+					<td style="border: 0px;text-align: center;">
+					   <input type="text" id="object_name" class="ui-corner-all inputText" style="width: 100%;">
+					</td>
+					<td style="border: 0px;text-align: center;">
+					   <input type="text" id="object_unit" class="ui-corner-all inputText" style="width: 100%;">
+					</td>
+				</tr>
+			 </tbody>
+			</table>
+
+			</br>
+			<button style = "float:right;margin-right: 10px;width:10%" type='button' class='ui-state-default ui-corner-all' id='ok_'>Ok</button>
+
+			<button style = "float:right;margin-right: 10px;width:10%" type='button' class='ui-state-default ui-corner-all' id='cancel_'>Cancel</button>
+		</fieldset>
+	</div>
+</div>
+
+<div id = "virtual" style = "width:100%;display:none">
+   <table style = "width:100%" class='nicetable ui-widget' id = "table_virtual_node">
+      <tr>
+         <th style="text-align: left;width:3%" class = "mapping">
+            <b>No</b>
+         </th>
+		  <th style="text-align: left;width:15%" class = "mapping">
+            <b>Name</b>
+         </th>
+         <th style="text-align: left;width:25%" class = "mapping">
+            <b>Formula</b>
+         </th>
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Channel</b>
+         </th>
+         <th style="text-align: left;width:15%" class = "mapping">
+            <b>Measure Name</b>
+         </th>
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Unit</b>
+         </th>
+		 <!-- <th style="text-align: left;width:9%" class = "mapping">
+            <b>Calculated Int. Consumption</b>
+         </th> -->
+         <th style="text-align: left;width:5%" class = "mapping">
+            <b>Validation Rule</b>
+         </th>
+         <th style="text-align: left;width:3%" class = "mapping">
+         </th>
+      </tr>
+      <tbody id = "virtual_body">
+      </tbody>
+   </table>
+	<br/>
+    <div id = "pagination" style = "width:100%">
+		<label	style = "width:20%"> Record Per Page </label>
+		<input	type ="number" id = "record_num" class="ui-corner-all inputText" style = "width:5%" step = "10" min = "20" max = "100"/>
+		<label  style = "width:10%" >Page To</label>
+		<input	type ="number" id = "page_num" class="ui-corner-all inputText"  style = "width:5%" min = "1" step = "1">
+		<input  style = "width:5%" type = "button" value = "Go" class="ui-corner-all ui-state-default" id = "go"/>
+		<label  style = "width:10%" id = "first" style = "text-decoration: underline;" onclick = "first()" >First</label>
+		<label  style = "width:10%" id = "previous" style = "text-decoration: underline;" onclick = "previous()">Previous</label>
+		<label  style = "width:10%" id = "current_page"></label>
+		<label  style = "width:10%" id = "next" style = "text-decoration: underline; " onclick = "next()">Next</label>
+		<label  style = "width:10%" id = "last" style = "text-decoration: underline; " onclick = "last()">Last</label>
+   </div>
+   </br>
+   </br>
+   </br>
+   
+	<button type = "button" id = "create" class = "ui-corner-all ui-state-default">
+	Create 
+	</button>
+  
+   
+   <button type="button" class="ui-corner-all ui-state-default" id="save" onclick="writeBacNet();">Save</button>
+   </br>
+   </br>
+   <div id="right" style = "display: none; width:80%">
+	<fieldset>
+		<legend> Create Virtual Node</legend>
+      <table  class='nicetable ui-widget'>
+         <tr>
+            <th style="text-align: center;">
+               Virtual Node
+            </th>
+            <th style="text-align: center;">
+               Object Identifier
+            </th>
+            <th style="text-align: center;">
+               Operator
+            </th>
+            <th style="text-align: center;">
+               Object Identifier
+            </th>
+           <!--  <th style="text-align: center;">
+               Validation
+            </th> -->
+            <th style="text-align: center;">
+            </th>
+			 <th style="text-align: center;">
+            </th>
+			<th style="text-align: center;">
+            </th>
+         </tr>
+         <tbody id = "tbody">
+            <tr>
+               <td style="border: 0px;text-align: center;">
+                  <input type="text" id="virtual_node_name" class="ui-corner-all inputText" style="width: 100%;">
+               </td>
+               <td style="border: 0px;text-align: center;">
+                  <select id = "operator0" style = "border:0;width:100%" class = "ui-corner-all inputText">
+                     <option value="null">Select</option>
+                  </select >
+               </td>
+               <td style="border: 0px;text-align: center;">
+                  <select  id = "expression" style = "border:0;width:100%">
+                     <option value="+">+</option>
+                     <option value="-">-</option>
+                     <option value="*">*</option>
+                     <option value="/">/</option>
+                  </select>
+               </td>
+               <td style="border: 0px;text-align: center;">
+					<select  id = "operator" style = "border:0;width:100%" class = "ui-corner-all inputText">
+						<option value="null">Select</option>
+					</select>
+					<input id="value" class="ui-corner-all inputText" style = "display:none;;width:100%">
+				</td>
+				<!-- <td style="border: 0px;text-align: center;">
+					<button id = "transfer" type = "button" class = "ui-corner-all ui-state-default">
+						 <span class="ui-icon ui-icon-transferthick-e-w"> </span>
+					</button>
+				</td> -->
+				<td style="border: 0px;text-align: center;">
+                  <button id = "keyin" style = "margin : 0 2px" type = "button" class = "ui-state-default ui-corner-all"> 
+                  <label>Advance</label>
+                  </button>
+               </td>
+               <td style="border: 0px;text-align: center;">
+                  <button id = "expand" style = "margin : 0 2px" type = "button" class = "ui-state-default ui-corner-all"> 
+                  <label>+</label>
+                  </button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+	  
+		<table id ="keyin_table" style="display:none" class='nicetable ui-widget'>
+			<tr>
+				<th style="text-align: center;width:30%">
+				   Virtual Node
+				</th>
+				<th style="text-align: center;width:65%">
+				   Formula
+				</th>
+				<th style="text-align: center;width:5%">
+				  
+				</th>
+			</tr>
+			<tbody>
+				<tr>
+				   <td style="border: 0px;text-align: center;">
+					  <input type="text" id="virtual_node_name" class="ui-corner-all inputText" style="width: 100%;">
+				   </td>
+				   <td style="border: 0px;text-align: center;">
+					  <input type="text" id="formula_" class="ui-corner-all inputText" style="width: 100%;">
+				   </td>
+				    <td style="border: 0px;text-align: center;">
+						<button id = "back" style = "margin : 0 2px" type = "button" class = "ui-state-default ui-corner-all"> 
+							<label>Back</label>
+						</button>
+				   </td>
+				  
+				</tr>
+			</tbody>
+		</table>
+	  
+      </br>
+      <button style = "float:right;margin-right: 10px;width:10%" type='button' class='ui-state-default ui-corner-all' id='ok'>Ok</button>
+	  
+      <button style = "float:right;margin-right: 10px;width:10%" type='button' class='ui-state-default ui-corner-all' id='cancel_virtual'>Cancel</button>
+	  </fieldset>
+   </div>
+   
+    <div  style = "margin-top:20px;display:none" class = "div_validation">
+      <fieldset style = "width:80%;padding : 8px" >
+         <legend style = "padding:5px">Validation</legend>
+         <br/>
+         <br/>
+         <table style = "width:70%" id ="condition">
+            <thead>
+               <tr>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     If
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:30%">
+                     <select  id = "operator" style = "border:0;width:100%" class = "ui-corner-all inputText">
+                        <option value="null">Select</option>
+                        <option value="constant">Constant</option>
+                     </select>
+					 <input id = "operator_text" type = "text" class="ui-corner-all inputText" style = "display:none" />
+                  </th>
+                  <th style="padding:0 0 0 0;width:15%">
+                     <select  id = "expression1" style = "border:0;width:100%">
+                        <option value=">">Greater than</option>
+                        <option value="<">Less Than</option>
+                        <option value="=">Equal To</option>
+                        <option value="!=">Not Equal To</option>
+                     </select>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <input id="value" class="ui-corner-all inputText">
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:12%">
+                     <select  id = "logic" style = "border:0;width:100%">
+                        <option value="&&">AND</option>
+                        <option value="||">OR</option>
+                     </select>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <button id = "expand_condition" style = "margin : 0 2px" type = "button" class = "ui-state-default ui-corner-all"> 
+                     <label>+</label>
+                     </button>
+                  </th>
+               </tr>
+            </thead>
+         </table>
+         <br>
+         <br>
+         <table style = "width:70%" id = "action">
+            <thead>
+               <tr>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     Set
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:16%">
+                     <label id = "name"></label>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <label>To</label>
+                  </th>
+                   <th style="padding:0 10px 0 10px;width:14%">
+                     <select  id = "operator" style = "border:0;width:100%" class = "ui-corner-all inputText">
+                        <option value="null">Select</option>
+                     </select>
+                     <input id="value" class="ui-corner-all inputText" style = "display:none;;width:100%">
+                  </th>
+				  <th style="padding:0 10px 0 10px;width:14%">
+						<button id = "transfer" type = "button" class = "ui-corner-all ui-state-default">
+							 <span class="ui-icon ui-icon-transferthick-e-w"> </span>
+						</button>
+                  </th>
+               </tr>
+            </thead>
+        </table>
+        <br>
+		<button style ="float:right;margin-right: 10px;width:10%" type="button" class="ui-corner-all ui-state-default" id="ok_validation">Ok</button>
+		<button style = "float:right;margin-right: 10px;width:10%" type='button' class='ui-state-default ui-corner-all' id='cancel_validation'>Cancel</button>
+      </fieldset>
+   </div>
+</div>
+
+<div id = "validation_show" style = "display:none">
+   <table  class='nicetable ui-widget'>
+      <thead>
+         <tr>
+            <th style="text-align: left;width:10%" class = "bacnet">
+               <b>Node Name</b>
+            </th>
+            <th style="text-align: left;width:50%" class = "bacnet">
+               <b>Condition</b>
+            </th>
+            <th style="text-align: left;width:39%" class = "bacnet">
+               <b>Action Result</b>
+            </th>
+			 <th style="text-align: center;width:1%" class = "bacnet">
+            </th>
+            <th style="text-align: left;width:1%" class = "bacnet">
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+      </tbody>
+   </table>
+    <div  style = "margin-top:20px;display:none" class = "div_validation">
+      <fieldset style = "width:80%;padding : 2px;" >
+         <legend style = "padding:5px">Validation</legend>
+         <br/>
+         <br/>
+         <table style = "width:70%" id ="condition">
+            <thead>
+               <tr>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     If
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:30%">
+                     <select  id = "operator" style = "border:0;width:100%" class = "ui-corner-all inputText">
+                        <option value="null">Select</option>
+                        <option value="constant">Constant</option>
+                     </select>
+                  </th>
+                  <th style="padding:0 0 0 0;width:15%">
+                     <select  id = "expression1" style = "border:0;width:100%">
+                        <option value=">">Greater than</option>
+                        <option value="<">Less Than</option>
+                        <option value="=">Equal To</option>
+                        <option value="!=">Not Equal To</option>
+                     </select>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <input id="value" class="ui-corner-all inputText">
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:12%">
+                     <select  id = "logic" style = "border:0;width:100%">
+                        <option value="&&">AND</option>
+                        <option value="||">OR</option>
+                     </select>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <button id = "expand_condition" style = "margin : 0 2px" type = "button" class = "ui-state-default ui-corner-all"> 
+                     <label>+</label>
+                     </button>
+                  </th>
+               </tr>
+            </thead>
+         </table>
+         <br>
+         <br>
+         <table style = "width:70%" id = "action">
+            <thead>
+               <tr>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     Set
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:16%">
+                     <label id = "name"></label>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:5%">
+                     <label>To</label>
+                  </th>
+                  <th style="padding:0 10px 0 10px;width:14%">
+                     <select  id = "operator" style = "border:0;width:100%" class = "ui-corner-all inputText">
+                        <option value="null">Select</option>
+                        <option value="constant">Constant</option>
+                     </select>
+                     <input id="value" class="ui-corner-all inputText" style = "display:none">
+                  </th>
+               </tr>
+            </thead>
+        </table>
+        <br>
+		<button style ="float:right;margin-right: 10px;width:10%" type="button" class="ui-corner-all ui-state-default" id="ok_validation">Ok</button>
+		<button style = "float:right;margin-right: 10px;width:10%" type='button' class='ui-state-default ui-corner-all' id='cancel_validation'>Cancel</button>
+      </fieldset>
+   </div>
+</div>
+<script>
+   $('button').mouseover(function(){
+   	$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+   });
+   
+   $('button').mouseout(function(){
+   	$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+   });
+</script>
+

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Taskqueue
+Bundle-SymbolicName: com.greenkoncepts.gateway.taskqueue
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: GREENKONCEPTS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Service-Component: OSGI-INF/*.xml
+Import-Package: com.greenkoncepts.gateway.api.task,
+ org.eclipse.osgi.framework.console;version="1.0.0",
+ org.osgi.framework;version="1.3.0",
+ org.osgi.util.tracker;version="1.3.1",
+ org.slf4j;version="1.7.6"

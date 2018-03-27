@@ -1,0 +1,30 @@
+#Configuration file for GkgwApp
+#Wed Jan 04 14:33:03 SGT 2012
+
+# Gateway id
+gatewayId=GKC-000000000000
+
+# Remote server configuration
+remoteHost=test.greenkoncepts.com
+remotePort=4548
+
+# Check period seconds for system
+checkPeriod=60
+
+# Maximum error times for socket check
+socketErrMax=10
+
+# Maximum error times for uart check
+uartErrMax=100
+
+# Maximum loop times for system to restart
+loopCountMax=1000000
+
+# Buffer file path and name
+bufferFile=/mnt/mmc/data.buf
+
+# Maximum buffer days for system
+bufferCapacityDays=7
+
+# Max packets can be sent in one shot
+bufferSendLimit=10

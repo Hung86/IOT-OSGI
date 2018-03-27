@@ -1,0 +1,1 @@
+-Djava.util.logging.config.file=jsr47min.properties -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Dorg.osgi.service.http.port=9090 -Dgkapp.configuration=file:gkapp.properties -Dlog4j.configuration=file:log4j.properties

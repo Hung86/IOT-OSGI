@@ -1,0 +1,120 @@
+<style>
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+ul.pagination {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	float : right ;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+input, select.ui-corner-all {
+    -moz-box-sizing: content-box;
+	box-sizing: border-box; 
+}
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+ul.page li {display: inline;}
+ul.page li a {
+	color: black;
+	float: left;
+	/* background-color : #ccc ; */
+	/* text-decoration: none; */
+	border-radius: 5px;
+}
+ul.page li a.active {
+	color:  #8dc63f ;
+}
+</style>
+<ul class="page" style = "width:50%">
+	<li><a id = "setting_tab" class = "active" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Settings</b></a></li>
+	<li><a id = "configuration_tab" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Configuration</b></a></li>
+</ul>
+</br>
+</br>
+</br>
+<div id="device">	
+	<div class = "channel" >
+		<table id="channel" class='nicetable ui-widget channel' style="width:100%;">
+			<tbody>
+				<tr>
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<th class="channel-header" style="width:20%"><b>Data Scalar</b></th>
+					<th>
+						<select class="ui-corner-all" id="data_scalar" name="data_scala">
+							<option value="10">10x</option>
+							<option value="100">100x</option>
+					   </select>
+					</th>
+				</tr>
+			</tbody>
+			
+		</table>
+		<br />
+		<button type='button' class='ui-state-default ui-corner-all' id='writingbutton_${id}' onclick="saveSettings();">Save</button>
+	</div>
+
+	<div class = "configuration" style = "display:none">
+		<table id="configuration" class='nicetable ui-widget device_register' style="width:98%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>0x000F</label></td>
+			<td><label>Set address</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='15' min = "0" max = "247"></td>
+			<td id="index_15" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>0xF800</label></td>
+			<td><label>Set baudrate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='63488'>
+					<option value="4">9600</option>
+					<option value="3">4800</option>
+					<option value="2">2400</option>
+					<option value="1">1200</option>
+			</select></td>
+			<td id="index_63488" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfigInepro();">Write</button>
+	</div>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

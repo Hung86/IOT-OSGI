@@ -1,0 +1,71 @@
+@CHARSET "ISO-8859-1";
+input[type="text"] {
+	padding-left: 3px;
+}
+
+input[type="number"] {
+	padding-left: 3px;
+}
+
+input[type="checkbox"] {
+	vertical-align: middle;
+}
+
+.gateway-setting {
+	width: 25%;	
+}
+
+#content {
+	margin-top: 5px;	
+}
+
+.adaptertitle {
+	padding: .2em;	
+	padding-left: .8em;
+}
+
+.formbtn {
+	margin: 1em 0.2em 1em;
+	min-width: 6em;
+}
+
+#settingsformnotes {
+	font-size:10px;
+	font-weight: lighter;
+}
+
+.formerrors {
+	display: none;
+	background: #F0AFAF;
+	color: #363636;
+}
+
+.formsuccess {
+	background: #bd8;
+	display: none;
+	border: solid 1px #9BB671;
+}
+
+.error {
+    padding-left: .5em;
+    color: red;
+}
+
+option[disabled] {
+	display: none;
+}
+
+.formtable tr td:first-child {
+	width: 30%;
+}
+
+.settingtable >tbody>tr>td { width: 35%; }
+.settingtable tr{ line-height: 20px; }
+
+.ui-state-active {
+	background : none !important ;
+	background-color : #8dc63f !important ;
+}
+	
+	
+

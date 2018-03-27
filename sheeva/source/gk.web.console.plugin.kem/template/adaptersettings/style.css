@@ -1,0 +1,139 @@
+@CHARSET "ISO-8859-1";
+input[type="text"] {
+	padding-left: 3px;
+}
+
+input[type="number"] {
+	padding-left: 3px;
+}
+
+.adapter-setting {
+	width: 12em;
+}
+
+#content {
+	margin-top: 5px;	
+}
+
+.adaptertitle {
+	padding: .2em;	
+	padding-left: .8em;
+}
+
+.formbtn {
+	margin: 1em 0.2em 1em;
+	min-width: 6em;
+}
+
+.main-buttons {
+	min-width: 6em;
+}
+
+#settingsformnotes {
+	font-size:10px;
+	font-weight: lighter;
+}
+
+#maincontent {
+	float: right;
+	width: 60%;
+}
+
+#menuleftcontent {
+	float: left;
+	width: 40%;
+	border-width: 9px;
+	display: inline-block;
+}
+
+#menuleftcontent_table {
+	background-color: whitesmoke;
+	border-color: black;
+}
+
+
+#clearingdiv {
+	clear: both;
+}
+
+#addeddevicesbutton {
+    margin-bottom: 12px;
+	margin-top: 5px;
+} 
+
+#adderbutton {
+	display: inline;
+} 
+
+#addnewdevice {
+	display: inline;
+} 
+
+#deviceblock {
+	display: inline;
+}
+
+#channelblock {
+	display: inline;
+}
+
+#subchannelblock {
+	display: inline;
+}
+
+#nodeblock {
+	display: inline;
+}
+
+#confirmblock {
+	display: inline;
+}
+
+button.dyndevicebutton {
+	padding: 6px;
+	font-family: monospace;
+	font-weight: bolder;
+}
+
+.formerrors {
+	background: #F0AFAF;
+	color: #363636;
+}
+
+.formsuccess {
+	background: #bd8;
+	border: solid 1px #9BB671;
+}
+
+#adaptersettingsformtable tr td:first-child {
+	width: 30%;
+}
+
+#devices tr th {
+	width: 25%;
+}
+
+.device_layout tr td{
+    width: 25%;
+	
+}
+
+.error {
+    padding-left: .5em;
+    color: red;
+}
+
+.disabledmouse {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.waiting img {
+	vertical-align: middle;
+}
+.ui-state-active {
+	background : none !important ;
+	background-color : #8dc63f !important ;
+}
+
+

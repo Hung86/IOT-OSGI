@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Greenkoncepts Bacnet
+Bundle-SymbolicName: gk.bacnet
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.serotonin.bacnet4j,
+ com.serotonin.bacnet4j.event,
+ com.serotonin.bacnet4j.exception,
+ com.serotonin.bacnet4j.gk,
+ com.serotonin.bacnet4j.obj,
+ com.serotonin.bacnet4j.service.acknowledgement,
+ com.serotonin.bacnet4j.service.confirmed,
+ com.serotonin.bacnet4j.service.unconfirmed,
+ com.serotonin.bacnet4j.type,
+ com.serotonin.bacnet4j.type.constructed,
+ com.serotonin.bacnet4j.type.enumerated,
+ com.serotonin.bacnet4j.type.primitive,
+ com.serotonin.util,
+ org.apache.commons.lang3
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/commons-lang3-3.0.jar,
+ lib/seroUtils.jar,
+ .

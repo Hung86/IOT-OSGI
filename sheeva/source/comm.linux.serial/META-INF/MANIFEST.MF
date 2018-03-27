@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Comm armv5 Linux Bundle
+Bundle-SymbolicName: comm.linux.serial;singleton:=true
+Bundle-Version: 2.2.5
+Bundle-Vendor: greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.framework;version="1.7.0",
+ org.osgi.util.tracker;version="1.5.1"
+Bundle-Description: This bundle provides Serial and Parallel port supp
+ ort for Linux for armv5, using RXTX package
+Bundle-Category: comm
+Bundle-NativeCode: lib/librxtxSerial.so;lib/librxtxParallel.so;processor=x86-64; processor=amd64;processor=armv5l;processor=armv7l;processor=arm_le;osname=linux;osname=Linux
+Export-Package: gnu.io
+Bundle-ClassPath: lib/RXTXcomm.jar
+Bundle-ActivationPolicy: lazy

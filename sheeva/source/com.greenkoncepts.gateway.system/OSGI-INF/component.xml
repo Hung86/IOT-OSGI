@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activator" deactivate="deactivator" immediate="true" name="Greenkoncept Application System Service">
+   <implementation class="com.greenkoncepts.gateway.system.SystemServiceImpl"/>
+   <service>
+      <provide interface="com.greenkoncepts.gateway.api.system.SystemService"/>
+   </service>
+</scr:component>

@@ -1,0 +1,11 @@
+<script type="text/javascript" src="${pluginRoot}/js/gatewaystatus/gateway_status.js"></script>
+
+<!-- status line -->
+
+<form id="reloadform" method="get" action="">
+	<div style="width:100%; text-align: center"><p style="color:blue"><img style="vertical-align: middle" src="/system/console/networksettings/res/img/loading.gif"/>
+<!-- 		<input class="ui-state-error" type="submit" value="${reload}" /> -->
+		Gateway is rebooting... ${vmstat.reloading.in} <span id="reloadcountdowncell">&nbsp;</span>
+		<script type="text/javascript">shutdown(140, "reloadform", "reloadcountdowncell");</script></p>
+	</div>
+</form>

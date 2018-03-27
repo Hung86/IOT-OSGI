@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activator" deactivate="deactivator" immediate="true" name="com.greenkoncepts.gateway.core">
+   <implementation class="com.greenkoncepts.gateway.core.BridgeMasterImp"/>
+   <reference bind="setAdapter" cardinality="0..n" interface="com.greenkoncepts.gateway.api.adapter.Adapter" name="Adapter" policy="dynamic" unbind="unsetAdapter"/>
+   <service>
+      <provide interface="com.greenkoncepts.gateway.api.bridge.BridgeMaster"/>
+   </service>
+   <reference bind="setDeadlockDetector" cardinality="0..n" interface="com.greenkoncepts.gateway.watchdog.DeadlockDetector" name="DeadlockDetector" policy="dynamic" unbind="unsetDeadlockDetector"/>
+   <reference bind="setDbService" cardinality="1..1" interface="com.greenkoncepts.gateway.api.database.DbService" name="DbService" policy="dynamic" unbind="clearDbService"/>
+   <reference bind="setTaskExecute" cardinality="0..1" interface="com.greenkoncepts.gateway.api.task.ITaskExecute" name="ITaskExecute" policy="dynamic" unbind="unsetTaskExecute"/>
+</scr:component>

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Formula_parser
+Bundle-SymbolicName: formula_parser
+Bundle-Version: 1.1.0.qualifier
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.greenkoncepts.expression,
+ org.nfunk.jep,
+ org.nfunk.jep.evaluation,
+ org.nfunk.jep.function,
+ org.nfunk.jep.type

@@ -1,0 +1,11 @@
+@import url("../webconsole.css");
+/* prosyst styling */
+#lead {
+	padding-top: 0;
+	padding-left: .5em;
+	background-color: white;
+    height: 80px;
+}
+#lead p {
+	height: 80px;
+}

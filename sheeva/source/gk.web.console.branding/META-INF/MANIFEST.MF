@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Web Admin Console Branding
+Bundle-SymbolicName: gk.web.console.branding
+Bundle-Version: 1.0.0
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Category: web, webconsole
+Bundle-Description: Customizes the Apache Web Console by providing Greenkoncepts own style.
+Fragment-Host: org.apache.felix.webconsole

@@ -1,0 +1,145 @@
+<script type="text/javascript" src="${pluginRoot}/res/lib/jquery.timers.js"></script>
+<script>
+var tailgateInstances = new Array(); 
+var log_id = 0;
+
+function Tailgate(lines, url) {
+	this.lines=lines
+	this.url=url
+}
+
+function startReading (tailgateNamespace) {
+	var tailgate = tailgateInstances;
+
+    $.get(pluginRoot, {'id':'start'}, function(data) {
+    	log_id = data.logId;
+    	$(document).everyTime(
+    			1000,  // every second 
+    			"reading_"+tailgateNamespace, 
+    			function(i) {
+    				var request = $.ajax({
+    					url: pluginRoot,
+    					data : { 'id':'get','log_id':log_id},
+    					timeout: 1000, //in milliseconds
+    					dataType : "html",
+    					statusCode: {
+    						400: function() {
+//    	 						alert( "Bad Request" );
+    						},
+    						404: function() {
+//    	 						alert( "Page Not Found" );
+    							stopReading(namespace);
+    							$('#start').show();
+    							$('#stop').hide();
+    							location.replace("");//clear the page content
+    						},
+    						408: function() {
+//    	 						alert( "Request Timeout" );
+    						}
+    					},
+    					 error: function (xhr, ajaxOptions, thrownError) {
+    					}
+    				});
+    				
+    			request.done(function( data ) {
+    				console.log("-------data = " + data);
+    				addLines(data);
+    			});
+    			request.fail(function( jqXHR, textStatus, errorThrown  ) {
+    			});
+    		}, 
+    		0     // unlimited times
+    	);
+	},'json');
+}
+
+function stopReading (tailgateNamespace) {
+	$(document).stopTime("reading_"+tailgateNamespace);
+    $.get(pluginRoot, {'id':'stop','log_id':log_id}, function(data) {
+    	console.log("-----stop log id = " + log_id);
+	},'json');
+}
+var index = 0;
+function addLines(data) {
+	console.log("-------addLines = " + data);
+	if((data != null) && (data.length!=0)){
+		console.log("-------addLines : data.length = " + data.length);
+		//alert("data:"+data+",length:"+data.length);
+		if($('#progressbar').is(":visible")){
+			//firstime = false;
+			$('#progressbar').hide( "fast", function() {    // Animation complete.  
+			});
+		}
+		jQuery('#list').prepend(data);
+		index++;
+		// delete first lines if too long 				
+		var maxLines = tailgateInstances.lines;
+		var lines = jQuery('#list li').length;
+		while(lines > maxLines) {
+			jQuery('#list li').slice(maxLines , lines).remove();
+			lines = jQuery('#list li').length;
+		}
+
+	}
+};
+var namespace = 0;
+var firsttime = true;
+$(document).ready(function(){
+// 	$(document).ajaxError(function(){
+// 		//Do not do any thing
+// 	});
+	$(document).off('ajaxError');//Disale global event in support.js of felix webconsole
+	$('#stop').hide();
+	tailgateInstances = new Tailgate(200, pluginRoot);
+	$('#start').click(function(){
+		if(jQuery('#list li').length == 0){
+			$('#progressbar').show( "fast", function() {    // Animation complete.  
+			});
+		}
+		startReading(namespace);
+		$('#start').hide();
+		$('#stop').show();
+	})
+	$('#stop').click(function(){
+		if($('#progressbar').is(":visible") ){
+			//firstime = false;
+			$('#progressbar').hide( "fast", function() {    // Animation complete.  
+			});
+		}
+		stopReading(namespace);
+		$('#start').show();
+		$('#stop').hide();
+	})
+});
+</script>
+<style type="text/css">
+    .scroll {
+      height: 450px;
+      overflow: auto;
+      padding: 4px;
+    }
+    .scroll-x {
+      width: 400px;
+    }
+    .scroll-x div,
+    .scroll-x p {
+      float: left;
+      width: 180px;
+    }
+    .ui-state-active {
+		background : none !important;
+		background-color : #8dc63f !important ;
+	}
+</style>
+<br />
+<div id="display" class="ui-widget-content" style="padding-top:4px">
+	<div class="ui-widget" style="padding: 4px">
+		<button id="start">Start</button>
+		<button id="stop">Stop</button>
+	</div>
+	<progress id="progressbar" max="100" style="width:33%;display:none" >
+	</progress>
+	<div id="viewer" class="scroll">
+		<ul id="list"></ul>
+	</div>
+</div>

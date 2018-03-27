@@ -1,0 +1,111 @@
+<label><b>Configuration</b></label>
+<br/>
+<br/>
+<br/>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>4003</label></td>
+			<td><label>Consumption(m3)</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='2' value='0'></td>
+			<td id="index_2" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4005</label></td>
+			<td><label>Slave ID Number</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4' value='1' min="1" max="247"></td>
+			<td id="index_4" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4006</label></td>
+			<td><label>Interference Info</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='5' value='0'></td>
+			<td id="index_5" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4007</label></td>
+			<td><label>Second</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='6' value='0' min='0' max='59'></td>
+			<td id="index_6" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4008</label></td>
+			<td><label>Minute</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='7' value='0' min='0' max='59'></td>
+			<td id="index_7" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4009</label></td>
+			<td><label>Hour</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='8' value='0' min='0' max='23'></td>
+			<td id="index_8" class="show-writting-status" style="display:none"></td>
+		</tr>
+
+		<tr>
+			<td><label>4010</label></td>
+			<td><label>Day</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='9' value='0' min='1' max='31'></td>
+			<td id="index_9" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4011</label></td>
+			<td><label>Month</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='10' value='0' min='1' max='12'></td>
+			<td id="index_10" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4012</label></td>
+			<td><label>Year</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='11' value='0' min='0' max='2050'></td>
+			<td id="index_11" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4013</label></td>
+			<td><label>Maximum Flowrate</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='12' value='0' min='0'></td>
+			<td id="index_12" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4014</label></td>
+			<td><label>Battery Status</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='13' value='0' min = '0' max = '255'></td>
+			<td id="index_13" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4015</label></td>
+			<td><label>Version</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='14' value='0' readonly="readonly"></td>
+			<td id="index_14" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

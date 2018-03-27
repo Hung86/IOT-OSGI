@@ -1,0 +1,190 @@
+<ul class="page" style = "width:50%">
+   <li><a id = "setting_tab" class = "active" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Settings</b></a></li>
+</ul>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="channel" class='nicetable ui-widget' style="width:100%">
+		<thead>
+			<tr>
+				<th class="channel-header" style="width:30%"><b>Channel</b></th>
+				<th class="channel-header" style="width:30%"><b>Sensor Type</b></th>
+				<th class="channel-header" style="width:30%"><b>Sensitivity Threshold</b></th>
+				<th class="channel-header" style="width:30%"><b>Event Threshold</b></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<td>0</td>
+				<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(this);">
+					<option value="n/a">Select</option>
+					<option value="1104">1104 Vibration</option>
+					<option value="1111">1111 Motion</option>
+					<option value="1115">1115 Pressure</option>
+					<option value="1124">1124 Temp</option>
+					<option value="1127">1127 Lux 1000</option>
+					<option value="1142">1142 Lux 1000</option>
+					<option value="1143">1143 Lux 70000</option>
+					<option value="1130">1130 ORP/PH</option>
+					<option value="1133">1133 Sound</option>
+					<option value="1125">1125 Temp/RH</option>
+				</select></td>
+				<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+				<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+			</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td>1</td>
+			<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(this);">
+				<option value="n/a">Select</option>
+				<option value="1104">1104 Vibration</option>
+				<option value="1111">1111 Motion</option>
+				<option value="1115">1115 Pressure</option>
+				<option value="1124">1124 Temp</option>
+				<option value="1127">1127 Lux 1000</option>
+				<option value="1142">1142 Lux 1000</option>
+				<option value="1143">1143 Lux 70000</option>
+				<option value="1130">1130 ORP/PH</option>
+				<option value="1133">1133 Sound</option>
+				<option value="1125">1125 Temp/RH</option>
+			</select></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td>2</td>
+			<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(this);">
+				<option value="n/a">Select</option>
+				<option value="1104">1104 Vibration</option>
+				<option value="1111">1111 Motion</option>
+				<option value="1115">1115 Pressure</option>
+				<option value="1124">1124 Temp</option>
+				<option value="1127">1127 Lux 1000</option>
+				<option value="1142">1142 Lux 1000</option>
+				<option value="1143">1143 Lux 70000</option>
+				<option value="1130">1130 ORP/PH</option>
+				<option value="1133">1133 Sound</option>
+				<option value="1125">1125 Temp/RH</option>
+			</select></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td>3</td>
+			<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(this);">
+				<option value="n/a">Select</option>
+				<option value="1104">1104 Vibration</option>
+				<option value="1111">1111 Motion</option>
+				<option value="1115">1115 Pressure</option>
+				<option value="1124">1124 Temp</option>
+				<option value="1127">1127 Lux 1000</option>
+				<option value="1142">1142 Lux 1000</option>
+				<option value="1143">1143 Lux 70000</option>
+				<option value="1130">1130 ORP/PH</option>
+				<option value="1133">1133 Sound</option>
+				<option value="1125">1125 Temp/RH</option>
+			</select></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td>4</td>
+			<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(this);">
+				<option value="n/a">Select</option>
+				<option value="1104">1104 Vibration</option>
+				<option value="1111">1111 Motion</option>
+				<option value="1115">1115 Pressure</option>
+				<option value="1124">1124 Temp</option>
+				<option value="1127">1127 Lux 1000</option>
+				<option value="1142">1142 Lux 1000</option>
+				<option value="1143">1143 Lux 70000</option>
+				<option value="1130">1130 ORP/PH</option>
+				<option value="1133">1133 Sound</option>
+				<option value="1125">1125 Temp/RH</option>
+			</select></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td>5</td>
+			<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(${id},this);">
+				<option value="n/a">Select</option>
+				<option value="1104">1104 Vibration</option>
+				<option value="1111">1111 Motion</option>
+				<option value="1115">1115 Pressure</option>
+				<option value="1124">1124 Temp</option>
+				<option value="1127">1127 Lux 1000</option>
+				<option value="1142">1142 Lux 1000</option>
+				<option value="1143">1143 Lux 70000</option>
+				<option value="1130">1130 ORP/PH</option>
+				<option value="1133">1133 Sound</option>
+				<option value="1125">1125 Temp/RH</option>
+			</select></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td>6</td>
+			<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(this);">
+				<option value="n/a">Select</option>
+				<option value="1104">1104 Vibration</option>
+				<option value="1111">1111 Motion</option>
+				<option value="1115">1115 Pressure</option>
+				<option value="1124">1124 Temp</option>
+				<option value="1127">1127 Lux 1000</option>
+				<option value="1142">1142 Lux 1000</option>
+				<option value="1143">1143 Lux 70000</option>
+				<option value="1130">1130 ORP/PH</option>
+				<option value="1133">1133 Sound</option>
+				<option value="1125">1125 Temp/RH</option>
+			</select></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td>7</td>
+			<td><select class="ui-corner-all ui-state-default" id='sensor_type' name='sensor_type' onchange="mySelectChannel(this);">
+				<option value="n/a">Select</option>
+				<option value="1104">1104 Vibration</option>
+				<option value="1111">1111 Motion</option>
+				<option value="1115">1115 Pressure</option>
+				<option value="1124">1124 Temp</option>
+				<option value="1127">1127 Lux 1000</option>
+				<option value="1142">1142 Lux 1000</option>
+				<option value="1143">1143 Lux 70000</option>
+				<option value="1130">1130 ORP/PH</option>
+				<option value="1133">1133 Sound</option>
+				<option value="1125">1125 Temp/RH</option>
+			</select></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='threshold' name='threshold' style="width:40%" value='n/a'></td>
+			<td><input type='text' class="ui-corner-all ui-state-default" id='trigger_min' name='trigger_min' style="width:40%" value='n/a'></td>
+		</tr>
+		</tbody>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="saveSettings();">Save</button>
+</div>
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

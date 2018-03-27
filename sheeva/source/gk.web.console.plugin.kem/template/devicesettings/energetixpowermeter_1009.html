@@ -1,0 +1,120 @@
+
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<!-- <tr>
+			<td><label>40002</label></td>
+			<td><label>Network Id</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='40002' value='0'></td>
+			<td id="index_40002" class="show-writting-status" style="display:none"></td>
+		</tr> -->
+		<tr>
+			<td><label>40003</label></td>
+			<td><label>Address</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40003' value='0' min='1' max='247'></td>
+			<td id="index_40003" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>40004</label></td>
+			<td><label>Baudrate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='40004'>
+				<option value="9600">9600</option>
+				<option value="19200">19200</option>
+				<option value="38400">38400</option>
+				<option value="57600">57600</option>
+			</select></td>
+			<td id="index_40004" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="3">
+				<button  name="subject" class="ui-state-default ui-corner-all"	type="button" id = "40099" value="0" onclick = "resetValue(this);">Reset Factory Mode</button>
+				<button  name="subject" class="ui-state-default ui-corner-all"	type="button" id = "40099" value="1" onclick = "resetValue(this);">Reset DSP Memory</button>
+			</td>
+		
+			<!-- <td><label>40099</label></td>
+			<td><label>Reset to Factory Mode</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='40099'>
+				<option value="null">Select</option>
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select></td> -->
+			<td id="index_40099" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+	</table>
+	
+	<table id="configuration_v1" class='nicetable ui-widget device_register' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<!-- <tr>
+			<td><label>49001</label></td>
+			<td><label>Network Id</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='49001' value='0'></td>
+			<td id="index_49001" class="show-writting-status" style="display:none"></td>
+		</tr> -->
+		<tr>
+			<td><label>49002</label></td>
+			<td><label>Address</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='49002' value='0' min='1' max='247'></td>
+			<td id="index_49002" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>49003</label></td>
+			<td><label>Baudrate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='49003'>
+				<option value="115200">115200</option>
+				<option value="57600">57600</option>
+				<option value="38400">38400</option>
+				<option value="19200">19200</option>
+				<option value="9600">9600</option>
+				<option value="4800">4800</option>
+				<option value="2400">2400</option>
+			</select></td>
+			<td id="index_49003" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<button  name="subject" class="ui-state-default ui-corner-all" type="button" id = "48999" value="0" onclick = "resetValue(this);">Reset Factory Mode</button>
+				<button  name="subject" class="ui-state-default ui-corner-all" type="button" id = "48999" value="1" onclick = "resetValue(this);">Reset DSP Memory</button>
+			</td>
+			<!-- <td><label>48999</label></td>
+			<td><label>Reset to Factory Mode</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='48999'>
+				<option value="null">Select</option>
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select></td> -->
+			<td id="index_48999" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dent
+Bundle-SymbolicName: com.greenkoncepts.gateway.adapter.dent
+Bundle-Version: 2.2.0.qualifier
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.greenkoncepts.gateway.api.adapter,
+ com.greenkoncepts.gateway.api.database,
+ com.greenkoncepts.gateway.api.transport,
+ com.greenkoncepts.gateway.util,
+ org.slf4j
+Service-Component: OSGI-INF/component.xml

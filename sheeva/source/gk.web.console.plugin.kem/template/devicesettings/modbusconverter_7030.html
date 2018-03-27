@@ -1,0 +1,55 @@
+
+<ul class="page" style = "width:50%">
+	<li><a  class = "active" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Settings</b></a></li>
+</ul>
+</br>
+</br>
+</br>
+<div id="channel">
+	<table style = "width:100%" class='nicetable ui-widget' id = "table_virtual_node">
+		<thead>
+			<tr>
+				<th style="text-align: center;width:5%">
+					<b>Register Map</b>
+				</th>
+				<th style="text-align: center;width:5%">
+					<b>Data Type</b>
+				</th>
+				<th style="text-align: center;width:5%">
+					<b>Channel</b>
+				</th>
+				<th style="text-align: center;width:20%">
+					<b>Measure Name</b>
+				</th>
+				<th style="text-align: center;width:5%">
+					<b>Unit</b>
+				</th>
+				<th style="text-align: center;width:10%">
+					<b>Data Scalar</b>
+				</th>
+				<!-- <th style="text-align: center;width:7%" >
+					<b>Data Type</b>
+				</th> -->
+				<th style="text-align: center;width:20%">
+					<b>Calculated Int. Consumption</b>
+				</th>
+				<th style="text-align: center;width:5%">
+				</th>
+			</tr>
+		</thead>
+		<tbody id = "tbody">
+		</tbody>
+   </table>
+</div>
+<button id="add_datapoint" type="button" class="ui-corner-all ui-state-default"  onclick = "addDataPointToChannel()">Add Data Point</button>
+<button type='button' onclick = "saveMbusConverterSettings()" class='ui-state-default ui-corner-all ui-button'>Save</button>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

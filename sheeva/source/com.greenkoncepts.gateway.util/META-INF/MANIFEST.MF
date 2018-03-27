@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Util
+Bundle-SymbolicName: com.greenkoncepts.gateway.util
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.greenkoncepts.gateway.util
+Main-Class: com.greenkoncepts.gateway.util.WatchDog
+Import-Package: javax.servlet;version="2.6.0"

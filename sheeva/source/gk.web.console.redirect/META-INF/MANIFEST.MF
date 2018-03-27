@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Redirect
+Bundle-SymbolicName: gk.web.console.redirect
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: javax.servlet;version="2.6.0",
+ javax.servlet.http;version="2.6.0",
+ org.osgi.framework;version="1.3.0",
+ org.osgi.service.http;version="1.2.1"
+Bundle-Activator: gk.web.console.redirect.Activator

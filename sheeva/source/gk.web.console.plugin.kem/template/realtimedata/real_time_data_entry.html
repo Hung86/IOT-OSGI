@@ -1,0 +1,65 @@
+<head>
+<style>
+.ui-state-active {
+	background : none !important;
+	background-color : #8dc63f !important ;
+}
+</style>
+</head>
+<script type="text/javascript" src="/system/console/realtimedata/js/realtimedata/real_time_data_entry.js"></script>
+<br />
+<div>
+	<table class="tablesorter nicetable noauto ui-widget">
+		<thead>
+			<tr>
+				<th class="ui-widget-header">Connected Adapter</th>
+				<th class="ui-widget-header" colspan="2"><select id="adapters" class="ui-corner-all">  </select></th>
+			</tr>
+		</thead>
+		<tbody id="real_time_data" class="ui-widget-content">
+			<tr>
+				<td style="vertical-align:middle">Device Select</td>
+				<td style="vertical-align:middle">
+					<label id="address_label">Address </label>
+					<select id="address" class="ui-corner-all" onchange="onChangeAddress();">  </select>
+					<label id="instanceid_label">Instance Id </label>
+					<select id="instanceid" class="ui-corner-all" onchange="onChangeInstanceId();">  </select>
+					&nbsp
+					<label id="devicename"></label> 
+				</td>
+				<td></td>
+			</tr>
+	
+			<tr id="mode_info" style="height: 24px">
+				<td style="vertical-align:middle">Mode</td>
+				<td style="vertical-align:middle" >
+					<div id="radio">
+						<input type="radio" id="radio1" name="radio" value='1'>
+						<label for="radio1">  Real Time Data </label>  
+						<input type="radio" id="radio2" name="radio" value='0' >
+						<label for="radio2">  Send To Remote Host </label>
+					</div>
+					<p id='warning'><font color='red'>This mode will not send data to Remote Host</font></p>
+				</td>
+				<td></td>
+			</tr>
+	
+			<tr style="height: 24px">
+				<td></td>
+				<td style="vertical-align:middle" >
+					<input type="checkbox" name="autoupdate" value="auto" id="auto" style="display:none">  Auto Update
+				</td>
+				<td style="vertical-align:middle" >
+					<input type="submit" name="refresh" id="refresh" value="Refresh Data" onclick="refreshData(30000);"/>
+				</td>
+			</tr>
+	
+		</tbody>
+	</table>
+
+	<br />
+	
+	<p id="view_status" style="color:red"></p>
+	<div id="data_view" >
+	</div>
+</div>

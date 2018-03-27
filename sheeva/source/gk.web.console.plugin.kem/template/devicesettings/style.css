@@ -1,0 +1,216 @@
+@CHARSET "ISO-8859-1";
+input[type="text"] {
+	padding-left: 3px;
+}
+
+input[type="number"] {
+	padding-left: 3px;
+}
+
+.adapter-setting {
+	width: 12em;
+}
+
+#content {
+	margin-top: 5px;	
+}
+
+.adaptertitle {
+	padding: .2em;	
+	padding-left: .8em;
+	padding-bottom : .3em ;
+	padding-top : .4em ;
+}
+
+.formbtn {
+	margin: 1em 0.2em 1em;
+	min-width: 6em;
+}
+
+#settingsformnotes {
+	font-size:10px;
+	font-weight: lighter;
+}
+
+#maincontent {
+	float: right;
+	width: 60%;
+}
+
+#menuleftcontent {
+	float: left;
+	width: 40%;
+	border-width: 9px;
+	display: inline-block;
+}
+
+#menuleftcontent_table {
+	background-color: whitesmoke;
+	border-color: black;
+}
+
+
+#clearingdiv {
+	clear: both;
+}
+
+#addeddevicesbutton {
+    margin-bottom: 12px;
+	margin-top: 5px;
+} 
+
+#adderbutton {
+	display: inline;
+} 
+
+#addnewdevice {
+	display: inline;
+} 
+
+#deviceblock {
+	display: inline;
+}
+
+#channelblock {
+	display: inline;
+}
+
+#subchannelblock {
+	display: inline;
+}
+
+#nodeblock {
+	display: inline;
+}
+
+#confirmblock {
+	display: inline;
+}
+
+button.dyndevicebutton {
+	padding: 6px;
+	font-family: monospace;
+	font-weight: bolder;
+}
+
+.formerrors {
+	background: #F0AFAF;
+	color: #363636;
+}
+
+.formsuccess {
+	background: #bd8;
+	border: solid 1px #9BB671;
+}
+
+#adaptersettingsformtable tr td:first-child {
+	width: 30%;
+}
+
+#devices tr th {
+	width: 25%;
+}
+
+.device_layout tr td{
+    width: 25%;
+	
+}
+
+.error {
+    padding-left: .5em;
+    color: red;
+}
+
+.disabledmouse {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#labeltimer img {
+	vertical-align: middle;
+}
+.max,.min {
+	color:red ;
+}
+.horizon{
+	width : 100%;
+	background-color : green ;
+}
+.button {
+    background-color: #ccc ;
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+}
+
+ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+ul.pagination {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	float : right ;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+input, select.ui-corner-all {
+    -moz-box-sizing: content-box;
+	box-sizing: border-box; 
+}
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+ul.page li {display: inline;}
+ul.page li a {
+	color: black;
+	float: left;
+	/* background-color : #ccc ; */
+	/* text-decoration: none; */
+	border-radius: 5px;
+}
+ul.page li a.active {
+	color:  #8dc63f ;
+}
+.ui-button{
+	width : 5% ;
+	height : 10% ;
+}
+#page{
+	overflow:auto;
+	padding-bottom: 30px;
+} 
+#footer {
+	position:fixed;
+	bottom:0;
+	eft:0;
+	/* background-color : #acacac ; */
+	height : 20px ;
+	width: 100%;
+} 
+.ui-state-active{
+	background : none !important ;
+	background-color : #8dc63f !important ;
+	
+}
+#ok_validation {
+	background : none !important;
+	background-color : #8dc63f !important ;
+}

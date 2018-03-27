@@ -1,0 +1,21 @@
+******************************
+This notice is provided with respect to RxTx, 2.1-7r2 (http://rxtx.qbang.org/)
+Copyright 1997-2007 by Trent Jarvi tjarvi@qbang.org and others
+Licensed under LGPL v 2.1 + Linking Over Controlled Interface license (LICENSE.rxtx-2.1-7r2)
+Sources can be obtained from http://dz.prosyst.com/pdoc/oss
+
+Original files from RxTx changed:
+ParallelImp.c							2012/12/11
+RawImp.c									2012/01/05
+SerialImp.c								2014/02/24
+SerialImp.h								2012/09/24
+termios.c									2011/11/28
+win32termios.h						2011/11/14
+CommPort.java							2011/11/01
+CommPortEnumerator.java		2010/11/27
+CommPortIdentifier.java		2013/11/20
+LPRPort.java							2011/11/02
+RXTXCommDriver.java				2011/12/14
+RXTXPort.java							2013/03/29
+Zystem.java								2011/10/31
+******************************

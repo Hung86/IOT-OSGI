@@ -1,0 +1,133 @@
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>20</label></td>
+			<td><label>Modbus Address</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='20' value='1' min="1" max="247"></td>
+			<td id="index_20" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>21</label></td>
+			<td><label>Baudrate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='21'>
+			<option value="0">300</option>
+			<option value="1">2400</option>
+			<option value="2">9600</option>
+			<option value="3">19200</option>
+			<option value="4">38400</option>
+		</select></td>
+			<td id="index_21" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>22</label></td>
+			<td><label>Parity</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='22'>
+			<option value="0">Odd</option>
+			<option value="1">None</option>
+			<option value="2">Even</option>
+			</select></td>
+			<td id="index_22" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>104</label></td>
+			<td><label>Unit Energy</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='104'>
+			<option value="0">KWh</option>
+			<option value="1">MWh</option>
+			<option value="2">MJ</option>
+			<option value="3">GJ</option>
+			</select></td>
+			<td id="index_104" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>202</label></td>
+			<td><label>Unit Volume</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='202'>
+			<option value="0">m3</option>
+			</select></td>
+			<td id="index_202" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>502</label></td>
+			<td><label>Unit Power</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='502'>
+			<option value="0">W</option>
+			<option value="1">KW</option>
+			<option value="2">MW</option>
+			<option value="3">MJ/h</option>
+			<option value="4">GJ/h</option>
+			</select></td>
+			<td id="index_502" class="show-writting-status" style="display:none"></td>
+		</tr>
+
+		<tr>
+			<td><label>602</label></td>
+			<td><label>Unit Flow</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='602'>
+			<option value="0">L/s</option>
+			<option value="1">L/min</option>
+			<option value="2">L/h</option>
+			<option value="3">m3/h</option>
+			</select></td>
+			<td id="index_602" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>802</label></td>
+			<td><label>Unit Temperature Hot</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='802'>
+			<option value="0">Celsius</option>
+			<option value="1">Fahrenheit</option>
+			</select></td>
+			<td id="index_802" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>812</label></td>
+			<td><label>Unit Temperature Cold</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='812'>
+			<option value="0">Celsius</option>
+			<option value="1">Fahrenheit</option>
+			</select></td>
+			<td id="index_812" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>822</label></td>
+			<td><label>Unit Temperature Difference</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='822'>
+			<option value="2">Kelvin</option>
+			</select></td>
+			<td id="index_822" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

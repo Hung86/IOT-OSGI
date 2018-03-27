@@ -1,0 +1,109 @@
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>1</label></td>
+			<td><label>Relay Status 1</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='1'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_1" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>2</label></td>
+			<td><label>Relay Status 2</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='2'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_2" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>3</label></td>
+			<td><label>Relay Status 3</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='3'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_3" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4</label></td>
+			<td><label>Relay Status 4</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_4" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>5</label></td>
+			<td><label>Relay Status 5</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='5'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_5" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		
+		<tr>
+			<td><label>6</label></td>
+			<td><label>Relay Status 6</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='6'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_6" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>7</label></td>
+			<td><label>Relay Status 7</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='7'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_7" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>8</label></td>
+			<td><label>Relay Status 8</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='8'>
+					<option value="1">Open</option>
+					<option value="0">Close</option>
+				</select></td>
+			<td id="index_8" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

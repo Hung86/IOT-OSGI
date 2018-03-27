@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activator" deactivate="deactivator" immediate="true" name="Hsql Database Service">
+   <implementation class="com.greenkoncepts.gateway.database.HsqlDbServiceImpl"/>
+   <service>
+      <provide interface="com.greenkoncepts.gateway.api.database.DbService"/>
+   </service>
+   <reference bind="setSystemService" cardinality="1..n" interface="com.greenkoncepts.gateway.api.system.SystemService" name="SystemService" policy="dynamic" unbind="unsetSystemService"/>
+</scr:component>

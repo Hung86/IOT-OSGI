@@ -1,0 +1,930 @@
+<style>
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+
+<div class="tab">
+  <button id="real_node" class="tablinks" onclick="openTab(event, 'real_node')">Real Data Point</button>
+  <button id="virtual_node" class="tablinks" onclick="openTab(event, 'virtual_node')">Virtual Data Point</button>
+</div>
+
+
+		<table id="real_time_data_table" border="1" class="tablesorter nicetable noauto" style="width:100%">
+			<thead>
+				<th class="ui-widget-header" style="width:10%">Index</th>
+				<th class="ui-widget-header" style="width:10%">Object Identifier</th>
+				<th class="ui-widget-header" style="width:22%">Node Name</th>
+				<th class="ui-widget-header" style="width:26%">Measure</th>
+				<th class="ui-widget-header" style="width:10%">Value</th>
+				<th class="ui-widget-header" style="width:10%">Unit</th>
+				<th class="ui-widget-header" style="width:10%">Channel</th>
+			</thead>
+			<tbody>
+				<tr style="display:none" id="row_1">
+					<td><label id="idx_1"></label></td>
+					<td><label id="oi_1"></label></td>
+					<td><label id="name_1"></label></td>
+					<td><label id="measure_1"></label></td>
+					<td><label id="value_1"></label></td>
+					<td><label id="unit_1"></label></td>
+					<td><label id="channel_1"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_2">
+					<td><label id="idx_2"></label></td>
+					<td><label id="oi_2"></label></td>
+					<td><label id="name_2"></label></td>
+					<td><label id="measure_2"></label></td>
+					<td><label id="value_2"></label></td>
+					<td><label id="unit_2"></label></td>
+					<td><label id="channel_2"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_3">
+					<td><label id="idx_3"></label></td>
+					<td><label id="oi_3"></label></td>
+					<td><label id="name_3"></label></td>
+					<td><label id="measure_3"></label></td>
+					<td><label id="value_3"></label></td>
+					<td><label id="unit_3"></label></td>
+					<td><label id="channel_3"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_4">
+					<td><label id="idx_4"></label></td>
+					<td><label id="oi_4"></label></td>
+					<td><label id="name_4"></label></td>
+					<td><label id="measure_4"></label></td>
+					<td><label id="value_4"></label></td>
+					<td><label id="unit_4"></label></td>
+					<td><label id="channel_4"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_5">
+					<td><label id="idx_5"></label></td>
+					<td><label id="oi_5"></label></td>
+					<td><label id="name_5"></label></td>
+					<td><label id="measure_5"></label></td>
+					<td><label id="value_5"></label></td>
+					<td><label id="unit_5"></label></td>
+					<td><label id="channel_5"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_6">
+					<td><label id="idx_6"></label></td>
+					<td><label id="oi_6"></label></td>
+					<td><label id="name_6"></label></td>
+					<td><label id="measure_6"></label></td>
+					<td><label id="value_6"></label></td>
+					<td><label id="unit_6"></label></td>
+					<td><label id="channel_6"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_7">
+					<td><label id="idx_7"></label></td>
+					<td><label id="oi_7"></label></td>
+					<td><label id="name_7"></label></td>
+					<td><label id="measure_7"></label></td>
+					<td><label id="value_7"></label></td>
+					<td><label id="unit_7"></label></td>
+					<td><label id="channel_7"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_8">
+					<td><label id="idx_8"></label></td>
+					<td><label id="oi_8"></label></td>
+					<td><label id="name_8"></label></td>
+					<td><label id="measure_8"></label></td>
+					<td><label id="value_8"></label></td>
+					<td><label id="unit_8"></label></td>
+					<td><label id="channel_8"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_9">
+					<td><label id="idx_9"></label></td>
+					<td><label id="oi_9"></label></td>
+					<td><label id="name_9"></label></td>
+					<td><label id="measure_9"></label></td>
+					<td><label id="value_9"></label></td>
+					<td><label id="unit_9"></label></td>
+					<td><label id="channel_9"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_10">
+					<td><label id="idx_10"></label></td>
+					<td><label id="oi_10"></label></td>
+					<td><label id="name_10"></label></td>
+					<td><label id="measure_10"></label></td>
+					<td><label id="value_10"></label></td>
+					<td><label id="unit_10"></label></td>
+					<td><label id="channel_10"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_11">
+					<td><label id="idx_11"></label></td>
+					<td><label id="oi_11"></label></td>
+					<td><label id="name_11"></label></td>
+					<td><label id="measure_11"></label></td>
+					<td><label id="value_11"></label></td>
+					<td><label id="unit_11"></label></td>
+					<td><label id="channel_11"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_12">
+					<td><label id="idx_12"></label></td>
+					<td><label id="oi_12"></label></td>
+					<td><label id="name_12"></label></td>
+					<td><label id="measure_12"></label></td>
+					<td><label id="value_12"></label></td>
+					<td><label id="unit_12"></label></td>
+					<td><label id="channel_12"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_13">
+					<td><label id="idx_13"></label></td>
+					<td><label id="oi_13"></label></td>
+					<td><label id="name_13"></label></td>
+					<td><label id="measure_13"></label></td>
+					<td><label id="value_13"></label></td>
+					<td><label id="unit_13"></label></td>
+					<td><label id="channel_13"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_14">
+					<td><label id="idx_14"></label></td>
+					<td><label id="oi_14"></label></td>
+					<td><label id="name_14"></label></td>
+					<td><label id="measure_14"></label></td>
+					<td><label id="value_14"></label></td>
+					<td><label id="unit_14"></label></td>
+					<td><label id="channel_14"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_15">
+					<td><label id="idx_15"></label></td>
+					<td><label id="oi_15"></label></td>
+					<td><label id="name_15"></label></td>
+					<td><label id="measure_15"></label></td>
+					<td><label id="value_15"></label></td>
+					<td><label id="unit_15"></label></td>
+					<td><label id="channel_15"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_16">
+					<td><label id="idx_16"></label></td>
+					<td><label id="oi_16"></label></td>
+					<td><label id="name_16"></label></td>
+					<td><label id="measure_16"></label></td>
+					<td><label id="value_16"></label></td>
+					<td><label id="unit_16"></label></td>
+					<td><label id="channel_16"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_17">
+					<td><label id="idx_17"></label></td>
+					<td><label id="oi_17"></label></td>
+					<td><label id="name_17"></label></td>
+					<td><label id="measure_17"></label></td>
+					<td><label id="value_17"></label></td>
+					<td><label id="unit_17"></label></td>
+					<td><label id="channel_17"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_18">
+					<td><label id="idx_18"></label></td>
+					<td><label id="oi_18"></label></td>
+					<td><label id="name_18"></label></td>
+					<td><label id="measure_18"></label></td>
+					<td><label id="value_18"></label></td>
+					<td><label id="unit_18"></label></td>
+					<td><label id="channel_18"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_19">
+					<td><label id="idx_19"></label></td>
+					<td><label id="oi_19"></label></td>
+					<td><label id="name_19"></label></td>
+					<td><label id="measure_19"></label></td>
+					<td><label id="value_19"></label></td>
+					<td><label id="unit_19"></label></td>
+					<td><label id="channel_19"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_20">
+					<td><label id="idx_20"></label></td>
+					<td><label id="oi_20"></label></td>
+					<td><label id="name_20"></label></td>
+					<td><label id="measure_20"></label></td>
+					<td><label id="value_20"></label></td>
+					<td><label id="unit_20"></label></td>
+					<td><label id="channel_20"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_21">
+					<td><label id="idx_21"></label></td>
+					<td><label id="oi_21"></label></td>
+					<td><label id="name_21"></label></td>
+					<td><label id="measure_21"></label></td>
+					<td><label id="value_21"></label></td>
+					<td><label id="unit_21"></label></td>
+					<td><label id="channel_21"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_22">
+					<td><label id="idx_22"></label></td>
+					<td><label id="oi_22"></label></td>
+					<td><label id="name_22"></label></td>
+					<td><label id="measure_22"></label></td>
+					<td><label id="value_22"></label></td>
+					<td><label id="unit_22"></label></td>
+					<td><label id="channel_22"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_23">
+					<td><label id="idx_23"></label></td>
+					<td><label id="oi_23"></label></td>
+					<td><label id="name_23"></label></td>
+					<td><label id="measure_23"></label></td>
+					<td><label id="value_23"></label></td>
+					<td><label id="unit_23"></label></td>
+					<td><label id="channel_23"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_24">
+					<td><label id="idx_24"></label></td>
+					<td><label id="oi_24"></label></td>
+					<td><label id="name_24"></label></td>
+					<td><label id="measure_24"></label></td>
+					<td><label id="value_24"></label></td>
+					<td><label id="unit_24"></label></td>
+					<td><label id="channel_24"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_25">
+					<td><label id="idx_25"></label></td>
+					<td><label id="oi_25"></label></td>
+					<td><label id="name_25"></label></td>
+					<td><label id="measure_25"></label></td>
+					<td><label id="value_25"></label></td>
+					<td><label id="unit_25"></label></td>
+					<td><label id="channel_25"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_26">
+					<td><label id="idx_26"></label></td>
+					<td><label id="oi_26"></label></td>
+					<td><label id="name_26"></label></td>
+					<td><label id="measure_26"></label></td>
+					<td><label id="value_26"></label></td>
+					<td><label id="unit_26"></label></td>
+					<td><label id="channel_26"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_27">
+					<td><label id="idx_27"></label></td>
+					<td><label id="oi_27"></label></td>
+					<td><label id="name_27"></label></td>
+					<td><label id="measure_27"></label></td>
+					<td><label id="value_27"></label></td>
+					<td><label id="unit_27"></label></td>
+					<td><label id="channel_27"></label></td>
+				</tr>
+				
+				
+				<tr style="display:none" id="row_28">
+					<td><label id="idx_28"></label></td>
+					<td><label id="oi_28"></label></td>
+					<td><label id="name_28"></label></td>
+					<td><label id="measure_28"></label></td>
+					<td><label id="value_28"></label></td>
+					<td><label id="unit_28"></label></td>
+					<td><label id="channel_28"></label></td>
+				</tr>
+				
+				
+				<tr style="display:none" id="row_29">
+					<td><label id="idx_29"></label></td>
+					<td><label id="oi_29"></label></td>
+					<td><label id="name_29"></label></td>
+					<td><label id="measure_29"></label></td>
+					<td><label id="value_29"></label></td>
+					<td><label id="unit_29"></label></td>
+					<td><label id="channel_29"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_30">
+					<td><label id="idx_30"></label></td>
+					<td><label id="oi_30"></label></td>
+					<td><label id="name_30"></label></td>
+					<td><label id="measure_30"></label></td>
+					<td><label id="value_30"></label></td>
+					<td><label id="unit_30"></label></td>
+					<td><label id="channel_30"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_31">
+					<td><label id="idx_31"></label></td>
+					<td><label id="oi_31"></label></td>
+					<td><label id="name_31"></label></td>
+					<td><label id="measure_31"></label></td>
+					<td><label id="value_31"></label></td>
+					<td><label id="unit_31"></label></td>
+					<td><label id="channel_31"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_32">
+					<td><label id="idx_32"></label></td>
+					<td><label id="oi_32"></label></td>
+					<td><label id="name_32"></label></td>
+					<td><label id="measure_32"></label></td>
+					<td><label id="value_32"></label></td>
+					<td><label id="unit_32"></label></td>
+					<td><label id="channel_32"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_33">
+					<td><label id="idx_33"></label></td>
+					<td><label id="oi_33"></label></td>
+					<td><label id="name_33"></label></td>
+					<td><label id="measure_33"></label></td>
+					<td><label id="value_33"></label></td>
+					<td><label id="unit_33"></label></td>
+					<td><label id="channel_33"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_34">
+					<td><label id="idx_34"></label></td>
+					<td><label id="oi_34"></label></td>
+					<td><label id="name_34"></label></td>
+					<td><label id="measure_34"></label></td>
+					<td><label id="value_34"></label></td>
+					<td><label id="unit_34"></label></td>
+					<td><label id="channel_34"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_35">
+					<td><label id="idx_35"></label></td>
+					<td><label id="oi_35"></label></td>
+					<td><label id="name_35"></label></td>
+					<td><label id="measure_35"></label></td>
+					<td><label id="value_35"></label></td>
+					<td><label id="unit_35"></label></td>
+					<td><label id="channel_35"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_36">
+					<td><label id="idx_36"></label></td>
+					<td><label id="oi_36"></label></td>
+					<td><label id="name_36"></label></td>
+					<td><label id="measure_36"></label></td>
+					<td><label id="value_36"></label></td>
+					<td><label id="unit_36"></label></td>
+					<td><label id="channel_36"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_37">
+					<td><label id="idx_37"></label></td>
+					<td><label id="oi_37"></label></td>
+					<td><label id="name_37"></label></td>
+					<td><label id="measure_37"></label></td>
+					<td><label id="value_37"></label></td>
+					<td><label id="unit_37"></label></td>
+					<td><label id="channel_37"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_38">
+					<td><label id="idx_38"></label></td>
+					<td><label id="oi_38"></label></td>
+					<td><label id="name_38"></label></td>
+					<td><label id="measure_38"></label></td>
+					<td><label id="value_38"></label></td>
+					<td><label id="unit_38"></label></td>
+					<td><label id="channel_38"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_39">
+					<td><label id="idx_39"></label></td>
+					<td><label id="oi_39"></label></td>
+					<td><label id="name_39"></label></td>
+					<td><label id="measure_39"></label></td>
+					<td><label id="value_39"></label></td>
+					<td><label id="unit_39"></label></td>
+					<td><label id="channel_39"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_40" style="display:none">
+					<td><label id="idx_40"></label></td>
+					<td><label id="oi_40"></label></td>
+					<td><label id="name_40"></label></td>
+					<td><label id="measure_40"></label></td>
+					<td><label id="value_40"></label></td>
+					<td><label id="unit_40"></label></td>
+					<td><label id="channel_40"></label></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table id="virtual_time_data_table" border="1" class="tablesorter nicetable noauto" style="width:100%">
+			<thead>
+				<th class="ui-widget-header" style="width:10%">Index</th>
+				<th class="ui-widget-header" style="width:22%">Node Name</th>
+				<th class="ui-widget-header" style="width:26%">Measure</th>
+				<th class="ui-widget-header" style="width:10%">Value</th>
+				<th class="ui-widget-header" style="width:10%">Unit</th>
+				<th class="ui-widget-header" style="width:10%">Channel</th>
+			</thead>
+			<tbody>
+				<tr style="display:none" id="row_1">
+					<td><label id="idx_1"></label></td>
+					<td><label id="name_1"></label></td>
+					<td><label id="measure_1"></label></td>
+					<td><label id="value_1"></label></td>
+					<td><label id="unit_1"></label></td>
+					<td><label id="channel_1"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_2">
+					<td><label id="idx_2"></label></td>
+					<td><label id="name_2"></label></td>
+					<td><label id="measure_2"></label></td>
+					<td><label id="value_2"></label></td>
+					<td><label id="unit_2"></label></td>
+					<td><label id="channel_2"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_3">
+					<td><label id="idx_3"></label></td>
+					<td><label id="name_3"></label></td>
+					<td><label id="measure_3"></label></td>
+					<td><label id="value_3"></label></td>
+					<td><label id="unit_3"></label></td>
+					<td><label id="channel_3"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_4">
+					<td><label id="idx_4"></label></td>
+					<td><label id="name_4"></label></td>
+					<td><label id="measure_4"></label></td>
+					<td><label id="value_4"></label></td>
+					<td><label id="unit_4"></label></td>
+					<td><label id="channel_4"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_5">
+					<td><label id="idx_5"></label></td>
+					<td><label id="name_5"></label></td>
+					<td><label id="measure_5"></label></td>
+					<td><label id="value_5"></label></td>
+					<td><label id="unit_5"></label></td>
+					<td><label id="channel_5"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_6">
+					<td><label id="idx_6"></label></td>
+					<td><label id="name_6"></label></td>
+					<td><label id="measure_6"></label></td>
+					<td><label id="value_6"></label></td>
+					<td><label id="unit_6"></label></td>
+					<td><label id="channel_6"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_7">
+					<td><label id="idx_7"></label></td>
+					<td><label id="name_7"></label></td>
+					<td><label id="measure_7"></label></td>
+					<td><label id="value_7"></label></td>
+					<td><label id="unit_7"></label></td>
+					<td><label id="channel_7"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_8">
+					<td><label id="idx_8"></label></td>
+					<td><label id="name_8"></label></td>
+					<td><label id="measure_8"></label></td>
+					<td><label id="value_8"></label></td>
+					<td><label id="unit_8"></label></td>
+					<td><label id="channel_8"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_9">
+					<td><label id="idx_9"></label></td>
+					<td><label id="name_9"></label></td>
+					<td><label id="measure_9"></label></td>
+					<td><label id="value_9"></label></td>
+					<td><label id="unit_9"></label></td>
+					<td><label id="channel_9"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_10">
+					<td><label id="idx_10"></label></td>
+					<td><label id="name_10"></label></td>
+					<td><label id="measure_10"></label></td>
+					<td><label id="value_10"></label></td>
+					<td><label id="unit_10"></label></td>
+					<td><label id="channel_10"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_11">
+					<td><label id="idx_11"></label></td>
+					<td><label id="name_11"></label></td>
+					<td><label id="measure_11"></label></td>
+					<td><label id="value_11"></label></td>
+					<td><label id="unit_11"></label></td>
+					<td><label id="channel_11"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_12">
+					<td><label id="idx_12"></label></td>
+					<td><label id="name_12"></label></td>
+					<td><label id="measure_12"></label></td>
+					<td><label id="value_12"></label></td>
+					<td><label id="unit_12"></label></td>
+					<td><label id="channel_12"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_13">
+					<td><label id="idx_13"></label></td>
+					<td><label id="name_13"></label></td>
+					<td><label id="measure_13"></label></td>
+					<td><label id="value_13"></label></td>
+					<td><label id="unit_13"></label></td>
+					<td><label id="channel_13"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_14">
+					<td><label id="idx_14"></label></td>
+					<td><label id="name_14"></label></td>
+					<td><label id="measure_14"></label></td>
+					<td><label id="value_14"></label></td>
+					<td><label id="unit_14"></label></td>
+					<td><label id="channel_14"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_15">
+					<td><label id="idx_15"></label></td>
+					<td><label id="name_15"></label></td>
+					<td><label id="measure_15"></label></td>
+					<td><label id="value_15"></label></td>
+					<td><label id="unit_15"></label></td>
+					<td><label id="channel_15"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_16">
+					<td><label id="idx_16"></label></td>
+					<td><label id="name_16"></label></td>
+					<td><label id="measure_16"></label></td>
+					<td><label id="value_16"></label></td>
+					<td><label id="unit_16"></label></td>
+					<td><label id="channel_16"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_17">
+					<td><label id="idx_17"></label></td>
+					<td><label id="name_17"></label></td>
+					<td><label id="measure_17"></label></td>
+					<td><label id="value_17"></label></td>
+					<td><label id="unit_17"></label></td>
+					<td><label id="channel_17"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_18">
+					<td><label id="idx_18"></label></td>
+					<td><label id="name_18"></label></td>
+					<td><label id="measure_18"></label></td>
+					<td><label id="value_18"></label></td>
+					<td><label id="unit_18"></label></td>
+					<td><label id="channel_18"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_19">
+					<td><label id="idx_19"></label></td>
+					<td><label id="name_19"></label></td>
+					<td><label id="measure_19"></label></td>
+					<td><label id="value_19"></label></td>
+					<td><label id="unit_19"></label></td>
+					<td><label id="channel_19"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_20">
+					<td><label id="idx_20"></label></td>
+					<td><label id="name_20"></label></td>
+					<td><label id="measure_20"></label></td>
+					<td><label id="value_20"></label></td>
+					<td><label id="unit_20"></label></td>
+					<td><label id="channel_20"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_21">
+					<td><label id="idx_21"></label></td>
+					<td><label id="name_21"></label></td>
+					<td><label id="measure_21"></label></td>
+					<td><label id="value_21"></label></td>
+					<td><label id="unit_21"></label></td>
+					<td><label id="channel_21"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_22">
+					<td><label id="idx_22"></label></td>
+					<td><label id="name_22"></label></td>
+					<td><label id="measure_22"></label></td>
+					<td><label id="value_22"></label></td>
+					<td><label id="unit_22"></label></td>
+					<td><label id="channel_22"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_23">
+					<td><label id="idx_23"></label></td>
+					<td><label id="name_23"></label></td>
+					<td><label id="measure_23"></label></td>
+					<td><label id="value_23"></label></td>
+					<td><label id="unit_23"></label></td>
+					<td><label id="channel_23"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_24">
+					<td><label id="idx_24"></label></td>
+					<td><label id="name_24"></label></td>
+					<td><label id="measure_24"></label></td>
+					<td><label id="value_24"></label></td>
+					<td><label id="unit_24"></label></td>
+					<td><label id="channel_24"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_25">
+					<td><label id="idx_25"></label></td>
+					<td><label id="name_25"></label></td>
+					<td><label id="measure_25"></label></td>
+					<td><label id="value_25"></label></td>
+					<td><label id="unit_25"></label></td>
+					<td><label id="channel_25"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_26">
+					<td><label id="idx_26"></label></td>
+					<td><label id="name_26"></label></td>
+					<td><label id="measure_26"></label></td>
+					<td><label id="value_26"></label></td>
+					<td><label id="unit_26"></label></td>
+					<td><label id="channel_26"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_27">
+					<td><label id="idx_27"></label></td>
+					<td><label id="name_27"></label></td>
+					<td><label id="measure_27"></label></td>
+					<td><label id="value_27"></label></td>
+					<td><label id="unit_27"></label></td>
+					<td><label id="channel_27"></label></td>
+				</tr>
+				
+				
+				<tr style="display:none" id="row_28">
+					<td><label id="idx_28"></label></td>
+					<td><label id="name_28"></label></td>
+					<td><label id="measure_28"></label></td>
+					<td><label id="value_28"></label></td>
+					<td><label id="unit_28"></label></td>
+					<td><label id="channel_28"></label></td>
+				</tr>
+				
+				
+				<tr style="display:none" id="row_29">
+					<td><label id="idx_29"></label></td>
+					<td><label id="name_29"></label></td>
+					<td><label id="measure_29"></label></td>
+					<td><label id="value_29"></label></td>
+					<td><label id="unit_29"></label></td>
+					<td><label id="channel_29"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_30">
+					<td><label id="idx_30"></label></td>
+					<td><label id="name_30"></label></td>
+					<td><label id="measure_30"></label></td>
+					<td><label id="value_30"></label></td>
+					<td><label id="unit_30"></label></td>
+					<td><label id="channel_30"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_31">
+					<td><label id="idx_31"></label></td>
+					<td><label id="name_31"></label></td>
+					<td><label id="measure_31"></label></td>
+					<td><label id="value_31"></label></td>
+					<td><label id="unit_31"></label></td>
+					<td><label id="channel_31"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_32">
+					<td><label id="idx_32"></label></td>
+					<td><label id="name_32"></label></td>
+					<td><label id="measure_32"></label></td>
+					<td><label id="value_32"></label></td>
+					<td><label id="unit_32"></label></td>
+					<td><label id="channel_32"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_33">
+					<td><label id="idx_33"></label></td>
+					<td><label id="name_33"></label></td>
+					<td><label id="measure_33"></label></td>
+					<td><label id="value_33"></label></td>
+					<td><label id="unit_33"></label></td>
+					<td><label id="channel_33"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_34">
+					<td><label id="idx_34"></label></td>
+					<td><label id="name_34"></label></td>
+					<td><label id="measure_34"></label></td>
+					<td><label id="value_34"></label></td>
+					<td><label id="unit_34"></label></td>
+					<td><label id="channel_34"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_35">
+					<td><label id="idx_35"></label></td>
+					<td><label id="name_35"></label></td>
+					<td><label id="measure_35"></label></td>
+					<td><label id="value_35"></label></td>
+					<td><label id="unit_35"></label></td>
+					<td><label id="channel_35"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_36">
+					<td><label id="idx_36"></label></td>
+					<td><label id="name_36"></label></td>
+					<td><label id="measure_36"></label></td>
+					<td><label id="value_36"></label></td>
+					<td><label id="unit_36"></label></td>
+					<td><label id="channel_36"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_37">
+					<td><label id="idx_37"></label></td>
+					<td><label id="name_37"></label></td>
+					<td><label id="measure_37"></label></td>
+					<td><label id="value_37"></label></td>
+					<td><label id="unit_37"></label></td>
+					<td><label id="channel_37"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_38">
+					<td><label id="idx_38"></label></td>
+					<td><label id="name_38"></label></td>
+					<td><label id="measure_38"></label></td>
+					<td><label id="value_38"></label></td>
+					<td><label id="unit_38"></label></td>
+					<td><label id="channel_38"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_39">
+					<td><label id="idx_39"></label></td>
+					<td><label id="name_39"></label></td>
+					<td><label id="measure_39"></label></td>
+					<td><label id="value_39"></label></td>
+					<td><label id="unit_39"></label></td>
+					<td><label id="channel_39"></label></td>
+				</tr>
+				
+				<tr style="display:none" id="row_40" style="display:none">
+					<td><label id="idx_40"></label></td>
+					<td><label id="name_40"></label></td>
+					<td><label id="measure_40"></label></td>
+					<td><label id="value_40"></label></td>
+					<td><label id="unit_40"></label></td>
+					<td><label id="channel_40"></label></td>
+				</tr>
+			</tbody>
+		</table>
+		
+   <br/>
+   <div id = "pagination" style = "width:60%">
+		<label style = "width:15%"> Records Per Page </label>
+		<select class="ui-corner-all" id='records_per_page' style = "width:10%" onchange="onChangePaging();">
+			<option value="20">20</option>
+			<option value="40">40</option>
+		</select>
+		<label  style = "width:9%" >Page To</label>
+		<input type ="number" id = "page_number" class="ui-corner-all inputText"  style = "width:10%">
+		<input  style = "width:10%" type = "button" value = "Go" class="ui-corner-all ui-state-default" id = "go" onclick="goToPage();"/>
+		<label  style = "width:9%" id = "first" style = "text-decoration: underline;" onclick = "first()" >First</label>
+		<label  style = "width:9%" id = "previous" style = "text-decoration: underline;" onclick = "previous()">Previous</label>
+		<label  style = "width:10%" id = "current"></label>
+		<label  style = "width:9%" id = "next" style = "text-decoration: underline; " onclick = "next()">Next</label>
+		<label  style = "width:9%" id = "last" style = "text-decoration: underline; " onclick = "last()">Last</label>
+   </div>
+	
+	 <br/> <br/> <br/>
+<style>
+   #pagination {
+		float : right ;
+		margin : 0 auto;
+		text-align: right;
+   }
+    #pagination label{
+		 cursor: pointer;
+   }
+   #pagination *{
+		margin : 0 5px ;
+   }
+
+   ul.pagination_virtual {
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+   float :right ;
+   }
+   ul.pagination_virtual li {display: inline;}
+   ul.pagination_virtual li a {
+   color: black;
+   float: left;
+   padding: 8px 16px;
+   text-decoration: none;
+   border-radius: 5px;
+   }
+   ul.pagination_virtual li a.active {
+   background-color: rgba(14, 31, 15, 0.38);
+   color: white;
+   border-radius: 5px;
+   
+   }
+   .left {
+   float: left;
+   width: 125px;	
+   text-align: right;
+   margin: 2px 10px;
+   display: inline
+   }
+   .right {
+   float: left;
+   text-align: left;
+   margin: 2px 10px;
+   display: inline
+   }
+   ul.test {
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+   }
+   ul.test li {display: inline;}
+   ul.test li a {
+   color: black;
+   float: left;
+  <!--  background-color : #ccc ; -->
+   text-decoration: none;
+   border-radius: 5px;
+   }
+   ul.test li a.active {
+   color: green;
+   }
+  <!--  .bacnet{
+   background-color: rgba(158, 147, 147, 0.55);
+   } -->
+   <!-- .mapping{
+   background-color: rgba(158, 131, 131, 0.27);
+   } -->
+   fieldset{
+   border: 2px groove !important
+   }
+   table td {
+		vertical-align: middle;
+   }
+   
+   .disabledmouse {
+    pointer-events: none;
+    opacity: 0.5;
+	}
+</style>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Circuitcontroller
+Bundle-SymbolicName: com.greenkoncepts.gateway.adapter.circuitcontroller
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: GREENKONCEPTS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Service-Component: OSGI-INF/*.xml
+Import-Package: com.greenkoncepts.gateway.api.adapter,
+ com.greenkoncepts.gateway.api.database,
+ com.greenkoncepts.gateway.api.transport,
+ com.greenkoncepts.gateway.util,
+ org.slf4j

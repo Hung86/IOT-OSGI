@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+input[type="text"] {
+	padding-left: 3px;
+}
+
+input[type="number"] {
+	padding-left: 3px;
+}
+
+#content {
+	margin-top: 5px;	
+}
+
+.formbtn {
+	margin: 1em 0.2em 1em;
+	min-width: 6em;
+}
+
+.error {
+    padding-left: .5em;
+    color: red;
+}
+
+.formtable tr td:first-child {
+	width: 30%;
+}
+
+.disabledmouse {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#networkRestartMessage img {
+	vertical-align: middle;
+}
+.ui-state-active {
+	background : none !important;
+	background-color : #8dc63f !important ;
+}

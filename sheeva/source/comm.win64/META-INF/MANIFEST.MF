@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Comm x86_64 Windows Bundle
+Bundle-SymbolicName: comm.win64
+Bundle-Version: 2.2.5
+Bundle-Vendor: greenkoncepts
+Bundle-Description: This bundle provides Serial and Parallel port supp
+ ort for Windows for x86_64, using RXTX package
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.framework;version="1.7.0",
+ org.osgi.util.tracker;version="1.5.1"
+Bundle-Category: comm
+Bundle-NativeCode: rxtxParallel.dll ; rxtxSerial.dll;osname="Win32"; o
+ sname="Windows XP"; osname="Windows 7";osname="Windows Vista"; osname
+ ="windows 10";osname="windows 8";processor=x86-64; processor=amd64; pr
+ ocessor=em64t; processor=x86_64
+Export-Package: gnu.io
+Bundle-ClassPath: lib/RXTXcomm.jar,
+ .

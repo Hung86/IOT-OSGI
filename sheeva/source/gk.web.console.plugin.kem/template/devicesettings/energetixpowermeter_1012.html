@@ -1,0 +1,542 @@
+<style>
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+ul.pagination {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	float : right ;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+input, select.ui-corner-all {
+    -moz-box-sizing: content-box;
+	box-sizing: border-box; 
+}
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+ul.page li {display: inline;}
+ul.page li a {
+	color: black;
+	float: left;
+	/* background-color : #ccc ; */
+	/* text-decoration: none; */
+	border-radius: 5px;
+}
+ul.page li a.active {
+	color:  #8dc63f ;
+}
+</style>
+<ul class="page" style = "width:50%">
+   <li><a id = "setting_tab" class = "active" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Settings</b></a></li>
+   <li><a id = "configuration_tab"  style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Configuration</b></a></li>
+</ul>
+</br>
+</br>
+</br>
+<div id="device">	
+
+	<div class = "channel">
+		
+		<table id="channel" class='nicetable ui-widget' style="width:100%;">
+			<thead>
+				<tr>
+					<th class="channel-header" style="width:30%"><b>Channel</b></th>
+					<th class="channel-header" style="width:30%"><b>Type</b></th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<input type = "hidden" id = "channel" name = "channel" value = "0"/>
+					<td>0</td>
+					<td><select class="ui-corner-all ui-state-default" id='type' name='type' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="power" selected>Power</option>
+						<option value="solar">Solar</option>
+						</select></td>
+					
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<input type = "hidden" id = "channel" name = "channel" value = "1"/>
+					<td>1</td>
+					<td><select class="ui-corner-all ui-state-default" id='type' name='type' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="power" selected>Power</option>
+						<option value="solar">Solar</option>
+						</select></td>
+					
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<input type = "hidden" id = "channel" name = "channel" value = "2"/>
+					<td>2</td>
+					<td><select class="ui-corner-all ui-state-default" id='type' name='type' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="power" selected>Power</option>
+						<option value="solar">Solar</option>
+						</select></td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<input type = "hidden" id = "channel" name = "channel" value = "3"/>
+					<td>3</td>
+					<td><select class="ui-corner-all ui-state-default" id='type' name='type' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="power" selected>Power</option>
+						<option value="solar">Solar</option>
+						</select></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<br>
+		<button type='button' class='ui-state-default ui-corner-all' id='writingbutton_${id}' onclick="saveSettings();">Save</button>
+	</div>
+	
+	<div class ="configuration" style = "display:none">
+
+	<table id ="configuration" class='nicetable ui-widget device_register' style="width:98%>
+		<tr>
+			<th class="channel-header" style="width:30%" colspan="4" ><b>Common</b></th>
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<!-- <tr>
+			<td><label>40002</label></td>
+			<td><label>Network Id</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='40002' value='0'></td>
+			<td id="index_40002" class="show-writting-status" style="display:none"></td>
+		</tr> -->
+		<tr>
+			<td><label>40003</label></td>
+			<td><label>Address</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40003' value='0'></td>
+			<td id="index_40003" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>40004</label></td>
+			<td><label>Baudrate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='40004'>
+				<option value="9600">9600</option>
+				<option value="19200">19200</option>
+				<option value="38400">38400</option>
+				<option value="57600">57600</option>
+			</select></td>
+			<td id="index_40004" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		
+		<tr class  = "hr">
+			<td colspan = "4">
+				<button  name=	"subject"	class="ui-state-default ui-corner-all" type="button" id = "40099" value="0" onclick = "resetValue(this);">Reset Factory Mode</button>
+				<button  name=	"subject"	class="ui-state-default ui-corner-all" type="button" id = "40099" value="1" onclick = "resetValue(this);">Reset DSP Memory</button>
+			</td>
+		</tr>
+		
+	
+		
+		
+		
+		<tr>
+			<th class="channel-header" style="width:30%" colspan="4"><b>Channel 1</b></th>
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+		
+		<tr>
+			<td><label>40101</label></td>
+			<td><label>Ch1 CT Type</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40101' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40101'>
+				<option value="0">Ratio</option>
+				<option value="1">333mV</option>
+				<option value="2">Rogowski Coil</option>
+			</select>
+			</td>
+			<td id="index_40101" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40102</label></td>
+			<td><label>Ch1 CT Rating</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40102' value='0'></td>
+			<td id="index_40102" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40103</label></td>
+			<td><label>Ch1 Data Scalar</label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='40103'>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				</select>
+			</td>
+			<td id="index_40103" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40104</label></td>
+			<td><label>Ch1 Demand Window</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40104' value='0' min = "0" max = "59"> 
+				<label>minutes</label>
+			</td>
+			
+			<td id="index_40104" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40105</label></td>
+			<td><label>Ch1 Status</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40105' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40105'>
+				<option value="0">Enable</option>
+				<option value="1">Disable</option>
+				<option value="2">Error</option>
+				</select>
+			
+			</td>
+			<td id="index_40105" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40106</label></td>
+			<td><label>Ch1 Signed Mode</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40106' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40106'>
+				<option value="0">Set Unsigned</option>
+				<option value="1">Signed Mode</option>
+				</select>
+			</td>
+			<td id="index_40106" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr class  = "hr">
+			<td colspan = "4">
+				<button name="subject"	class="ui-state-default ui-corner-all" type="button" id = "40110" value="0" onclick = "resetValue(this);">Reset Acc</button>
+			</td>
+		</tr>
+		
+
+		
+		<tr>
+			<th class="channel-header" style="width:30%" colspan="4"><b>Channel 2</b></th>
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+		
+		<tr>
+			<td><label>40201</label></td>
+			<td><label>Ch2 CT Type</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40201' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40201'>
+				<option value="0">Ratio</option>
+				<option value="1">333mV</option>
+				<option value="2">Rogowski Coil</option>
+			</select>
+			</td>
+			<td id="index_40201" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40202</label></td>
+			<td><label>Ch2 CT Rating</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40202' value='0'></td>
+			<td id="index_40202" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40203</label></td>
+			<td><label>Ch2 Data Scalar</label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='40203'>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				</select>
+			</td>
+			
+			<td id="index_40203" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40204</label></td>
+			<td><label>Ch2 Demand Window</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40204' value='0'  min = "0" max = "59">
+			<label>minutes</label>
+			</td>
+			<td id="index_40204" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40205</label></td>
+			<td><label>Ch2 Status</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40205' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40205'>
+				<option value="0">Enable</option>
+				<option value="1">Disable</option>
+				<option value="2">Error</option>
+				</select>
+			</td>
+			<td id="index_40205" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40206</label></td>
+			<td><label>Ch2 Signed Mode</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40206' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40206'>
+				<option value="0">Set Unsigned</option>
+				<option value="1">Signed Mode</option>
+				</select>
+			</td>
+			<td id="index_40206" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr class  = "hr">
+			<td colspan = "4">
+				<button name="subject"	class="ui-state-default ui-corner-all" type="button" id = "40210" value="0" onclick = "resetValue(this);">Reset Acc</button>
+			</td>
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%" colspan="4"><b>Channel 3</b></th>
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+	
+		<tr>
+			<td><label>40301</label></td>
+			<td><label>Ch3 CT Type</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40301' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40301'>
+				<option value="0">Ratio</option>
+				<option value="1">333mV</option>
+				<option value="2">Rogowski Coil</option>
+			</select>
+			</td>
+			<td id="index_40301" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40302</label></td>
+			<td><label>Ch3 CT Rating</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40302' value='0'></td>
+			<td id="index_40302" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>40303</label></td>
+			<td><label>Ch3 Data Scalar</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40303' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40303'>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				</select>
+			</td>
+			<td id="index_40303" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40304</label></td>
+			<td><label>Ch3 Demand Window</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40304' value='0'  min = "0" max = "59">
+				<label>minutes</label>
+			</td>
+			<td id="index_40304" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40305</label></td>
+			<td><label>Ch3 Status</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40305' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40305'>
+				<option value="0">Enable</option>
+				<option value="1">Disable</option>
+				<option value="2">Error</option>
+				</select>
+			</td>
+			<td id="index_40305" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40306</label></td>
+			<td><label>Ch3 Signed Mode</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40306' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40306'>
+				<option value="0">Set Unsigned</option>
+				<option value="1">Signed Mode</option>
+				</select>
+			</td>
+			<td id="index_40306" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr class  = "hr">
+			<td colspan = "4">
+				<button name="subject" class="ui-state-default ui-corner-all" type="button" id = "40310" value="0" onclick = "resetValue(this);">Reset Acc</button>
+			</td>
+			<!-- <td><label>40310</label></td>
+			<td><label>Ch3 Reset Accumulated Value</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='40310'>
+				<option value="null">Select</option>
+				<option value="0">0</option>
+			</select></td>
+			<td id="index_40310" class="show-writting-status" style="display:none"></td> -->
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%" colspan="4"><b>Channel 4</b></th>
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+	
+		<tr>
+			<td><label>40401</label></td>
+			<td><label>Ch4 CT Type</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40401' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40401'>
+				<option value="0">Ratio</option>
+				<option value="1">333mV</option>
+				<option value="2">Rogowski Coil</option>
+			</select>
+			</td>
+			<td id="index_40401" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40402</label></td>
+			<td><label>Ch4 CT Rating</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40402' value='0'></td>
+			<td id="index_40402" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40403</label></td>
+			<td><label>Ch4 Data Scalar</label></td>	
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40403' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40403'>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				</select>
+			</td>
+			<td id="index_40403" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40404</label></td>
+			<td><label>Ch4 Demand Window</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='40404' value='0'  min = "0" max = "59">
+				<label>minutes</label>
+			</td>
+			<td id="index_40404" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40405</label></td>
+			<td><label>Ch4 Status</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40405' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40405'>
+				<option value="0">Enable</option>
+				<option value="1">Disable</option>
+				<option value="2">Error</option>
+				</select>
+			</td>
+			<td id="index_40405" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>40406</label></td>
+			<td><label>Ch4 Signed Mode</label></td>
+			<td><!-- <input style='width:40%' type='number' class='ui-corner-all inputText' id='40406' value='0'> -->
+				<select style='width:40%' class="ui-corner-all" id='40406'>
+				<option value="0">Set Unsigned</option>
+				<option value="1">Signed Mode</option>
+				</select>
+			</td>
+			<td id="index_40406" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr  class  = "hr">
+			<td colspan = "4">
+				<button name="subject"	class="ui-state-default ui-corner-all" type="button" id = "40410" value="0" onclick = "resetValue(this);">Reset Acc</button>
+			</td>
+			<!-- <td><label>40410</label></td>
+			<td><label>Ch4 Reset Accumulated Value</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='40410'>
+				<option value="null">Select</option>
+				<option value="0">0</option>
+			</select></td>
+			<td id="index_40410" class="show-writting-status" style="display:none"></td> -->
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+	</div>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

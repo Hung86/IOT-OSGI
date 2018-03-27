@@ -1,0 +1,143 @@
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>4524</label></td>
+			<td><label>CT Type</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4524'>
+					<option value="1">mV</option>
+					<option value="2">Rogowski</option>
+				</select></td>
+			<td id="index_4524" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4525</label></td>
+			<td><label>Slave ID</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4525'>
+					<option value="0">Dent</option>
+					<option value="1">Veris</option>
+				</select></td>
+			<td id="index_4525" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4598</label></td>
+			<td><label>CT Phase Shift X 100 +/-</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4598' value='0'></td>
+			<td id="index_4598" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4599</label></td>
+			<td><label>CT Integer</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4599' value='0'></td>
+			<td id="index_4599" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4600</label></td>
+			<td><label>CT Decimal</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4600' value='0'></td>
+			<td id="index_4600" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4601</label></td>
+			<td><label>Data Scalar</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4601'>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select></td>
+			<td id="index_4601" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4602</label></td>
+			<td><label>Demand Window Size</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4602' value='15' min = "0" max  = "59">&nbsp;<label>minutes</label></td>
+			<td id="index_4602" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4603</label></td>
+			<td><label>Volts Multiplier</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4603' value='0'></td>
+			<td id="index_4603" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4604</label></td>
+			<td><label>Amps Multiplier</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4604' value='0'></td>
+			<td id="index_4604" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4605</label></td>
+			<td><label>Communication Setting</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4605' value='0'></td>
+			<td id="index_4605" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4606</label></td>
+			<td><label>Service Type</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4606'>
+					<option value="0">WYE</option>
+					<option value="1">DELTA</option>
+				</select></td>
+			<td id="index_4606" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4608</label></td>
+			<td><label>Set Line Frequency</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4608'>
+					<option value="50">50Hz</option>
+					<option value="60">60Hz</option>
+					<option value="400">400Hz</option>
+				</select></td>
+			<td id="index_4608" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4611</label></td>
+			<td><label>Communications Settings</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4611'>
+					<option value="375">Modbus mode</option>
+					<option value="1833">BACnet 2004 mode</option>
+				</select></td>
+			<td id="index_4611" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='4065' value = "1234" onclick="resetValue(this);">Reset Acc</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

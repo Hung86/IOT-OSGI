@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-Vendor: greenkoncepts
+Bundle-Version: 2.2.5
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: comm.win32
+Bundle-Description: This bundle provides Serial and Parallel port supp
+ ort for Windows for x86, using RXTX package
+Bundle-Name: Comm x86 Windows Bundle
+Bundle-Activator: com.greenkoncepts.impl.services.comm.win.CommActivatorWin32
+Bundle-Category: comm
+Bundle-NativeCode: rxtxParallel.dll ; rxtxSerial.dll;processor=x86; os
+ name=Win32; osname="Windows NT"; osname="Windows 98"; osname="Windows
+  95"; osname="Windows 2000"; osname="Windows XP"; osname="Windows 7";
+  osname="Windows Vista"; osname="windows 7"; osname="windows 8"
+Import-Package: org.osgi.framework,
+ org.osgi.util.tracker
+Export-Package: gnu.io
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

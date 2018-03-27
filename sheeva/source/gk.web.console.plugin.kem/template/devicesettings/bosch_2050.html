@@ -1,0 +1,401 @@
+<style>
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+ul.pagination {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	float : right ;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+input, select.ui-corner-all {
+    -moz-box-sizing: content-box;
+	box-sizing: border-box; 
+}
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+ul.page li {display: inline;}
+ul.page li a {
+	color: black;
+	float: left;
+	/* background-color : #ccc ; */
+	/* text-decoration: none; */
+	border-radius: 5px;
+}
+ul.page li a.active {
+	color:  #0099ff ;
+}
+
+.input-like-label {
+    background:rgba(0,0,0,0);
+    border:none;
+}
+
+</style>
+<ul class="page" style = "width:50%">
+   <li><a id = "setting_tab" class = "active" style = "text-align:left;padding-right: 10px;" href="#"><b>Sensor Calibration</b></a></li>
+   <li><a id = "configuration_tab"  style = "text-align:left;" href="#"><b>XDK Settings</b></a></li>
+</ul>
+
+</br>
+<div id="device">
+<div class = "channel">
+	<table id="channel" class='nicetable ui-widget' style="width:100%">
+		<thead>
+			<tr>
+				<th class="channel-header" style="width:30%"><b style="padding-left: 3px;">Sensor</b></th>
+				<th class="channel-header" style="width:25%"><b>Offset added to readings</b></th>
+				<th class="channel-header" style="width:25%"><b style="padding-left: 10px;">Threshold to stream data</b></th>
+				<th class="channel-header" style="width:10%"><b>Unit</b></th>
+				<th class="channel-header" style="width:10%"><b>Channel</b></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bma280_x'/>
+				<td><input type='text' class='input-like-label ui-corner-all ui-state-default' id='label' name='label' style="width:80%" value='BMA280 Accelerometer X' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style='width:30%' value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style='width:30%' value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>g</td>
+				<td>0</td>
+			</tr>
+		
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bma280_y'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMA280 Accelerometer Y' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>g</td>
+				<td>0</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bma280_z'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMA280 Accelerometer Z' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>g</td>
+				<td>0</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmg160_x'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMG160 Gyroscope X' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>deg</td>
+				<td>1</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmg160_y'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMG160 Gyroscope Y' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>deg</td>
+				<td>1</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmg160_z'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMG160 Gyroscope Z' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>deg</td>
+				<td>1</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmi160_a_x'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMI160 Accelerometer X' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>g</td>
+				<td>2</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmi160_a_y'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMI160 Accelerometer Y' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>g</td>
+				<td>2</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmi160_a_z'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMI160 Accelerometer Z' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0000' onchange='setNDecimalPoint(this, 4);'></td>
+				<td>g</td>
+				<td>2</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmi160_g_x'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMI160 Gyroscope X' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>deg</td>
+				<td>2</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmi160_g_y'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMI160 Gyroscope Y' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>deg</td>
+				<td>2</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmi160_g_z'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMI160 Gyroscope Z' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>deg</td>
+				<td>2</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmm150_x'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMM150 Magnetometer X' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>uT</td>
+				<td>3</td>
+			</tr>
+		
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmm150_y'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMM150 Magnetometer Y' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>uT</td>
+				<td>3</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bmm150_z'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BMM150 Magnetometer Z' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>uT</td>
+				<td>3</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bme280_hum'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BME280 Humidity' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>%</td>
+				<td>4</td>
+			</tr>
+		
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bme280_press'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BME280 Pressure' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0' onchange='setNDecimalPoint(this, 0);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0' onchange='setNDecimalPoint(this, 0);'></td>
+				<td>kPa</td>
+				<td>4</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='bme280_temp'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='BME280 Temperature' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.0' onchange='setNDecimalPoint(this, 1);'></td>
+				<td>C</td>
+				<td>4</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='max44009_bright'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='MAX44009 Ambient Light' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0.00' onchange='setNDecimalPoint(this, 2);'></td>
+				<td>lux</td>
+				<td>5</td>
+			</tr>
+			
+			<tr>
+				<input type = "hidden" id = "data_point" name = "data_point"/>
+				<input type = "hidden" id = "sensor" name = "sensor" value='aku340_sound'/>
+				<td><input type='text' class="input-like-label ui-corner-all ui-state-default" id='label' name='label' style="width:80%" value='AKU340 Ambient Noise' readonly='readonly'></td>
+				<td><input type='number' class="ui-corner-all ui-state-default" id='offset' name='offset' style="width:30%" value='0' onchange='setNDecimalPoint(this, 0);'></td>
+				<td>&plusmn;<input type='number' class="ui-corner-all ui-state-default" id='delta' name='delta' style="width:30%" value='0' onchange='setNDecimalPoint(this, 0);'></td>
+				<td>dBA</td>
+				<td>6</td>
+			</tr>
+
+		</tbody>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all' id='writingbutton_${id}' onclick="saveSettings();">Save & Restart</button>
+</div>
+
+<div class ="configuration" style = "display:none">
+
+	<table id ="configuration" class='nicetable ui-widget device_register' style="width:98%">
+	<tbody>
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Wi-Fi SSID</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText' id='ssidname' value=''></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Wi-Fi Password</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText' id='wifipass' value=''></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>DHCP Configuration</label></td>
+			<td><input type="radio" name="mode" id="mode_dhcp" value="dhcp"> DHCP 
+				<input type="radio" name="mode" id="mode_static" value="static"> Static IP
+				<input type = "hidden" id = "netmode" value='dhcp'/>
+				</td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Static IP Address</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText staticip' id='staticip' value='0.0.0.0'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Subnet Mask</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText staticip' id='subnet' value='255.255.255.1'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label >Default Gateway</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText staticip' id='gateway' value='192.168.1.1'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>DNS Server</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText staticip' id='dns' value='192.168.1.1'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Messaging Protocol</label></td>
+			<td><input type="radio" name="protocol" id="mode_mqtt" value="mqtt"> MQTT 
+				<input type="radio" name="protocol" id="mode_http" value="http"> HTTP
+				<input type = "hidden" id = "msgmode" value='mqtt'/>
+			</td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Gateway IP Address</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText' id='gatewayip' value='0.0.0.0'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Gateway Port Number</label></td>
+			<td><input style='width:40%' type='text' class='ui-corner-all inputText' id='gatewayport' value=''  class='staticip'></td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Sending Interval</label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='sendinterval'>
+					<option value="1">1 second</option>
+					<option value="5">5 seconds</option>
+					<option value="10">10 seconds</option>
+					<option value="15">15 seconds</option>
+					<option value="20">20 seconds</option>
+					<option value="25">25 seconds</option>
+					<option value="30">30 seconds</option>
+					<option value="35">35 second</option>
+					<option value="40">40 seconds</option>
+					<option value="45">45 seconds</option>
+					<option value="50">50 seconds</option>
+					<option value="55">55 seconds</option>
+					<option value="60">1 minute</option>
+					<option value="300">5 minutes </option>
+					<option value="600">10 minutes </option>
+					<option value="900">15 minutes </option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<input type = "hidden" id = "data_point" name = "data_point"/>
+			<td><label>Device Address</label></td>
+			<td><label id='deviceaddress'></label></td>
+		</tr>
+	</tbody>
+	
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all' id='readingbutton' onclick="saveConfigXDK();">Save</button>
+	<button type='button' class='ui-state-default ui-corner-all' id='writeToSD' onclick="saveConfigXDKtoSD();">Write to SD</button>
+	<button type='button' class='ui-state-default ui-corner-all' id='readingbutton' onclick="readConfigXDKfromSD();">Read from SD</button>
+	<form id="uploadform" action="devicesettings/upload_file" method="POST"  enctype="multipart/form-data">
+			<input type="file" name="file" size="50" style = "display:none" id ="file" onchange ="submitForm();"/>
+	</form>
+</div>
+</div>
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

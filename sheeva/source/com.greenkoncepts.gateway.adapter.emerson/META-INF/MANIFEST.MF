@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Emerson
+Bundle-SymbolicName: com.greenkoncepts.gateway.adapter.emerson
+Bundle-Version: 1.2.0.qualifier
+Bundle-Vendor: GREENKONCEPTS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Service-Component: OSGI-INF/component.xml
+Import-Package: com.greenkoncepts.gateway.api.adapter,
+ com.greenkoncepts.gateway.api.database,
+ com.greenkoncepts.gateway.api.transport,
+ com.greenkoncepts.gateway.util,
+ org.slf4j

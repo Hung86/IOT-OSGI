@@ -1,0 +1,51 @@
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+		<tr>
+			<td><label>40003</label></td>
+			<td><label>Address</label></td>
+			<td><input type='number' class='ui-corner-all inputText' id='40003' value='0' style='width:40%'></td>
+			<td id="index_40003" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>40004</label></td>
+			<td><label>Baudrate</label></td>
+			<td><select class="ui-corner-all" id='40004' style='width:40%'>
+				<option value="9600">9600</option>
+				<option value="19200">19200</option>
+				<option value="38400">38400</option>
+				<option value="57600">57600</option>
+			</select></td>
+			<td id="index_40004" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td colspan = "4">
+				<button type="button" class="ui-state-default ui-corner-all" id = "40099" value="0" onclick = "resetValue(this);">Reset Factory Mode</button>
+				<button type="button" class="ui-state-default ui-corner-all" id = "40099" value="1" onclick = "resetValue(this);">Reset DSP Memory</button>
+			</td>
+
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig(${id});">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

@@ -1,0 +1,46 @@
+<table id="adaptersettingsformtable" class="nicetable ui-widget" style="width:100%">
+	<tr>
+		<td>Bacnet Port</td>
+		<td><input type='number' class='inputText adapter-setting ui-corner-all' id="port" name='port' value='0'></td>
+	</tr>
+	
+	<tr>
+		<td>Multi Property Access</td>
+		<td>
+			<select class="inputText adapter-setting ui-corner-all" id='multi_property' name='multi_property'>
+				<option value="true">True</option>
+				<option value="false">False</option>
+			</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Max Datapoint Per Reading</td>
+		<td>
+			<select class="inputText adapter-setting ui-corner-all" id='max_oi_per_query' name='max_oi_per_query'>
+				<option value="20">20</option>
+				<option value="30">30</option>
+				<option value="40">40</option>
+				<option value="50">50</option>
+				<option value="70">70</option>
+				<option value="100">100</option>
+				<option value="130">130</option>
+				<option value="160">160</option>
+				<option value="200">200</option>
+				<option value="250">250</option>
+				<option value="300">300</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Query Timeout (ms)</td>
+		<td><input type='number' class="inputText adapter-setting ui-corner-all" id='query_timeout' name='query_timeout' value='200' min="0" max="100000" required>
+	</tr>
+	
+	<tr>
+		<td>Number of Devices Configured</td>
+		<td><label type='number' id="device_num" name='device_num' >0</label></td>
+	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+</table>

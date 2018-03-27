@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activator" deactivate="deactivator" immediate="true" name="Deadlock Detector">
+   <implementation class="com.greenkoncepts.gateway.watchdog.deadlockdetector.DeadlockDetectorImp"/>
+   <service>
+      <provide interface="com.greenkoncepts.gateway.watchdog.DeadlockDetector"/>
+   </service>
+</scr:component>

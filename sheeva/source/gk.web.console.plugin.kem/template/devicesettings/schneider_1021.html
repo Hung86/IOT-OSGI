@@ -1,0 +1,178 @@
+
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">	
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:98%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+		<tr>
+			<td><label>4105</label></td>
+			<td><label>Scale Factor I</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4105' value='0' readonly='readonly'></td>
+			<td id="index_4105" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4106</label></td>
+			<td><label>Scale Factor V</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4106' value='0' readonly='readonly'></td>
+			<td id="index_4106" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4107</label></td>
+			<td><label>Scale Factor W</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4107' value='0' readonly='readonly'></td>
+			<td id="index_4107" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4108</label></td>
+			<td><label>Scale Factor E</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4108' value='0' readonly='readonly'></td>
+			<td id="index_4108" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4117</label></td>
+			<td><label>Thermal Demand Interval</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4117' value='0' min='1' max='60'>&nbsp;<label>minutes</label></td>
+			<td id="index_4117" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4118</label></td>
+			<td><label>Power Block Demand Interval</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4118' value='0' min='1' max='60'>&nbsp;<label>minutes</label></td>
+			<td id="index_4118" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4119</label></td>
+			<td><label>Power Block Demand Number of Sub-Interval</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4119' value='0' min='1' max='60'>&nbsp;<label>seconds</label></td>
+			<td id="index_4119" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4120</label></td>
+			<td><label>CT Ratio - Primary</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4120' value='0' min='1' max='32767'></td>
+			<td id="index_4120" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4121</label></td>
+			<td><label>CT Ratio - Secondary</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4121'>
+					<option value="1">1</option>
+					<option value="5">5</option>
+				</select></td>
+			<td id="index_4121" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4122</label></td>
+			<td><label>PT Ratio - Primary</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4122' value='0' min='1' max='32767'></td>
+			<td id="index_4122" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4123</label></td>
+			<td><label>PT Ratio - Scale (0=No PT)</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4123'>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="10">10</option>
+					<option value="100">100</option>
+				</select></td>
+			<td id="index_4123" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4124</label></td>
+			<td><label>PT Ratio - Secondary</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4124'>
+					<option value="100">100</option>
+					<option value="110">110</option>
+					<option value="115">115</option>
+					<option value="125">125</option>
+				</select></td>
+			<td id="index_4124" class="show-writting-status" style="display:none"></td>
+		</tr>
+			
+		<tr>
+			<td><label>4125</label></td>
+			<td><label>Service Frequency</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4125'>
+					<option value="50">50Hz</option>
+					<option value="60">60Hz</option>
+				</select></td>
+			<td id="index_4125" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4126</label></td>
+			<td><label>Reset Commands</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4126'>
+					<option value="0">none</option>
+					<option value="666">Restart demand metering</option>
+					<option value="6209">Preset Energy Values</option>
+					<option value="10001">Clear the Usage Timers</option>
+					<option value="14255">Reset all Min/Max Values</option>
+					<option value="21212">Reset Peak Demand values</option>
+					<option value="30078">Clear all Energy Acc</option>
+				</select></td>
+			<td id="index_4126" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4127</label></td>
+			<td><label>System Type</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4127'>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+					<option value="32">32</option>
+					<option value="40">40</option>
+					<option value="41">41</option>
+					<option value="42">42</option>
+				</select></td>
+			<td id="index_4127" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4128</label></td>
+			<td><label>Display Mode</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4128'>
+					<option value="0">IEC Units</option>
+					<option value="1">IEEE Units</option>
+				</select></td>
+			<td id="index_4128" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+</div>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>
+
+
+

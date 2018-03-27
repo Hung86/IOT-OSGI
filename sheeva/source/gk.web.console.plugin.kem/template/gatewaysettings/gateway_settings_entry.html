@@ -1,0 +1,347 @@
+<script type="text/javascript" src="/system/console/gatewaysettings/js/gatewaysettings/gateway_settings_entry.js"></script>
+<script type="text/javascript" src="/system/console/gatewaysettings/js/jquery.validate.min.js"></script>
+<br />
+<div id="GatewaySettings">
+	<h1 class="ui-widget-header adaptertitle">KEM Gateway</h1>
+	<ul id="errorsform"  class="statline ui-state-error formerrors" style="display:none">
+		<li>Can not save for Gateway Settings</li>
+	</ul>
+	<ul id="restartform" class="statline formsuccess" style="display:none">
+		<li>Settings have been updated. Please click "Restart JVM" on
+		<a href="#" onclick="gotoStatusPage();">Gateway Status</a>
+		for changes to take effect.</li>
+	</ul>
+		<table id="bridge" class="nicetable ui-widget settingtable">
+		<tbody>
+			<tr>
+				<td>Protocol</td>
+				<td>
+					<select class="categoryselect ui-corner-all" id='bridge_mode' name='bridge_mode' onchange="mySelectedProtocol();">
+						<option value="socket">SOCKET</option>
+						<option value="mqtt">MQTT</option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		
+		<tbody id="socket">
+		<tr>
+			<td>Protocol Version</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='protocol_version' name='protocol_version'>
+					<option value="1.8">1.8</option>
+					<option value="1.9">1.9</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Customer ID (Enter 3 Digit Partner Prefix)</td>
+			<td><input type="text" id="customer_id" name="customer_id"
+				value="0"
+				class="customer_id ui-state-default ui-corner-all inputText gateway-setting" required pattern="[A-Z][A-Z][A-Z]" maxlength="3">
+				<label id="customer_id_error" style="display:none;color:red">Customer ID: Should be 3 Capital Letters e.g. 'GKC'</label></td>
+		</tr>
+		<tr>
+			<td>Gateway ID (Enter 12 Digit Gateway MAC ID)</td>
+			<td><input type="text" id="gateway_id" name="gateway_id"
+				value="0"
+				class="ui-state-default ui-corner-all inputText gateway-setting" required maxlength="12" readonly="readonly"></td>
+		</tr>
+		<tr>
+			<td>Socket Connection Retries (1-30)</td>
+			<td><input type="number" id="socket_err_max" name="socket_err_max"
+				value="0"
+				class="ui-state-default ui-corner-all inputText gateway-setting" required min="1" max="30">
+				<label id="socket_err_max_error" style="display:none;color:red">Socket Connection Retries: Range should be 1..30</label></td>
+		</tr>
+		<tr>
+			<td>Data Request Interval</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='check_period_query' name='check_period_query'>
+				<option value="60">1 min</option>
+				<option value="300">5 mins</option>
+				<option value="900">15 mins</option>
+				<option value="1800">30 mins</option>
+				<option value="3600">60 mins</option>
+			</select>
+			</td>
+		</tr>
+ 		<tr>
+			<td>Data Request At</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='delay_start_query' name='delay_start_query'>
+				<option value="0">0</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="35">35</option>
+				<option value="40">40</option>
+				<option value="45">45</option>
+				<option value="50">50</option>
+				<option value="55">55</option>
+			</select>
+			<label>th Second</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Remote Host Configuration</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id="optionRemoteHost" name="remote_host">
+				<option value="test.greenkoncepts.com">test.greenkoncepts.com</option>
+				<option value="kemap.greenkoncepts.com">kemap.greenkoncepts.com</option>
+				<option value="kem.greenkoncepts.com">kem.greenkoncepts.com</option>
+			</select>
+			&nbsp;
+			<input type="checkbox" id="checkBoxHost" class="ui-state-default ui-corner-all"/> 
+			<label for="checkBoxHost">Custom Hostname</label>
+			<input type="text" id="manuallyRemoteHost" name="remote_host"
+				value="test.greenkoncepts.com"
+				required pattern="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^([\da-z\.-]+)\.([a-z\.]{2,6})"
+				class="ui-state-default ui-corner-all inputText gateway-setting remote_host" disabled="disabled">
+			<label id="remote_host_error" style="display:none;color:red">Remote Host: Should be a URL e.g. 'test.greenkoncepts.com' or IP address</label>
+			</td>
+			
+		</tr>
+		<tr>
+			<td>Remote Port Number</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='remote_port' name='remote_port'>
+				<option value="4548">4548 (Monitoring)</option>
+				<option value="4549">4549 (Control)</option>
+			</select>
+			<label id="remote_port_error" style="display:none;color:red">Remote Port: Should be a valid TCP port number e.g. '4548'</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Buffer Send Per Minute</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='buffer_send_limit' name='buffer_send_limit'>
+				<option value="80000">80000</option>
+				<option value="100000">100000</option>
+				<option value="150000">150000</option>
+				<option value="200000">200000</option>
+				<option value="300000">300000</option>
+				<option value="400000">400000</option>
+				<option value="500000">500000</option>
+			</select>
+			<label for=buffer_send_limit id='buffer_send_limit_warning'>Bytes/Minute</label>
+			</td>
+		</tr>
+	</tbody>
+	
+	<tbody id="mqtt">
+		<tr>
+			<td>Customer ID (Enter 3 Digit Partner Prefix)</td>
+			<td><input type="text" id="customer_id" name="customer_id"
+				value="0"
+				class="customer_id ui-state-default ui-corner-all inputText gateway-setting" required pattern="[A-Z][A-Z][A-Z]" maxlength="3">
+				<label id="customer_id_error" style="display:none;color:red">Customer ID: Should be 3 Capital Letters e.g. 'GKC'</label></td>
+		</tr>
+		<tr>
+			<td>Gateway ID (Enter 12 Digit Gateway MAC ID)</td>
+			<td><input type="text" id="gateway_id" name="gateway_id"
+				value="0"
+				class="ui-state-default ui-corner-all inputText gateway-setting" required maxlength="12"></td>
+		</tr>
+		<tr>
+			<td>Data Sending Interval</td>
+			<td><select class="categoryselect ui-corner-all inputText gateway-setting" id='check_period_internet' name='check_period_internet'>
+				<option value="1">1 second</option>
+				<option value="5">5 seconds</option>
+				<option value="60">1 minute</option>
+				<option value="300">5 minutes</option>
+				<option value="900">15 minutes</option>
+				<option value="1800">30 minutes</option>
+				<option value="3600">60 minutes</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Data Request Interval</td>
+			<td><select class="categoryselect ui-corner-all inputText gateway-setting" id='check_period_query' name='check_period_query'>
+				<option value="1">1 second</option>
+				<option value="5">5 seconds</option>
+				<option value="60">1 minute</option>
+				<option value="300">5 minutes</option>
+				<option value="900">15 minutes</option>
+				<option value="1800">30 minutes</option>
+				<option value="3600">60 minutes</option>
+			</select>
+			</td>
+		</tr>
+ 		<tr>
+			<td>Data Request At</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='delay_start_query' name='delay_start_query'>
+				<option value="0">0</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="35">35</option>
+				<option value="40">40</option>
+				<option value="45">45</option>
+				<option value="50">50</option>
+				<option value="55">55</option>
+			</select>
+			<label>th Second</label>
+			</td>
+		</tr>
+		
+		 <tr>
+			<td>Metadata Interval Time</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='metadata_interval_time' name='metadata_interval_time'>
+					<option value="60">1 minute</option>
+					<option value="300">5 minutes</option>
+					<option value="600">10 minutes</option>
+					<option value="900">15 minutes</option>
+					<option value="1800">30 minutes</option>
+					<option value="3600">60 minutes</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>MQTT Client ID</td>
+			<td><input type="text" id="mqtt_client_id" name="mqtt_client_id"
+				value="null"
+				class="ui-state-default ui-corner-all inputText gateway-setting mqtt_client_id">
+				<label id="mqtt_client_id_error" style="display:none;color:red">MQTT Client Id: Should be a valid MQTT sub topic e.g. 'ID123'</label></td>
+		</tr>
+		
+		<tr>
+			<td>MQTT Topic</td>
+			<td><input type="text" id="mqtt_topic" name="mqtt_topic"
+				value="null"
+				required pattern="([0-9]|[a-z]|[A-Z]|-|_|=|\.|\/)+"
+				class="ui-state-default ui-corner-all inputText gateway-setting mqtt_topic">
+				<label id="mqtt_topic_error" style="display:none;color:red">MQTT Topic: Should be a valid MQTT topic e.g. '../..'</label></td>
+		</tr>
+		<tr>
+			<td>MQTT Sub Topic</td>
+			<td><input type="text" id="mqtt_sub_topic" name="mqtt_sub_topic"
+				value="null"
+				required pattern="([0-9]|[a-z]|[A-Z]|-|_|=|\.|\/)+"
+				class="ui-state-default ui-corner-all inputText gateway-setting mqtt_sub_topic">
+				<label id="mqtt_sub_topic_error" style="display:none;color:red">MQTT Subtopic: Should be a valid MQTT sub topic e.g. '../..'</label></td>
+		</tr>
+		<tr>
+			<td>MQTT QOS</td>
+			<td><select class="categoryselect ui-corner-all inputText gateway-setting" id='mqtt_qos' name='mqtt_qos'>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>MQTT SSL</td>
+			<td><select class="categoryselect ui-corner-all inputText gateway-setting" id="mqtt_ssl" name="mqtt_ssl">
+				<option value="true">Enable</option>
+				<option value="false">Disable</option>
+			</select>
+			<label for=mqtt_ssl id='ssl_warning'>Note - Enabling SSL will result in a performance trade off</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>MQTT clean session</td>
+			<td><select class="categoryselect ui-corner-all inputText gateway-setting" id="mqtt_clean_session" name="mqtt_clean_session">
+				<option value="true">Enable</option>
+				<option value="false">Disable</option>
+			</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>MQTT connection timeout</td>
+			<td><select class="categoryselect ui-corner-all inputText gateway-setting" id="mqtt_connection_timeout" name="mqtt_connection_timeout">
+				<option value="30">30</option>
+				<option value="60">60</option>
+				<option value="90">90</option>
+				<option value="120">120</option>
+			</select>
+			<label for=mqtt_connection_timeout id='mqtt_connection_timeout_warning'>Seconds</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>MQTT keep alive interval</td>
+			<td><select class="categoryselect ui-corner-all inputText gateway-setting" id="mqtt_keep_alive_interval" name="mqtt_keep_alive_interval">
+				<option value="30">30</option>
+				<option value="60">60</option>
+				<option value="90">90</option>
+				<option value="120">120</option>
+			</select>
+			<label for=mqtt_keep_alive_interval id='mqtt_keep_alive_interval_warning'>Seconds</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Remote Host Configuration</td>
+			<td><input type="text" id="remote_host" name="remote_host"
+				value="null"
+				required pattern="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^([\da-z\.-]+)\.([a-z\.]{2,6})"
+				class="ui-state-default ui-corner-all inputText gateway-setting remote_host">
+				<label id="remote_host_error" style="display:none;color:red">Remote Host: Should be a URL e.g. 'test.greenkoncepts.com' or IP address</label></td>
+		</tr>
+		<tr>
+			<td>Remote Port Number</td>
+			<td><input type="number" id="remote_port" name="remote_port"
+				value="0"
+				class="ui-state-default ui-corner-all inputText gateway-setting remote_port" required min="1025" max="65535">
+				<label id="remote_port_error" style="display:none;color:red">Remote Port: Range should be 1025..65535</label></td>
+		</tr>
+
+		<tr>
+			<td>Buffer Send Per Minute</td>
+			<td><select class="categoryselect ui-corner-all gateway-setting" id='buffer_send_limit' name='buffer_send_limit'>
+				<option value="80000">80000</option>
+				<option value="100000">100000</option>
+				<option value="150000">150000</option>
+				<option value="200000">200000</option>
+				<option value="300000">300000</option>
+				<option value="400000">400000</option>
+				<option value="500000">500000</option>
+			</select>
+			<label for=buffer_send_limit id='buffer_send_limit_warning'>Bytes/Minute</label>
+			</td>
+		</tr>
+	</tbody>
+	
+	<tbody>
+	
+			<tr>
+			<td>GPS Coordinates</td>
+			<td><input type="text" id="gpsLatitude" name="gpsLatitude"
+				value="1.3234700000000000"
+				class="ui-state-default ui-corner-all inputText gateway-setting" required> 
+			<label for="gpsLatitude">Latitude</label>
+			&nbsp;
+			<input type="text" id="gpsLongitude" name="gpsLongitude"
+				value="103.92127200000004"
+				class="ui-state-default ui-corner-all inputText gateway-setting" required>
+			<label for="gpsLongitude">Longitude</label>	
+			</td>
+		</tr>
+	</tbody>
+	
+	<tbody id="log">
+		<tr>
+			<td>Log File</td>
+			<td>
+			<input type="radio" id="logDebug" value="on" class="ui-state-default ui-corner-all loghandler"> <label for="logDebug">Advance</label>
+			<input type="radio" id="logInfo" value="off" class="ui-state-default ui-corner-all loghandler"> <label for="logInfo">Basic</label>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+	
+		<input id="submitbtn" class="formbtn" type="button" value="Save" onclick="saveSettings();">
+		<input id="resetbtn" class="formbtn" type="button" value="Cancel" onclick="cancelSettings();">
+		<input id="importbtn" class="formbtn" type="button" value="Import Settings" onclick="importSettings();">
+		<input id="exportbtn" class="formbtn" type="button" value="Export Settings" onclick="exportSettings();">
+	<form id="fileupload" action="" method="POST">
+		<input type="file" id="selectedFile" name="fileUpload" required="required" style="display:none" onchange="importFile();">
+	</form>
+	<div><b><label id="last_modified"></label></b></div>
+</div>

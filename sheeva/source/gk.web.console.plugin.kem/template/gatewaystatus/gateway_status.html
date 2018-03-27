@@ -1,0 +1,254 @@
+<script type="text/javascript" src="${pluginRoot}/js/gatewaystatus/gateway_status.js"></script>
+<style> 
+.disabledmouse {
+    pointer-events: none;
+    opacity: 0.5;
+} 
+.ui-progressbar {    
+	position: relative;
+	background-image: none;
+}  
+.progress-label {    
+	position: absolute;    
+	left: 40%;    
+	font-weight: bold;    
+	text-shadow: 1px 1px 0 #fff; 
+	background-color: transparent;
+	text-align:center;
+}
+.ui-state-active {
+		background : none !important;
+		background-color : #8dc63f !important ;
+}
+td, th {
+    vertical-align: middle;
+}
+tr {
+	height: 22px;
+}  
+input:focus,
+select:focus,
+submit:focus,
+button:focus {
+    outline: none;
+}
+</style>
+</br>
+<table id="gatewaystatus" class="nicetable" style="table-layout: auto">
+	<thead>
+		<tr>
+			<th  width="35%" colspan="3">Gateway Status</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			<td width="35%">Internet Connection Status</td>
+			<td width="5%">
+			</td>
+			<td width="60%" style="padding-left:4px;" >
+				<img alt="picture" id="display_img" vspace="0" hspace="0" style="display: inline-block;vertical-align:middle"> 
+				<label id="internet_status" for="display_img" style="vertical-align:middle;display: inline"></label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">TCP/IP Socket Status</td>
+			<td width="5%">
+			</td>
+			<td width="60%" id="tcperror" style="padding-left:4px;">
+				<label id="internet_error">0</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Serial Port Status</td>
+			<td width="5%">
+			</td>
+			<td width="60%" id="serialerror" style="padding-left:4px;">
+				<p id="serial_error">0</p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Last Read Interval Packet Size</td>
+			<td width="5%">
+			</td>
+			<td width="60%" style="padding-left:4px;">
+				<p id="read_data_in_last_minute">0</p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Total Device Read Data</td>
+			<td width="5%">
+				<form>
+					<div>
+						<input class="submit" type="button" value="Clear" id="clear_data_read" onclick="clearReadData();" style="width:52px"/>
+					</div>
+				</form>
+			</td>
+			<td width="60%" style="padding-left:4px;">
+				<p id="total_reading_data" style="float: left;">0</p> 
+				<label style="float: left;">&nbsp;Since : &nbsp;</label><label id="start_time_reading" style="float: left;">null</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Last Transmitted Packet Size</td>
+			<td width="5%">
+			</td>
+			<td width="60%" style="padding-left:4px;">
+				<p id="sent_data_in_last_minute">0</p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Total Transmitted Data</td>
+			<td width="5%">
+				<form>
+					<div>
+						<input class="submit" type="button" value="Clear" id="clear_data_sent" onclick="clearSentData();" style="width:52px"/>
+					</div>
+				</form>
+			</td>
+			<td width="60%" style="padding-left:4px;">
+				<p id="total_sent_data" style="float: left;">0</p>
+				 <label style="float: left;">&nbsp;Since : &nbsp;</label><label id="start_time_sending" style="float: left;">null</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">CPU Utilization</td>
+			<td width="5%">
+			</td>
+			<td width="60%" style="padding-left:4px;">
+				<label id="cpu_usage">0</label>%
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Physical Memory Status</td>
+			<td width="5%">
+			</td>
+			<td width="60%" style="padding-left:4px;">
+				<div>
+					<div id="pb_mem_usage" class="ui-progressbar ui-widget" style="height: 1.3em;width: 8em;float:left;">
+						<div class="progress-label" id="pb_mem_usage_label">0%</div>
+					</div>
+					<div style="float:left;">
+						<label>&nbsp</label><label id="used_mem">0</label>&nbspMB of&nbsp<label id="total_mem">0</label>&nbspMB
+					</div>
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">JVM Memory Status</td>
+			<td width="5%">
+			</td>
+			<td width="60%" id="jvm_mem" style="padding-left:4px;">
+				<div>
+					<div id="pb_jvm_mem" class="ui-progressbar ui-widget" style="height: 1.3em;width: 8em;float:left;">
+						<div class="progress-label" id="pb_jvm_mem_label">0%</div>
+					</div>
+					<div style="float:left;">
+						<label>&nbsp</label><label id="used_jvm_mem">0</label>&nbspMB of&nbsp<label id="total_jvm_mem">0</label>&nbspMB
+					</div>
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Internal Non-Volatile Buffer Size</td>
+			<td width="5%">
+				<form>
+					<div>
+						<input class="submit" type="button" value="Clear" id="internal_store_clear" onclick="clearInternalStore();" style="width:52px"/>
+					</div>
+				</form>
+			</td>
+			<td width="60%" id="internalbuffer" style="padding-left:4px;">
+				<div>
+					<div id="pb_internal_buffer" class="ui-progressbar ui-widget" style="height: 1.3em;width: 8em;float:left;">
+						<div class="progress-label" id="pb_internal_buffer_label">0%</div>
+					</div>
+					<div style="float:left;">
+						<label>&nbsp</label><label id="in_cap_used">0</label>&nbspMB of&nbsp<label id="in_cap_total">0</label>&nbspMB
+					</div>
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">External Non-Volatile Buffer Size</td>
+			<td width="5%">
+				<form>
+					<div>
+						<input class="submit" type="button" value="Clear" id="external_store_clear" onclick="clearExternalStore();" style="width:52px"/>
+					</div>
+				</form>
+			</td>
+			<td width="60%" id="externalbuffer" style="padding-left:4px;">
+				<div>
+					<div id="pb_external_buffer" class="ui-progressbar ui-widget" style="height: 1.3em;width: 8em;float:left;">
+						<div class="progress-label" id="pb_external_buffer_label">0%</div>
+					</div>
+					<div style="float:left;">
+						<label>&nbsp</label><label id="ex_cap_used">0</label>&nbspMB of&nbsp<label id="ex_cap_total">0</label>&nbspMB
+					</div>
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">Gateway Time</td>
+			<td width="5%">
+				<form>
+					<div>
+						<input class="submit" type="button" name="Synchronize time" value="Sync" style="width:52px;" id="sync" onclick="syncGatewayLock();"/>
+					</div>
+				</form>
+			</td>
+			<td width="60%" style="padding-left:4px;">
+				<form>
+					<div>
+						<label id="gateway_time_label">00:00:00</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="35%">JVM Last Started</td>
+			<td width="5%"></td>
+			<td width="60%" id="jvm_last_started" style="padding-left:4px;">00:00:00</td>
+		</tr>
+	
+		<tr>
+			<td width="35%">JVM UpTime</td>
+			<td width="5%"></td>
+			<td width="60%" id="jvm_up_time" style="padding-left:4px;">00:00:00</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<div>
+	<form id="rebootform" >
+		<div>
+			<input class="submit" type="button" value="Reboot Gateway" id="reboot_gateway" onclick="rebootGateway();" />
+			<input class="submit" type="button" value="Restart JVM" id="reboot_jvm" onclick="rebootJVM();" />
+			<input class="submit" type="button" value="Refresh Gateway" id="refresh_gw" onclick="refreshGateway();" />
+		</div>
+	</form>
+	<form id="rebootform2" method="post" action="${pluginRoot}"  style="display:none">
+		<div>
+			<input type="hidden" name="action" id="action" value="reboot" />
+			<input type="hidden" name="reboot_type" id="reboot_type" value="" />
+			<input class="ui-state-error-text" type="button" value="Cancel" onclick="abort('${pluginRoot}')" />${vmstat.shutdown.in} <span id='countdowncell'>&nbsp;</span>
+		</div>
+	</form>
+</div>
+<div id="wait_loading" style="width:100%;display:none"><p style="color:blue"><img style="vertical-align: middle" src="/system/console/networksettings/res/img/loading.gif"/>
+		<label id="wait_loading_label">Please Waiting ... </label></p>
+</div>

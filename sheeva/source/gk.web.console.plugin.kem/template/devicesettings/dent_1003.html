@@ -1,0 +1,57 @@
+
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>4300</label></td>
+			<td><label>CT Value (x2)</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4300' value='0'></td>
+			<td id="index_4300" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4301</label></td>
+			<td><label>Data Scalar</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='4301'>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select></td>
+			<td id="index_4301" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>4302</label></td>
+			<td><label>Demand Window size</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='4302' value='15'>&nbsp;<label>minutes</label></td>
+			<td id="index_4302" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activator" deactivate="deactivator" name="Aquametro Adapter">
+   <implementation class="com.greenkoncepts.gateway.adapter.aquametro.AquametroAdapter"/>
+   <service>
+      <provide interface="com.greenkoncepts.gateway.api.adapter.Adapter"/>
+   </service>
+   <reference bind="setDbService" cardinality="1..1" interface="com.greenkoncepts.gateway.api.database.DbService" name="DbService" policy="dynamic" unbind="clearDbService"/>
+   <reference bind="setTransport" cardinality="1..1" interface="com.greenkoncepts.gateway.api.transport.GWTransport" name="GWTransport" policy="dynamic" unbind="clearTransport"/>
+</scr:component>

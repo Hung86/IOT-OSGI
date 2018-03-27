@@ -1,0 +1,2 @@
+os  : debian_8.6
+ver : RXTXcomm-2.2pre2

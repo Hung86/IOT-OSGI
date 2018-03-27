@@ -1,0 +1,146 @@
+
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">
+	<table id="configuration" class='nicetable ui-widget' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>45001</label></td>
+			<td><label>CT primary</label></td>
+			<td>
+				<input style='width:40%' type="number" class='ui-corner-all inputText' id='5000' value='1' max = "9999" min = "1">
+			</td>
+			<td id="index_5000" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>45002</label></td>
+			<td><label>Connection mode</label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='5001'>
+				<option value="0">3-phase 4-wire</option>
+				<option value="1">3-pase 3-wire</option>
+				</select>
+			</td>
+			<td id="index_5001" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>45003</label></td>
+			<td><label>PT primary</label></td>
+			<td>
+				<input style='width:40%' type="number" class='ui-corner-all inputText' id='5002' value='1' max = "650" min = "1">
+			</td>
+			<td id="index_5002" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>45004</label></td>
+			<td><label>Address of RS485 COM 1 </label></td>
+			<td>
+				<input style='width:40%' type="number" class='ui-corner-all inputText' id='5004' value='1' max = "247" min = "1">
+			</td>
+			<td id="index_5004" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>45005</label></td>
+			<td><label>Baudrate of RS485 COM 1</label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='5005'>
+				<option value="0">2400</option>
+				<option value="1">4800</option>
+				<option value="2">9600</option>
+				<option value="3">19200</option>
+				<option value="4">38400</option>
+				</select>
+			</td>
+			<td id="index_5005" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>45006</label></td>
+			<td><label>Parity check of RS485 COM 1</label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='5006'>
+					<option value="0">No parity</option>
+					<option value="1">Odd</option>
+					<option value="2">Even</option>
+				</select>
+			</td>
+			<td id="index_5006" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>45007</label></td>
+			<td><label>Stop bit of RS485 COM 1</label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='5007'>
+				<option value="1">1 bit stop</option>
+				<option value="2">2 bit stop</option>
+				</select>
+			</td>
+			<td id="index_5007" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>45008</label></td>
+			<td><label>Address of RS485 COM 2 </label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='5008' value='1' min='1' max='247'></td>
+			<td id="index_5008" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>45009</label></td>
+			<td><label>Baudrate of RS485 COM 2 </label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='5009'>
+				<option value="0">2400</option>
+				<option value="1">4800</option>
+				<option value="2">9600</option>
+				<option value="3">19200</option>
+				<option value="4">38400</option>
+				</select>
+			</td>
+			<td id="index_5009" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>45010</label></td>
+			<td><label>Parity check of RS485 COM 2 </label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='5010'>
+				<option value="0">No parity</option>
+				<option value="1">Odd</option>
+				<option value="2">Even</option>
+				</select>			
+			</td>
+			<td id="index_5010" class="show-writting-status" style="display:none"></td>
+		</tr>
+		<tr>
+			<td><label>45011</label></td>
+			<td><label>Stop bit of RS485 COM 2 </label></td>
+			<td>
+				<select style='width:40%' class="ui-corner-all" id='5011'>
+				<option value="1">1 bit stop</option>
+				<option value="2">2 bit stop</option>
+				</select>	
+			</td>
+			<td id="index_5011" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

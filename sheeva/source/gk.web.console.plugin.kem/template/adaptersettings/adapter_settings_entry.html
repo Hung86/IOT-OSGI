@@ -1,0 +1,55 @@
+<script type="text/javascript" src="/system/console/adaptersettings/js/adaptersettings/adapter_settings_entry.js"></script>
+<script type="text/javascript" src="/system/console/adaptersettings/js/jquery.validate.min.js"></script>
+<br/>
+<div id="page">
+	<div id="menuleftcontent">
+		<table id="menuleftcontent_table" class='nicetable ui-widget'>
+			<thead>
+				<h1 colspan="1" class="ui-widget-header adaptertitle">Installed Device Adapters</h1>
+			</thead>
+		</table>
+		<select class="ui-corner-all" id="selectbundle" name="selectbundle">
+			<option value="null">Select</option>
+		</select>
+		<input id="addbundle" class="formbtn" type="button" value="Add" onclick="addBundle();">
+		<input id="uploadbtn" class="formbtn ui-state-default ui-corner-all" type="button" value="Upload New Adapter" onclick="uploadFile();">
+		<form id="uploadform" action="adaptersettings/upload_file" method="POST"  enctype="multipart/form-data">
+			<input type="file" name="file" size="50" style = "display:none" id ="file" onchange ="submitForm();"/>
+		</form>
+		<p id="labeltimer"  class="waiting" style="display:none;color:blue"><img src="${pluginRoot}/res/img/loading.gif"/><label id="messagesid">Adding new Adapter... Please wait </label><label id="countdowntimer">10s</label> </p>
+	</div>
+	<div id="maincontent">
+		<div id="adapterform">
+			<h1 id="titleform" class="ui-widget-header adaptertitle" style="display:block">No any Adapters are running</h1>
+			<ul id="errorsform" class="statline ui-state-error formerrors" style="display:none">
+			Can not save for Adapter Settings
+			</ul>
+			<ul id="restartform" class="statline formsuccess" style="display:none">
+				Settings have been updated.
+			</ul>
+
+			<div id="adaptersettings" >
+			
+			</div>
+			
+			<p id="scanning_wait" class="waiting" style="display:none;color:blue"><img src="/system/console/adaptersettings/template/adaptersettings/loading.gif"/><label>Scanning device... Please wait </label></p>
+			<br/>
+			<div id="functionalbuttons">
+				<button type='button' class='ui-state-default ui-corner-all' id='addbutton' onclick="addDeviceForAdapter();">Add Device</button>
+				<button type='button' class='ui-state-default ui-corner-all' id='scanbutton' onclick="scanDeviceOfAdapter();">Scan Device</button>
+			</div>
+			<br/>
+			<br/>
+			<div id="mainbuttons">
+				<button type='button' class='ui-state-default ui-corner-all main-buttons' id='mainbuttonsave' onclick="saveAdapterSettings();">Save</button>
+				<button type='button' class='ui-state-default ui-corner-all main-buttons' id='mainbuttoncacel' onclick="reloadAdapterSettings();">Cancel</button>
+				<button type='button' class='ui-state-default ui-corner-all main-buttons' id='mainbuttonimport' onclick="importAdapterSettings();">Import Settings</button>
+				<button type='button' class='ui-state-default ui-corner-all main-buttons' id='mainbuttonexport' onclick="exportAdapterSettings();">Export Settings</button>
+			</div>
+			
+			<div id="lastmodified"></div>
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,71 @@
+
+<style>
+	ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+	ul.pagination {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		float : right ;
+	}
+	ul.pagination li {
+		display: inline;
+	}
+	ul.pagination li a {
+		color: black;
+		float: left;
+		padding: 8px 16px;
+		text-decoration: none;
+		border-radius: 5px;
+	}
+	ul.page {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+	}
+	ul.page li {display: inline;}
+	ul.page li a {
+		color: black;
+		float: left;
+		background-color : #ccc ;
+		text-decoration: none;
+		border-radius: 5px;
+	}
+</style>
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">	
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:98%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>0001H</label></td>
+			<td><label>Slave ID</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='1' value='0' min = "1" max = "247"></td>
+			<td id="index_1" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

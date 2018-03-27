@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EnergetixPowerMeter
+Bundle-SymbolicName: com.greenkoncepts.gateway.adapter.energetix.powermeter
+Bundle-Version: 2.3.0.qualifier
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Service-Component: OSGI-INF/component.xml
+Import-Package: com.greenkoncepts.gateway.api.adapter,
+ com.greenkoncepts.gateway.api.database,
+ com.greenkoncepts.gateway.api.transport,
+ com.greenkoncepts.gateway.util,
+ org.slf4j

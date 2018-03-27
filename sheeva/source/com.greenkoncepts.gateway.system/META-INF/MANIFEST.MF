@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Greenkoncepts Application System
+Bundle-SymbolicName: com.greenkoncepts.gateway.system
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Greenkoncepts
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Service-Component: OSGI-INF/*.xml
+Import-Package: com.greenkoncepts.gateway.api.system,
+ javax.crypto,
+ org.osgi.framework;version="1.3.0",
+ org.osgi.service.component;version="1.2.1",
+ org.slf4j

@@ -1,0 +1,485 @@
+<style>
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+ul.pagination {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	float : right ;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+input, select.ui-corner-all {
+    -moz-box-sizing: content-box;
+	box-sizing: border-box; 
+}
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+ul.page li {display: inline;}
+ul.page li a {
+	color: black;
+	float: left;
+	/* background-color : #ccc ; */
+	/* text-decoration: none; */
+	border-radius: 5px;
+}
+ul.page li a.active {
+	color:  #8dc63f ;
+}
+</style>
+<ul class="page" style = "width:50%">
+	<li><a id = "setting_tab" class = "active" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Settings</b></a></li>
+	<li><a id = "configuration_tab"  style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Configuration</b></a></li>
+   
+</ul>
+</br>
+</br>
+</br>
+
+<div id="device">
+	<div class = "channel" >
+		<table id="channel" class='nicetable ui-widget channel' style="width:100%;">
+			<thead>
+				<tr>
+				<th class="channel-header" style="width:10%"><b>Channel</b></th>
+				<th class="channel-header" style="width:10%"><b>Input<b></th>
+				<th class="channel-header" style="width:20%"><b>Measure Name</b></th>
+				<th class="channel-header" style="width:40%"><b>Formula</b></th>
+				<th class="channel-header" style="width:20%"><b>Unit</b></th>
+				
+				
+			</tr>
+			</thead>
+			<tbody>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>0</td>
+					<td><label>RTD Input 1</label></td>
+					<td><!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'   >
+						</td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula'  style="width:100%"  ></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+			
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>1</td>
+					<td><label>RTD Input 2</label></td>
+					<td>
+					<!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'  >
+						</td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula' name='formula' style="width:100%" ></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>2</td>
+					<td><label>Analog Input 1</label></td>
+					<td><!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'  >
+						</td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula' name='formula' style="width:100%"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+				
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>3</td>
+					<td><label>Analog Input 2</label></td>
+					<td><!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'  >
+						</td>
+					
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula' name='formula' style="width:100%"></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>4</td>
+					<td><label>Digital Input 1</label></td>
+					<td><!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'  >
+						</td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula' name='formula' style="width:100%" ></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>5</td>
+					<td><label>Digital Input 2</label></td>
+					<td><!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'  >
+						</td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula' name='formula' style="width:100%" ></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>6</td>
+					<td><label>Digital Input 3</label></td>
+					<td><!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'  >
+						</td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula' name='formula' style="width:100%"  ></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>7</td>
+					<td><label>Digital Input 4</label></td>
+					<td><!-- <select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this);">
+						<option value="n/a">Select</option>
+						<option value="c">&deg; C</option>
+						<option value="ph">PH</option>
+						<option value="co2">CO<sub>2</sub></option>
+						<option value="o2">O<sub>2</sub></option>
+						</select> -->
+						<input type='text' class="ui-corner-all ui-state-default" id='name' name='name'  >
+						</td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='formula' name='formula' style="width:100%" ></td>
+					<td><input type='text' class="ui-corner-all ui-state-default" id='unit' name='unit' style="width:50%" value='n/a' ></td>
+					
+				</tr>
+			</tbody>
+			
+			
+		</table>
+		<br />
+		<button type='button' class='ui-state-default ui-corner-all' id='writingbutton_${id}' onclick="saveSettings();">Save</button>
+	</div>
+
+	<div class = "configuration" style = "display:none">
+		<table id="configuration" class='nicetable ui-widget configuration' style="width:100%">
+			<tr>
+				<th class="channel-header" style="width:30%"><b>Index</b></th>
+				<th class="channel-header" style="width:30%"><b>Register</b></th>
+				<th class="channel-header" style="width:30%"><b>Value</b></th>
+				<th class="show-writting-status" style="display:none;width:10%"></th>
+			</tr>
+
+			<tr>
+				<td><label>40004</label></td>
+				<td><label>RTD Input 1</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40004' value='0' readonly = 'true'></td>
+				<td id="index_40004" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40005</label></td>
+				<td><label>RTD Input 2</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40005' value='0' readonly = 'true'></td>
+				<td id="index_40005" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40006</label></td>
+				<td><label>Analog Input 1</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40006' value='0' readonly = 'true'></td>
+				<td id="index_40006" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40007</label></td>
+				<td><label>Analog Input 2</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40007' value='0' readonly = 'true'></td>
+				<td id="index_40007" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40009</label></td>
+				<td><label>Counter 1</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40009' value='0'></td>
+				<td id="index_40009" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			
+			<tr>
+				<td><label>40011</label></td>
+				<td><label>Counter 2 </label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40011' value='0'></td>
+				<td id="index_40011" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			
+			
+			<tr>
+				<td><label>40013</label></td>
+				<td><label>Counter 3 </label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40013' value='0'></td>
+				<td id="index_40013" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+		
+			<tr>
+				<td><label>40015</label></td>
+				<td><label>Counter 4 </label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40015' value='0'></td>
+				<td id="index_40015" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40101</label></td>
+				<td><label>Watchdog Timer</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40101' min='0' max = '255'></td>
+				<td id="index_40101" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40102</label></td>
+				<td><label>Counter Mode</label></td>
+				<td>
+				
+					<select class="ui-corner-all ui-state-default" id='40102' onchange="mySelectChannel(this);">
+						<option value="0">Disable</option>
+						<option value="1">Up Counting</option>
+						<option value="2">Up/Down Count</option>
+					</select>
+				</td>
+				<td id="index_40102" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40103</label></td>
+				<td><label>Input Filter</label></td>
+				<td>
+					<input type="number" class='ui-corner-all inputText' id='40103' min='0' max = '65535'>
+				</td>
+				<td id="index_40103" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40104</label></td>
+				<td><label>RTD 1 Type</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40104' onchange="mySelectChannel(this);">
+						<option value="1">PT100</option>
+						<option value="2">Ni120</option>
+						<option value="3">PT1000</option>
+						<option value="4">Ni1000-DIN</option>
+						<option value="5">Ni1000-Landys&Gyr</option>
+						<option value="6">Ohms</option>
+						<option value="7">Ohms</option>
+					</select>
+				</td>
+				<td id="index_40104" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40105</label></td>
+				<td><label>RTD 2 Type</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40105' onchange="mySelectChannel(this);">
+						<option value="1">PT100</option>
+						<option value="2">Ni120</option>
+						<option value="3">PT1000</option>
+						<option value="4">Ni1000-DIN</option>
+						<option value="5">Ni1000-Landys&Gyr</option>
+						<option value="6">Ohms</option>
+						<option value="7">Ohms</option>
+					</select>
+				</td>
+				<td id="index_40105" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40106</label></td>
+				<td><label>AI 1 Type</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40106' onchange="mySelectChannel(this);">
+						<option value="1">0-4095 mA</option>
+						<option value="2">0-20 mA</option>
+						<option value="3">+/- 20 mA</option>
+						<option value="4">0-4095</option>
+						<option value="5">0-10.000 V</option>
+						<option value="6">+/- 10.000 V</option>
+						<option value="7">0 -1.0000 V</option>
+						<option value="8">+/- 1.0000 V</option>
+					</select>
+				</td>
+				<td id="index_40106" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40107</label></td>
+				<td><label>AI 2 Type</label></td>
+				<td>
+					<input type="number" class='ui-corner-all inputText' id='40107' min='1' max = '8'>
+				</td>
+				<td id="index_40107" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40108</label></td>
+				<td><label>AO Type</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40108' onchange="mySelectChannel(this);">
+						<option value="1">0-20 mA</option>
+						<option value="2">0-10 V</option>
+					</select>
+				</td>
+				<td id="index_40108" class="show-writting-status" style="display:none"></td>
+			</tr>
+			
+			<tr>
+				<td><label>40109</label></td>
+				<td><label>Line Frequency</label></td>
+				<td><input type="number" class='ui-corner-all inputText' id='40109' value='0'></td>
+				<td id="index_40109" class="show-writting-status" style="display:none"></td>
+			</tr>
+			<tr>
+				<td><label>40110</label></td>
+				<td><label>Units Type</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40110' onchange="mySelectChannel(this);">
+						<option value="1">&deg;C</option>
+						<option value="2">&deg;F</option>
+					</select>
+				</td>
+				<td id="index_40110" class="show-writting-status" style="display:none"></td>
+			</tr>
+			<tr>
+				<td><label>40121</label></td>
+				<td><label>Baud Rate</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40121' onchange="mySelectChannel(this);">
+						<option value="2400">2400</option>
+						<option value="4800">4800</option>
+						<option value="9600">9600</option>
+						<option value="19200">19200</option>
+						<option value="38400">38400</option>
+						<option value="57600">57600</option>
+						<option value="115200">115200</option>
+					</select>
+				</td>
+				<td id="index_40121" class="show-writting-status" style="display:none"></td>
+			</tr>
+			<tr>
+				<td><label>40122</label></td>
+				<td><label>Parity</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40122' onchange="mySelectChannel(this);">
+						<option value="0">None</option>
+						<option value="1">Even</option>
+						<option value="2">Odd</option>
+					</select>
+				</td>
+				<td id="index_40122" class="show-writting-status" style="display:none"></td>
+			</tr>
+			<tr>
+				<td><label>40123</label></td>
+				<td><label>Stop Bits</label></td>
+				<td>
+					<select class="ui-corner-all ui-state-default" id='40123' onchange="mySelectChannel(this);">
+						<option value="1">1 stop bit</option>
+						<option value="2">2 stop bits</option>
+					</select>
+				</td>
+				<td id="index_40123" class="show-writting-status" style="display:none"></td>
+			</tr>
+			<tr>
+				<td><label>40124</label></td>
+				<td><label>Reply Delay</label></td>
+				<td>
+					<input type="number" class='ui-corner-all inputText' id='40124' min='0' max = '65535'>
+				</td>
+				<td id="index_40124" class="show-writting-status" style="display:none"></td>
+			</tr>
+		</table>
+		
+		<br />
+		<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+		<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+		
+		
+	</div>
+	
+	
+</div>
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+	
+
+</script>

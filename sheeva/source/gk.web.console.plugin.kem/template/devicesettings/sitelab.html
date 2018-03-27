@@ -1,0 +1,56 @@
+
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+<div id="device">	
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:98%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>40030</label></td>
+			<td><label>Error code</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='40030' value='0'></td>
+			<td id="index_40030" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>40060</label></td>
+			<td><label>Velocity unit</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='40060' value='0'></td>
+			<td id="index_40060" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>40062</label></td>
+			<td><label>Flow unit</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='40062' value='0'></td>
+			<td id="index_40062" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>40064</label></td>
+			<td><label>Total unit</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='40064' value='0'></td>
+			<td id="index_40064" class="show-writting-status" style="display:none"></td>
+		</tr>	
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

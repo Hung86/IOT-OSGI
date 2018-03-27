@@ -1,0 +1,49 @@
+<form id="settingsform">
+<table class="formtable tablesorter nicetable noauto ui-widget">
+	<thead>
+		<tr>
+			<th class="ui-widget-header">Network Configuration</th>
+			<th class="ui-widget-header" id="dev_number"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>DHCP Configuration</td>
+			<td><input type="radio" name="mode" id="mode_d" value="dhcp"> DHCP <input
+				type="radio" name="mode" id="mode_s" value="static"> Static</td>
+		</tr>
+		<tr>
+			<td>IP Address</td>
+			<td><input type="text" size="15" id="ip" name="ip" class="ipv4address disableable" required/></td>
+		</tr>
+
+		<tr>
+			<td>Subnet Mask</td>
+			<td><input type="text" size="15" id="subnet" name="subnet" class="ipv4address disableable" required/></td>
+		</tr>
+		<tr>
+			<td>Default Gateway</td>
+			<td><input type="text" size="15" id="gateway" name="gateway" class="ipv4address disableable" required/></td>
+		</tr>
+		<tr>
+			<td>DNS Server</td>
+			<td><input type="text" size="15" id="dns1" name="dnsServer1" class="ipv4address disableable" value=""/>
+			<label for="dnsServer1">Primary</label>
+			<input type="text" size="15" id="dns2" name="dnsServer2" class="ipv4address disableable" value=""/>
+			<label for="dnsServer2">Secondary</label></td>
+		</tr>
+		<tr>
+			<td>NTP Server</td>
+			<td><input type="text" size="15" id="ntp1" name="ntpServer1" value=""/>
+			<label for="ntpServer1">Primary</label>
+			<input type="text" size="15" id="ntp2" name="ntpServer2" value=""/>
+			<label for="ntpServer2">Secondary</label></td>
+		</tr>
+	</tbody>
+</table>
+<input id="save" class="submit formbtn" type="submit" value="Save">
+<input id="resetbtn" class="formbtn" type="button" value="Cancel" onclick="location.href='networksettings'">
+</form>
+<div id="networkRestartMessage" hidden="hidden"><p style="color:blue"><img src="/system/console/networksettings/res/img/loading.gif"/><label id="waiting">Saving Changes... Please wait !</label></p></div>
+<script type="text/javascript" src="/system/console/networksettings/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/system/console/networksettings/js/networksettings/gateway_networksettings.js"></script>

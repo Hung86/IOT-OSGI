@@ -1,0 +1,393 @@
+
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>
+
+<div id="device">	
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:100%">
+		<tr>
+			<th class="channel-header" style="width:30%" colspan="0" ><a href="#"><b>Setup</b></a></th>
+		</tr>
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>17000</label></td>
+			<td><label>Network Type</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17000' >
+					<option value="0">3P4W</option>
+					<option value="1">3P3W</option>
+					<option value="2">ARON</option>
+					<option value="3">3P4W Balanced</option>
+					<option value="4">3P3W Balanced</option>
+				</select></td>
+			<td id="index_17000" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17001</label></td>
+			<td><label>Current Transformer Secondary</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17001' >
+					<option value="0">1A</option>
+					<option value="1">5A</option>
+				</select></td>
+			<td id="index_17001" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17002</label></td>
+			<td><label>Current Transformer Primary</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17002' value='0' min='5' max='9999'>&nbsp;<label>A</label></td>
+			<td id="index_17002" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17003</label></td>
+			<td><label>Voltage Transformer Present</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17003' >
+					<option value="0">None</option>
+					<option value="1">Present</option>
+				</select></td>
+			<td id="index_17003" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17004</label></td>
+			<td><label>Voltage Transformer Secondary</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17004' value='0' min='50' max='300'>&nbsp;<label>V</label></td>
+			<td id="index_17004" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17005</label></td>
+			<td><label>Voltage Seconder Primary</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17005' value='0' min='50' max='999999'>&nbsp;<label>V</label></td>
+			<td id="index_17005" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17008</label></td>
+			<td><label>I Demand Time</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17008' >
+					<option value="1">1 Minute</option>
+					<option value="5">5 Minutes</option>
+					<option value="10">10 Minutes</option>
+					<option value="15">15 Minutes</option>
+					<option value="20">20 Minutes</option>
+					<option value="30">30 Minutes</option>
+					<option value="60">60 Minutes</option>
+				</select></td>
+			<td id="index_17008" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17010</label></td>
+			<td><label>System Frequency</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17010' >
+					<option value="0">50Hz</option>
+					<option value="1">60Hz</option>
+				</select></td>
+			<td id="index_17010" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17011</label></td>
+			<td><label>System Voltage</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17011' value='0'>&nbsp;<label>V</label></td>
+			<td id="index_17011" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17013</label></td>
+			<td><label>Systen Current</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17013' value='0'>&nbsp;<label>A</label></td>
+			<td id="index_17013" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17124</label></td>
+			<td><label>Modbus Slave Address</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17124' value='0' min='1' max='247'></td>
+			<td id="index_17124" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17125</label></td>
+			<td><label>Modbus Baud Rate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17125' >
+					<option value="6">115200</option>
+					<option value="5">57600</option>
+					<option value="4">38400</option>
+					<option value="3">19200</option>
+					<option value="2">9600</option>
+					<option value="1">4800</option>
+					<option value="0">2400</option>
+				</select></td>
+			<td id="index_17125" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17126</label></td>
+			<td><label>Modbus Parity</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17126' >
+					<option value="0">None</option>
+					<option value="1">Odd</option>
+					<option value="2">Even</option>
+				</select></td>
+			<td id="index_17126" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17127</label></td>
+			<td><label>Password Activate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17127' >
+					<option value="0">Passive</option>
+					<option value="1">Active</option>
+				</select></td>
+			<td id="index_17127" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17128</label></td>
+			<td><label>Password</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17128' value='0'></td>
+			<td id="index_17128" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17129</label></td>
+			<td><label>LCD Contrast Setting</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='17129' value='0' min='0' max='15'></td>
+			<td id="index_17129" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17130</label></td>
+			<td><label>LCD Backlight Setting</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17130' >
+					<option value="0">closed</option>
+					<option value="1">open</option>
+					<option value="2">automatic</option>
+				</select></td>
+			<td id="index_17130" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>17131</label></td>
+			<td><label>Language Setting</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17131' >
+					<option value="0">english</option>
+					<option value="1">turkish</option>
+					<option value="2">german</option>
+					<option value="3">french</option>
+				</select></td>
+			<td id="index_17131" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>17141</label></td>
+			<td><label>Tariff Activate</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='17141' >
+					<option value="0">Disable</option>
+					<option value="1">Enable</option>
+				</select></td>
+			<td id="index_17141" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<th class="channel-header" style="width:30%" colspan="0" ><a href="#"><b>Date/Hour</b></a></th>
+		</tr>
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+		
+		<tr>
+			<td><label>6000</label></td>
+			<td><label>Day (1-31)</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6000' value='0' min='1' max='31'></td>
+			<td id="index_6000" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6001</label></td>
+			<td><label>Month (1-12)</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6001' value='0' min='1' max='12'></td>
+			<td id="index_6001" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6002</label></td>
+			<td><label>Year (2000-2199)</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6002' value='0' min='2000' max='2199'></td>
+			<td id="index_6002" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6003</label></td>
+			<td><label>Hour (0-23)</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6003' value='0' min='0' max='23'></td>
+			<td id="index_6003" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>6004</label></td>
+			<td><label>Minute (0-59)</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6004' value='0' min='0' max='59'></td>
+			<td id="index_6004" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6005</label></td>
+			<td><label>Second (0-59)</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6005' value='0' min='0' max='59'></td>
+			<td id="index_6005" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6006</label></td>
+			<td><label>Day</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='6006' >
+					<option value="0">Sunday</option>
+					<option value="1">Monday</option>
+					<option value="2">Tuesday</option>
+					<option value="3">Wednesday</option>
+					<option value="4">Thurday</option>
+					<option value="5">Friday</option>
+					<option value="6">Saturday</option>
+				</select></td>
+			<td id="index_6006" class="show-writting-status" style="display:none"></td>
+		</tr>
+
+		<tr>
+			<td><label>6009</label></td>
+			<td><label>DST Start Month</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6009' value='0' min='1' max='12'></td>
+			<td id="index_17133" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6010</label></td>
+			<td><label>DST Start Week</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='6010' >
+					<option value="0">First</option>
+					<option value="1">Second</option>
+					<option value="2">Third</option>
+					<option value="3">Fourth</option>
+					<option value="4">Last</option>
+				</select></td>
+			<td id="index_6010" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6011</label></td>
+			<td><label>DST Start Day</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='6011' >
+					<option value="0">Sunday</option>
+					<option value="1">Monday</option>
+					<option value="2">Tuesday</option>
+					<option value="3">Wednesday</option>
+					<option value="4">Thurday</option>
+					<option value="5">Friday</option>
+					<option value="6">Saturday</option>
+				</select></td>
+			<td id="index_6011" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6012</label></td>
+			<td><label>DST Start Hour</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6012' value='0' min='0' max='23'></td>
+			<td id="index_6012" class="show-writting-status" style="display:none"></td>
+		</tr>
+	
+		<tr>
+			<td><label>6013</label></td>
+			<td><label>DST End Month</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6013' value='0' min='1' max='12'></td>
+			<td id="index_6013" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6014</label></td>
+			<td><label>DST End Week</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='6014'>
+					<option value="0">First</option>
+					<option value="1">Second</option>
+					<option value="2">Third</option>
+					<option value="3">Fourth</option>
+					<option value="4">Last</option>
+				</select></td>
+			<td id="index_6014" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6015</label></td>
+			<td><label>DST End Day</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='6015'>
+					<option value="0">Sunday</option>
+					<option value="1">Monday</option>
+					<option value="2">Tuesday</option>
+					<option value="3">Wednesday</option>
+					<option value="4">Thurday</option>
+					<option value="5">Friday</option>
+					<option value="6">Saturday</option>
+				</select></td>
+			<td id="index_6015" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6016</label></td>
+			<td><label>DST End Hour</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6016' value='0' min='0' max='23'></td>
+			<td id="index_6016" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>6017</label></td>
+			<td><label>DST Status</label></td>
+			<td><input style='width:40%' type='number' class='ui-corner-all inputText' id='6017' value='0'></td>
+			<td id="index_6017" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>14000</label></td>
+			<td><label>Reset Action</label></td>
+			<td>
+				<button type='button' style="width:20%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "1024" onclick = "resetValue(this)">Logs</button>
+				<button type='button' style="width:20%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "1536" onclick = "resetValue(this)">All</button>
+				<button type='button' style="width:20%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "1" onclick = "resetValue(this)">Max</button>
+				<button type='button' style="width:30%;float:left;margin : 2px;" class='ui-state-default ui-corner-all' id = "14000" value = "64" onclick = "resetValue(this)">Jenerator Energy</button>
+				<button type='button' style="width:20%;float:left;margin : 2px;" class='ui-state-default ui-corner-all' id = "14000" value = "2" onclick = "resetValue(this)">Min</button>
+				<button type='button' style="width:20%;float:left;margin : 2px;" class='ui-state-default ui-corner-all' id = "14000" value = "512" onclick = "resetValue(this)">Events</button>
+				<button type='button' style="width:20%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "4" onclick = "resetValue(this)">Demand</button>
+				<button type='button' style="width:30%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "128" onclick = "resetValue(this)">Pulse Counter</button>
+				<button type='button' style="width:20%;float:left;margin : 2px;" class='ui-state-default ui-corner-all' id = "14000" value = "8" onclick = "resetValue(this)">Min Demand</button>
+				<button type='button' style="width:20%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "10" onclick = "resetValue(this)">Energy</button>
+				<button type='button' style="width:20%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "32" onclick = "resetValue(this)">Tariff Energy</button>
+				<button type='button' style="width:30%;float:left;margin : 2px" class='ui-state-default ui-corner-all' id = "14000" value = "256" onclick = "resetValue(this)">Working Hour</button>
+			</td>
+			<td id="index_14000" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>

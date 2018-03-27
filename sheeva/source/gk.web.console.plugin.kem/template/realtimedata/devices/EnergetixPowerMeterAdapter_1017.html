@@ -1,0 +1,641 @@
+<div style="display:inline;vertical-align:middle">
+	<ul id="paging" class="pagination">
+	</ul>
+</div>
+<table id="plugin_table_0" class="tablesorter nicetable noauto">
+	<thead>
+		<tr>
+			<th class="ui-widget-header" style="width:40%">Measure Name</th>
+			<th class="ui-widget-header" style="width:15%">System</th>
+			<th class="ui-widget-header" style="width:15%">Phase L1</th>
+			<th class="ui-widget-header" style="width:15%">Phase L2</th>
+			<th class="ui-widget-header" style="width:15%">Phase L3</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="ui-widget-content">ActiveEnergy Reading(kWh)</td>
+			<td id="ch0_Sys_Active_Energy_Reading" class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Energy Reading(kVARh)</td>
+			<td id="ch0_Sys_Reactive_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch0_kVARh_L1" class="ui-widget-content">-</td>
+			<td id="ch0_kVARh_L2" class="ui-widget-content">-</td>
+			<td id="ch0_kVARh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Energy Reading(kVAh)</td>
+			<td id="ch0_Sys_Apparent_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch0_kVAh_L1" class="ui-widget-content">-</td>
+			<td id="ch0_kVAh_L2" class="ui-widget-content">-</td>
+			<td id="ch0_kVAh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Active Power(kW)</td>
+			<td id="ch0_Sys_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L1_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L2_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L3_Active_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Power(kVAR)</td>
+			<td id="ch0_Sys_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L1_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L2_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L3_Reactive_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Power(kVA)</td>
+			<td id="ch0_Sys_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L1_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L2_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch0_L3_Apparent_Power" class="ui-widget-content">-</td>
+		</tr>
+
+		<tr>
+			<td class="ui-widget-content">Power Factor</td>
+			<td id="ch0_Sys_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch0_L1_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch0_L2_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch0_L3_Power_Factor" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Voltage(V)</td>
+			<td id="ch0_Sys_Voltage" class="ui-widget-content">-</td>
+			<td id="ch0_L1_Voltage" class="ui-widget-content">-</td>
+			<td id="ch0_L2_Voltage" class="ui-widget-content">-</td>
+			<td id="ch0_L3_Voltage" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Current(A)</td>
+			<td id="ch0_Sys_Current" class="ui-widget-content">-</td>
+			<td id="ch0_L1_Current" class="ui-widget-content">-</td>
+			<td id="ch0_L2_Current" class="ui-widget-content">-</td>
+			<td id="ch0_L3_Current" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Temperature 1(C)</td>
+			<td id="ch0_Sys_Temperature1" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		
+		<tr>
+			<td class="ui-widget-content">Temperature 2(C)</td>
+			<td id="ch0_Sys_Temperature2" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Frequency(Hz)</td>
+			<td id="ch0_Sys_Frequency" class="ui-widget-content">-</td>
+			<td id="ch0_L1_Frequency" class="ui-widget-content">-</td>
+			<td id="ch0_L2_Frequency" class="ui-widget-content">-</td>
+			<td id="ch0_L3_Frequency" class="ui-widget-content">-</td>
+		</tr>		
+	</tbody >
+</table>
+
+<table id="plugin_table_1" class="tablesorter nicetable noauto">
+	<thead>
+		<tr>
+			<th class="ui-widget-header" style="width:40%">Measure Name</th>
+			<th class="ui-widget-header" style="width:15%">System</th>
+			<th class="ui-widget-header" style="width:15%">Phase L1</th>
+			<th class="ui-widget-header" style="width:15%">Phase L2</th>
+			<th class="ui-widget-header" style="width:15%">Phase L3</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="ui-widget-content">ActiveEnergy Reading(kWh)</td>
+			<td id="ch1_Sys_Active_Energy_Reading" class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Energy Reading(kVARh)</td>
+			<td id="ch1_Sys_Reactive_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch1_kVARh_L1" class="ui-widget-content">-</td>
+			<td id="ch1_kVARh_L2" class="ui-widget-content">-</td>
+			<td id="ch1_kVARh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Energy Reading(kVAh)</td>
+			<td id="ch1_Sys_Apparent_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch1_kVAh_L1" class="ui-widget-content">-</td>
+			<td id="ch1_kVAh_L2" class="ui-widget-content">-</td>
+			<td id="ch1_kVAh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Active Power(kW)</td>
+			<td id="ch1_Sys_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L1_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L2_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L3_Active_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Power(kVAR)</td>
+			<td id="ch1_Sys_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L1_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L2_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L3_Reactive_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Power(kVA)</td>
+			<td id="ch1_Sys_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L1_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L2_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch1_L3_Apparent_Power" class="ui-widget-content">-</td>
+		</tr>
+
+		<tr>
+			<td class="ui-widget-content">Power Factor</td>
+			<td id="ch1_Sys_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch1_L1_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch1_L2_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch1_L3_Power_Factor" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Voltage(V)</td>
+			<td id="ch1_Sys_Voltage" class="ui-widget-content">-</td>
+			<td id="ch1_L1_Voltage" class="ui-widget-content">-</td>
+			<td id="ch1_L2_Voltage" class="ui-widget-content">-</td>
+			<td id="ch1_L3_Voltage" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Current(A)</td>
+			<td id="ch1_Sys_Current" class="ui-widget-content">-</td>
+			<td id="ch1_L1_Current" class="ui-widget-content">-</td>
+			<td id="ch1_L2_Current" class="ui-widget-content">-</td>
+			<td id="ch1_L3_Current" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Temperature 1(C)</td>
+			<td id="ch1_Sys_Temperature1" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		
+		<tr>
+			<td class="ui-widget-content">Temperature 2(C)</td>
+			<td id="ch1_Sys_Temperature2" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Frequency(Hz)</td>
+			<td id="ch1_Sys_Frequency" class="ui-widget-content">-</td>
+			<td id="ch1_L1_Frequency" class="ui-widget-content">-</td>
+			<td id="ch1_L2_Frequency" class="ui-widget-content">-</td>
+			<td id="ch1_L3_Frequency" class="ui-widget-content">-</td>
+		</tr>	
+	</tbody >
+</table>
+<table id="plugin_table_2" class="tablesorter nicetable noauto">
+	<thead>
+		<tr>
+			<th class="ui-widget-header" style="width:40%">Measure Name</th>
+			<th class="ui-widget-header" style="width:15%">System</th>
+			<th class="ui-widget-header" style="width:15%">Phase L1</th>
+			<th class="ui-widget-header" style="width:15%">Phase L2</th>
+			<th class="ui-widget-header" style="width:15%">Phase L3</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="ui-widget-content">ActiveEnergy Reading(kWh)</td>
+			<td id="ch2_Sys_Active_Energy_Reading" class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Energy Reading(kVARh)</td>
+			<td id="ch2_Sys_Reactive_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch2_kVARh_L1" class="ui-widget-content">-</td>
+			<td id="ch2_kVARh_L2" class="ui-widget-content">-</td>
+			<td id="ch2_kVARh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Energy Reading(kVAh)</td>
+			<td id="ch2_Sys_Apparent_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch2_kVAh_L1" class="ui-widget-content">-</td>
+			<td id="ch2_kVAh_L2" class="ui-widget-content">-</td>
+			<td id="ch2_kVAh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Active Power(kW)</td>
+			<td id="ch2_Sys_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L1_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L2_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L3_Active_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Power(kVAR)</td>
+			<td id="ch2_Sys_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L1_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L2_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L3_Reactive_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Power(kVA)</td>
+			<td id="ch2_Sys_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L1_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L2_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch2_L3_Apparent_Power" class="ui-widget-content">-</td>
+		</tr>
+
+		<tr>
+			<td class="ui-widget-content">Power Factor</td>
+			<td id="ch2_Sys_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch2_L1_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch2_L2_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch2_L3_Power_Factor" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Voltage(V)</td>
+			<td id="ch2_Sys_Voltage" class="ui-widget-content">-</td>
+			<td id="ch2_L1_Voltage" class="ui-widget-content">-</td>
+			<td id="ch2_L2_Voltage" class="ui-widget-content">-</td>
+			<td id="ch2_L3_Voltage" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Current(A)</td>
+			<td id="ch2_Sys_Current" class="ui-widget-content">-</td>
+			<td id="ch2_L1_Current" class="ui-widget-content">-</td>
+			<td id="ch2_L2_Current" class="ui-widget-content">-</td>
+			<td id="ch2_L3_Current" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Temperature 1(C)</td>
+			<td id="ch2_Sys_Temperature1" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		
+		<tr>
+			<td class="ui-widget-content">Temperature 2(C)</td>
+			<td id="ch2_Sys_Temperature2" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Frequency(Hz)</td>
+			<td id="ch2_Sys_Frequency" class="ui-widget-content">-</td>
+			<td id="ch2_L1_Frequency" class="ui-widget-content">-</td>
+			<td id="ch2_L2_Frequency" class="ui-widget-content">-</td>
+			<td id="ch2_L3_Frequency" class="ui-widget-content">-</td>
+		</tr>		
+	</tbody >
+</table>
+<table id="plugin_table_3" class="tablesorter nicetable noauto">
+	<thead>
+		<tr>
+			<th class="ui-widget-header" style="width:40%">Measure Name</th>
+			<th class="ui-widget-header" style="width:15%">System</th>
+			<th class="ui-widget-header" style="width:15%">Phase L1</th>
+			<th class="ui-widget-header" style="width:15%">Phase L2</th>
+			<th class="ui-widget-header" style="width:15%">Phase L3</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr>
+			<td class="ui-widget-content">ActiveEnergy Reading(kWh)</td>
+			<td id="ch3_Sys_Active_Energy_Reading" class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Energy Reading(kVARh)</td>
+			<td id="ch3_Sys_Reactive_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch3_kVARh_L1" class="ui-widget-content">-</td>
+			<td id="ch3_kVARh_L2" class="ui-widget-content">-</td>
+			<td id="ch3_kVARh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Energy Reading(kVAh)</td>
+			<td id="ch3_Sys_Apparent_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch3_kVAh_L1" class="ui-widget-content">-</td>
+			<td id="ch3_kVAh_L2" class="ui-widget-content">-</td>
+			<td id="ch3_kVAh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Active Power(kW)</td>
+			<td id="ch3_Sys_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L1_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L2_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L3_Active_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Power(kVAR)</td>
+			<td id="ch3_Sys_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L1_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L2_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L3_Reactive_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Power(kVA)</td>
+			<td id="ch3_Sys_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L1_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L2_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch3_L3_Apparent_Power" class="ui-widget-content">-</td>
+		</tr>
+
+		<tr>
+			<td class="ui-widget-content">Power Factor</td>
+			<td id="ch3_Sys_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch3_L1_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch3_L2_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch3_L3_Power_Factor" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Voltage(V)</td>
+			<td id="ch3_Sys_Voltage" class="ui-widget-content">-</td>
+			<td id="ch3_L1_Voltage" class="ui-widget-content">-</td>
+			<td id="ch3_L2_Voltage" class="ui-widget-content">-</td>
+			<td id="ch3_L3_Voltage" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Current(A)</td>
+			<td id="ch3_Sys_Current" class="ui-widget-content">-</td>
+			<td id="ch3_L1_Current" class="ui-widget-content">-</td>
+			<td id="ch3_L2_Current" class="ui-widget-content">-</td>
+			<td id="ch3_L3_Current" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Temperature 1(C)</td>
+			<td id="ch3_Sys_Temperature1" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		
+		<tr>
+			<td class="ui-widget-content">Temperature 2(C)</td>
+			<td id="ch3_Sys_Temperature2" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		
+		<tr>
+			<td class="ui-widget-content">Frequency(Hz)</td>
+			<td id="ch3_Sys_Frequency" class="ui-widget-content">-</td>
+			<td id="ch3_L1_Frequency" class="ui-widget-content">-</td>
+			<td id="ch3_L2_Frequency" class="ui-widget-content">-</td>
+			<td id="ch3_L3_Frequency" class="ui-widget-content">-</td>
+		</tr>		
+	</tbody >
+</table>	
+
+<table id="plugin_table_4" class="tablesorter nicetable noauto">
+	<thead>
+		<tr>
+			<th class="ui-widget-header" style="width:40%">Measure Name</th>
+			<th class="ui-widget-header" style="width:15%">System</th>
+			<th class="ui-widget-header" style="width:15%">Phase L1</th>
+			<th class="ui-widget-header" style="width:15%">Phase L2</th>
+			<th class="ui-widget-header" style="width:15%">Phase L3</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr>
+			<td class="ui-widget-content">ActiveEnergy Reading(kWh)</td>
+			<td id="ch4_Sys_Active_Energy_Reading" class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Energy Reading(kVARh)</td>
+			<td id="ch4_Sys_Reactive_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch4_kVARh_L1" class="ui-widget-content">-</td>
+			<td id="ch4_kVARh_L2" class="ui-widget-content">-</td>
+			<td id="ch4_kVARh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Energy Reading(kVAh)</td>
+			<td id="ch4_Sys_Apparent_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch4_kVAh_L1" class="ui-widget-content">-</td>
+			<td id="ch4_kVAh_L2" class="ui-widget-content">-</td>
+			<td id="ch4_kVAh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Active Power(kW)</td>
+			<td id="ch4_Sys_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L1_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L2_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L3_Active_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Power(kVAR)</td>
+			<td id="ch4_Sys_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L1_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L2_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L3_Reactive_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Power(kVA)</td>
+			<td id="ch4_Sys_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L1_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L2_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch4_L3_Apparent_Power" class="ui-widget-content">-</td>
+		</tr>
+
+		<tr>
+			<td class="ui-widget-content">Power Factor</td>
+			<td id="ch4_Sys_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch4_L1_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch4_L2_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch4_L3_Power_Factor" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Voltage(V)</td>
+			<td id="ch4_Sys_Voltage" class="ui-widget-content">-</td>
+			<td id="ch4_L1_Voltage" class="ui-widget-content">-</td>
+			<td id="ch4_L2_Voltage" class="ui-widget-content">-</td>
+			<td id="ch4_L3_Voltage" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Current(A)</td>
+			<td id="ch4_Sys_Current" class="ui-widget-content">-</td>
+			<td id="ch4_L1_Current" class="ui-widget-content">-</td>
+			<td id="ch4_L2_Current" class="ui-widget-content">-</td>
+			<td id="ch4_L3_Current" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Temperature 1(C)</td>
+			<td id="ch4_Sys_Temperature1" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		
+		<tr>
+			<td class="ui-widget-content">Temperature 2(C)</td>
+			<td id="ch4_Sys_Temperature2" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Frequency(Hz)</td>
+			<td id="ch4_Sys_Frequency" class="ui-widget-content">-</td>
+			<td id="ch4_L1_Frequency" class="ui-widget-content">-</td>
+			<td id="ch4_L2_Frequency" class="ui-widget-content">-</td>
+			<td id="ch4_L3_Frequency" class="ui-widget-content">-</td>
+		</tr>		
+	</tbody >
+</table>
+
+<table id="plugin_table_5" class="tablesorter nicetable noauto">
+	<thead>
+		<tr>
+			<th class="ui-widget-header" style="width:40%">Measure Name</th>
+			<th class="ui-widget-header" style="width:15%">System</th>
+			<th class="ui-widget-header" style="width:15%">Phase L1</th>
+			<th class="ui-widget-header" style="width:15%">Phase L2</th>
+			<th class="ui-widget-header" style="width:15%">Phase L3</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr>
+			<td class="ui-widget-content">ActiveEnergy Reading(kWh)</td>
+			<td id="ch5_Sys_Active_Energy_Reading" class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+			<td  class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Energy Reading(kVARh)</td>
+			<td id="ch5_Sys_Reactive_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch5_kVARh_L1" class="ui-widget-content">-</td>
+			<td id="ch5_kVARh_L2" class="ui-widget-content">-</td>
+			<td id="ch5_kVARh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Energy Reading(kVAh)</td>
+			<td id="ch5_Sys_Apparent_Energy_Reading" class="ui-widget-content">-</td>
+			<td id="ch5_kVAh_L1" class="ui-widget-content">-</td>
+			<td id="ch5_kVAh_L2" class="ui-widget-content">-</td>
+			<td id="ch5_kVAh_L3" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Active Power(kW)</td>
+			<td id="ch5_Sys_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L1_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L2_Active_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L3_Active_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Reactive Power(kVAR)</td>
+			<td id="ch5_Sys_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L1_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L2_Reactive_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L3_Reactive_Power" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Apparent Power(kVA)</td>
+			<td id="ch5_Sys_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L1_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L2_Apparent_Power" class="ui-widget-content">-</td>
+			<td id="ch5_L3_Apparent_Power" class="ui-widget-content">-</td>
+		</tr>
+
+		<tr>
+			<td class="ui-widget-content">Power Factor</td>
+			<td id="ch5_Sys_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch5_L1_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch5_L2_Power_Factor" class="ui-widget-content">-</td>
+			<td id="ch5_L3_Power_Factor" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Voltage(V)</td>
+			<td id="ch5_Sys_Voltage" class="ui-widget-content">-</td>
+			<td id="ch5_L1_Voltage" class="ui-widget-content">-</td>
+			<td id="ch5_L2_Voltage" class="ui-widget-content">-</td>
+			<td id="ch5_L3_Voltage" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Current(A)</td>
+			<td id="ch5_Sys_Current" class="ui-widget-content">-</td>
+			<td id="ch5_L1_Current" class="ui-widget-content">-</td>
+			<td id="ch5_L2_Current" class="ui-widget-content">-</td>
+			<td id="ch5_L3_Current" class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Temperature 1(C)</td>
+			<td id="ch5_Sys_Temperature1" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		
+		<tr>
+			<td class="ui-widget-content">Temperature 2(C)</td>
+			<td id="ch5_Sys_Temperature2" class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+			<td class="ui-widget-content">-</td>
+		</tr>
+		<tr>
+			<td class="ui-widget-content">Frequency(Hz)</td>
+			<td id="ch5_Sys_Frequency" class="ui-widget-content">-</td>
+			<td id="ch5_L1_Frequency" class="ui-widget-content">-</td>
+			<td id="ch5_L2_Frequency" class="ui-widget-content">-</td>
+			<td id="ch5_L3_Frequency" class="ui-widget-content">-</td>
+		</tr>		
+	</tbody >
+</table>
+	
+<style>
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+ul.pagination li a.active {
+    background-color: rgba(14, 31, 15, 0.38);
+    color: white;
+    border-radius: 5px;
+}
+
+.left {
+  float: left;
+  width: 125px;
+  text-align: right;
+  margin: 2px 10px;
+  display: inline
+}
+.right {
+  float: left;
+  text-align: left;
+  margin: 2px 10px;
+  display: inline
+}
+
+</style>

@@ -1,0 +1,248 @@
+<style>
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+ul.pagination li a.active {
+		background-color: rgba(14, 31, 15, 0.38);
+		color: white;
+		border-radius: 5px;
+	}
+ul.pagination {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	float : right ;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+input, select.ui-corner-all {
+    -moz-box-sizing: content-box;
+	box-sizing: border-box; 
+}
+ul.page {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+ul.page li {display: inline;}
+ul.page li a {
+	color: black;
+	float: left;
+	/* background-color : #ccc ; */
+	/* text-decoration: none; */
+	border-radius: 5px;
+}
+ul.page li a.active {
+	color:  #8dc63f ;
+}
+</style>
+<ul class="page" style = "width:50%">
+   <li><a id = "setting_tab" class = "active" style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Settings</b></a></li>
+   <li><a id = "configuration_tab"  style = "width:33%;text-align:center;padding: 3px 0;" href="#"><b>Configuration</b></a></li>
+</ul>
+</br>
+</br>
+</br>
+<div id="device" >
+	<div class = "channel">
+		
+		<table id="channel" class='nicetable ui-widget' style="width:100%;">
+			<thead>
+				<tr>
+					<th class="channel-header" style="width:30%"><b>Channel</b></th>
+					<th class="channel-header" style="width:40%"><b>Measure Name</b></th>
+					<th class="channel-header" style="width:30%"><b>Input</b></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>0</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 0</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>1</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 1</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>2</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 2</td>
+				</tr>
+				<tr >
+					<td>3</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 3</td>
+				</tr>
+				
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>4</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 4</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>5</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 5</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>6</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 6</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>7</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 7</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>8</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 8</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>9</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 9</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>10</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 10</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>11</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 11</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>12</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 12</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>13</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 13</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>14</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 14</td>
+				</tr>
+				<tr >
+					<input type = "hidden" id = "data_point" name = "data_point"/>
+					<td>15</td>
+					<td><select class="ui-corner-all ui-state-default" id='name' name='name' onchange="mySelectChannel(this)">
+						<option value="">Select</option>
+						<option value="Trip Status">Trip Status</option>
+						<option value="Relay Status">Relay Status</option>
+						</select></td>
+					<td>DI 15</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<br>
+		<button type='button' class='ui-state-default ui-corner-all' id='writingbutton_${id}' onclick="saveSettings();">Save</button>
+	</div>
+	
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+	
+	
+</script>

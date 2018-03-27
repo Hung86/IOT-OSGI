@@ -1,0 +1,141 @@
+<label><b>Configuration</b></label>
+</br>
+</br>
+</br>	
+<div id="device">	
+	<table id="configuration" class='nicetable ui-widget device_register' style="width:98%">
+		<tr>
+			<th class="channel-header" style="width:30%"><b>Index</b></th>
+			<th class="channel-header" style="width:30%"><b>Register</b></th>
+			<th class="channel-header" style="width:30%"><b>Value</b></th>
+			<th class="show-writting-status" style="display:none;width:10%"></th>
+		</tr>
+
+		<tr>
+			<td><label>57344</label></td>
+			<td><label>Network Type</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57344'>
+					<option value="0">1BL</option>
+					<option value="1">2BL</option>
+					<option value="2">3BL</option>
+					<option value="3">3NBL</option>
+					<option value="4">4BL</option>
+					<option value="5">4NBL</option>
+				</select></td>
+			<td id="index_57344" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57345</label></td>
+			<td><label>Secondary of the current transformer</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57345'>
+					<option value="1">1A</option>
+					<option value="5">5A</option>
+				</select></td>
+			<td id="index_57345" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57346</label></td>
+			<td><label>Primary of the current transformer</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='57346' value='0'>&nbsp;<label>A</label></td>
+			<td id="index_57346" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57347</label></td>
+			<td><label>Neutral current transformer present</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57347'>
+					<option value="255">None</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+			<td id="index_57347" class="show-writting-status" style="display:none"></td>
+		</tr>	
+		
+		<tr>
+			<td><label>57348</label></td>
+			<td><label>Secondary of the neutral current transformer</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57348'>
+					<option value="255">None</option>
+					<option value="1">1A</option>
+					<option value="5">5A</option>
+				</select></td>
+			<td id="index_57348" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57349</label></td>
+			<td><label>Primary of the neutral current transformer</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='57349' value='0'>&nbsp;<label>A</label></td>
+			<td id="index_57349" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57350</label></td>
+			<td><label>Voltage transformer present</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57350'>
+					<option value="65535">None</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+			<td id="index_57350" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57351</label></td>
+			<td><label>Secondary of Voltage transformer</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57351'>
+					<option value="65535">None</option>
+					<option value="60">60V</option>
+					<option value="100">100V</option>
+					<option value="110">110V</option>
+					<option value="115">115V</option>
+					<option value="120">120V</option>
+					<option value="173">173V</option>
+					<option value="190">190V</option>
+				</select></td>
+			<td id="index_57351" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57352</label></td>
+			<td><label>Primary of the Voltage transformer</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='57352' value='0'>&nbsp;<label>V</label></td>
+			<td id="index_57352" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57354</label></td>
+			<td><label>Internal/External Top</label></td>
+			<td><select style='width:40%' class="ui-corner-all" id='57354'>
+					<option value="65535">None</option>
+					<option value="0">Internal</option>
+					<option value="1">External</option>
+				</select></td>
+			<td id="index_57354" class="show-writting-status" style="display:none"></td>
+		</tr>
+		
+		<tr>
+			<td><label>57355</label></td>
+			<td><label>Synchronization Top for P+/- Q+/-</label></td>
+			<td><input style='width:40%' type="number" class='ui-corner-all inputText' id='57355' value='0'>&nbsp;<label>Sec.</label></td>
+			<td id="index_57355" class="show-writting-status" style="display:none"></td>
+		</tr>
+	</table>
+	<br />
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='readingbutton' onclick="readConfig();">Read</button>
+	<button type='button' class='ui-state-default ui-corner-all ui-button' id='writingbutton' onclick="writeConfig();">Write</button>
+	<button type='button' class='ui-state-default ui-corner-all' id="57856" value ="177" onclick="resetValue(this)">Product reset</button>
+	<button type='button' class='ui-state-default ui-corner-all' id="57856" value ="161" onclick="resetValue(this)">Product Configuration storage</button>
+</div>
+
+<script>
+	$('button').mouseover(function(){
+		$(this).removeClass('ui-state-default').addClass('ui-state-hover');
+	});
+
+	$('button').mouseout(function(){
+		$(this).removeClass('ui-state-hover').addClass('ui-state-default');
+	});
+</script>
